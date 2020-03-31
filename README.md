@@ -26,9 +26,6 @@ Things you may want to cover:
 ## users テーブル
 |Column|Type|Options|
 |------|----|-------|
-|nickname|string|null:false|
-|first_name|string|null:false|
-|first_name_kana|string|null:false|
 |last_name|string|null:false|
 |last_name_kana|string|null:false|
 |email|string|null:false,unique|
@@ -166,8 +163,6 @@ Things you may want to cover:
 
 ## itemsテーブル
 |Column|Type|Options|
-|------|----|-------|
-|user_id|reference|null:false,foreign_key:ture|
 |name|string|null:false|
 |price|integer|null:false|
 |description|text|null:false|
@@ -209,15 +204,6 @@ Things you may want to cover:
 ## item_imageテーブル
 |Column|Type|Options|
 |------|----|-------|
-|image|text|null:false|
-|item_id|reference|null:false, foreign_key:true|
-
-### Association
-- belongs_to :item
-
-## ordersテーブル
-|Column|Type|Options|
-|------|----|-------|
 |user_id|references|null: false, foreign_key: true|
 |item_id|references|null: false, foreign_key: true|
 |first_name_delivery|string|null:false|
@@ -236,6 +222,7 @@ Things you may want to cover:
 
 ### Association
 - belongs_to :user
+
 - belongs_to :item
 - has_many :rate_counts
 
