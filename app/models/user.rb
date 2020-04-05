@@ -3,7 +3,6 @@ class User < ApplicationRecord
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
-  validates :nickname, :first_name, :first_name_reading, :last_name, :last_name_reading, :telephone ,presence: true
   has_many :items
   has_many :orders,dependent: :destroy
   has_many :profits
@@ -16,6 +15,6 @@ class User < ApplicationRecord
   has_many :flag_items, through: :flags,source: :items
   has_many :addresses
   has_many :todo_lists
-  belongs_to :rate
-  belongs_to :payment_information,dependent: :destroy
+  has_one :rate
+  has_one :payment_information,dependent: :destroy
 end
