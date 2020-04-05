@@ -69,8 +69,7 @@ Things you may want to cover:
 |list|text|null:false|
 
 ### Association
-- has_many :items
-- has_many :users
+- belongs_to :user
 
 ## ratesテーブル
 |Column|Type|Options|
@@ -94,7 +93,7 @@ Things you may want to cover:
 - has_many :items
 - has_many :users
 
-## adressテーブル
+## addressテーブル
 |Column|Type|Options|
 |------|----|-------|
 |city|string|null:false|
