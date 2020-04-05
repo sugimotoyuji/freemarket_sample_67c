@@ -28,20 +28,20 @@ Things you may want to cover:
 |------|----|-------|
 |nickname|string|null:false|
 |first_name|string|null:false|
-|first_name_kana|string|null:false|
+|first_name_reading|string|null:false|
 |last_name|string|null:false|
-|last_name_kana|string|null:false|
+|last_name_reading|string|null:false|
 |email|string|null:false,unique|
 |password|string|null:false|
-|telephone|reference|null:false,unique|
-|prefecture_id|string|foreign_key: true|
+|telephone|integer|null:false|
+|address_id|string|foreign_key: true|
 |introduction|text|
 |birth_year|integer|null:false|
 |birth_month|integer|null:false|
 |birth_day|integer|null:false|
 |reset_password_token|string|
-|reset_password_sent_at|dyatime|
-|user_icon|text|
+|reset_password_sent_at|daytime|
+|avatar|text|
 |point_amount|integer|
 |profit_amount|integer|
 |payment_information_id|reference|foreign_key: true|
@@ -54,10 +54,10 @@ Things you may want to cover:
 - has_many :communicatiuons,dependent: :destroy
 - has_many :likes,dependent: :destroy
 - has_many :flags,dependent: :destroy
-- has_many :message_items,through::messages,source::item
-- has_many :like_items,through::likes,source::item
-- has_many :flag_items,through::flags,source::item
-- has_many :adress
+- has_many :message_items,through::messages,source::items
+- has_many :like_items,through::likes,source::items
+- has_many :flag_items,through::flags,source::items
+- has_many :addresses
 - has_many :todo_lists
 - belongs_to :rate
 - belongs_to :payment_information,dependent: :destroy
@@ -226,9 +226,9 @@ Things you may want to cover:
 |user_id|references|null: false, foreign_key: true|
 |item_id|references|null: false, foreign_key: true|
 |first_name_delivery|string|null:false|
-|first_name_kana_delivery|string|null:false|
+|first_name_reading_delivery|string|null:false|
 |last_name_delivery	|string|null:false|
-|last_name_kana_delivery|string|null:false|
+|last_name_reading_delivery|string|null:false|
 |prefecture_id|reference|foreign_key: true|
 |city_delivery|string|null:false|
 |adress_delivery|string|null:false|
