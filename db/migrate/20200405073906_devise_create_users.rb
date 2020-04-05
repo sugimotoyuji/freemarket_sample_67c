@@ -12,7 +12,6 @@ class DeviseCreateUsers < ActiveRecord::Migration[5.0]
       t.string  :email,              null: false, default: ""
       t.string  :encrypted_password, null: false, default: ""
       t.integer :telephone,          null: false
-      t.string  :address_id,         foreign_key: true
       t.text    :introduction
       t.integer :birth_year,         null: false
       t.integer :birth_month,        null: false
@@ -20,7 +19,6 @@ class DeviseCreateUsers < ActiveRecord::Migration[5.0]
       t.text    :avatar
       t.integer :point_amount
       t.integer :profit_amount
-      t.reference :payment_information, foreign_key: true
 
       ## Recoverable
       t.string   :reset_password_token
