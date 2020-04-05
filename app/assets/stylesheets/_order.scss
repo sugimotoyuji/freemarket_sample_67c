@@ -3,13 +3,143 @@
 }
 
 .order-main {
-  height: 100vh;
-  width: 100vw;
+  height: 100%;
+  width: 100%;
   display: flex;
   flex-direction: column;
+  background-color: rgb(245, 239, 239);
 }
 .order-header {
   width: 100%;
   height: 150px;
-  background-color: rgb(201, 198, 198);
+  background-color: rgb(245, 239, 239);
+  text-align: center;
+ }
+ .order-image {
+   height: 60px;
+   width: 130px;
+   margin-top: 50px;
+   margin-bottom: 20px;
+   
+ }
+ .order-box {
+   height: 2000px;
+   width: 700px;
+   background-color: white;
+   margin: 0 auto;
+ }
+
+ .item-order {
+   width: 600px;
+   height: 200px;
+   margin-left: 40px;
+   text-align: center;
+ }
+
+ .order-label {
+  margin-top: 50px;
+  margin-left: 40px;
+  display: inline-block;
+  &__need {
+   background-color: red;
+   color: white;
+   left: 40px;
+  }
+ }
+ .order-text{
+   height: 20px;
+   width: 300px;
+   margin-left: 40px;
+   margin-top: 20px;
+   margin-bottom: 20px;
+ }
+
+ .item-name {
+  width: 600px;
+  height: 50px;
+  margin-left: 40px;
+  margin-top: 10px;
+ }
+
+ .item-explanation {
+  width: 600px;
+  height: 200px;
+  margin-left: 40px;
+  text-align: center;
+  margin-top: 10px;
+ }
+ .detail-item {
+  height: 10px;
+  width: 300px;
+  margin-left: 40px;
+  margin-top: 60px;
+  color: gray;
+}
+ .item-category {
+  width: 600px;
+  height: 50px;
+  margin-left: 40px;
+  margin-top: 10px;
+ }
+
+ .order-label {
+  margin-top: 50px;
+  margin-left: 40px;
+  display: inline-block;
+  &__free {
+   background-color: gray;
+   color: white;
+   left: 40px;
+  }
+ }
+
+ .item-brand {
+  width: 600px;
+  height: 50px;
+  margin-left: 40px;
+  margin-top: 10px;
+
+ }
+
+ .item-status {
+  width: 600px;
+  height: 50px;
+  margin-left: 40px;
+  margin-top: 10px
+ }
+
+ .delivery_charges{
+  width: 600px;
+  height: 50px;
+  margin-left: 40px;
+  margin-top: 10px
+ }
+
+ .delivery_ways {
+  width: 600px;
+  height: 50px;
+  margin-left: 40px;
+  margin-top: 10px
+ }
+
+ .delivery_date {
+  width: 600px;
+  height: 50px;
+  margin-left: 40px;
+  margin-top: 10px
+ }
+
+ .price-item {
+  height: 10px;
+  width: 300px;
+  margin-left: 40px;
+  margin-top: 60px;
+  color: gray;
+  font-size: 12px;
+ }
+ .item-price {
+  width: 600px;
+  height: 50px;
+  margin-left: 40px;
+  margin-top: 10px
  }

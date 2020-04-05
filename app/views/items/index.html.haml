@@ -1,0 +1,47 @@
+.order-main
+
+ .order-header
+  = image_tag "logo.png" ,class: "order-image"
+ .order-box
+  %label{class:"order-label"} 出品画像
+  %label{class:"order-label__need"} 必須
+  %P{class:"order-text"} 最大10枚までアップロードできます
+  %input{:name => "name",:value =>"ドラッグアンドドロップまたはクリックしてファイルをアップロード",:type => "text" ,class: "item-order"}
+ 
+  %label{class:"order-label"} 商品名
+  %label{class:"order-label__need"} 必須
+  %input{:name => "name",:value =>"40文字まで",:type => "text" ,class: "item-name"}
+  
+  %label{class:"order-label"} 商品の説明
+  %label{class:"order-label__need"} 必須
+  %input{:name => "name",:value =>"商品の説明（必須 1000文字以内) (色、重さ、素材、定価、注意点等)",:type => "text" ,class: "item-explanation"}
+  
+  %p{class:"detail-item"} 商品の詳細
+  %label{class:"order-label"} カテゴリー
+  %label{class:"order-label__need"} 必須
+  %input{:name => "name",:value =>"選択して下さい",:type => "text" ,class: "item-category"}
+  
+  %label{class:"order-label"} ブランド
+  %label{class:"order-label__free"} 任意
+  %input{:name => "name",:value =>"例）ナイキ",:type => "text" ,class: "item-brand"}
+  
+  %label{class:"order-label"} 商品の状態
+  %label{class:"order-label__need"} 必須
+  %input{:name => "name",:value =>"選択して下さい",:type => "text" ,class: "item-status"}
+
+  %label{class:"order-label"} 配送料の負担
+  %label{class:"order-label__need"} 必須
+  %input{:name => "name",:value =>"選択して下さい",:type => "text" ,class: "delivery_charges"}
+
+  %label{class:"order-label"} 発送元の地域
+  %label{class:"order-label__need"} 必須
+  %input{:name => "name",:value =>"選択して下さい",:type => "text" ,class: "delivery_ways"}
+
+  %label{class:"order-label"} 発送までの日数
+  %label{class:"order-label__need"} 必須
+  %input{:name => "name",:value =>"選択して下さい",:type => "text" ,class: "delivery_date"}
+
+  %p{class:"price-item"} 価格（¥300〜9,999,999）
+  %label{class:"order-label"} 販売価格
+  %label{class:"order-label__need"} 必須
+  %input{:name => "name",:value =>"選択して下さい",:type => "text" ,class: "item-price"}
