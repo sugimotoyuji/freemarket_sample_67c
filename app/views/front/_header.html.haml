@@ -1,0 +1,24 @@
+.header
+  .inner
+    .inner__top
+      %h1.inner__top__icn
+        %a{ :href => '#', :class => 'inner__top__icn--image' }
+          = image_tag 'logo.png', class: 'inner__top__icn--image--tag' 
+      .inner__top__searchBox
+        %form.inner__top__searchBox__fom
+          %input{:type => "hidden", :class => "inner__top__searchBox__fom--text" }
+          %input{:class => "inner__top__searchBox__fom--text", :placeholder => "キーワードから探す", }
+          %button{:type => "submit", :class => "inner__top__searchBox__fom--submit"}
+            .inner__top__searchBox__fom--submit--box
+              = image_tag 'icon-search 1.png', class: 'inner__top__searchBox__fom--submit--box--image'
+    .inner__bottom
+      %ul.inner__bottom__left
+        %li.inner__bottom__left__categories
+          %a{ :href => '#', :class => 'inner__bottom__left__categories--categorie' } カテゴリー
+        %li.inner__bottom__left__brands
+          %a{ :href => '#', :class => 'inner__bottom__left__brands--brand' } ブランド
+      %ul.inner__bottom__right
+        %li.inner__bottom__right__login
+          %a{ :href => '#', :class => 'inner__bottom__right__login--button' } ログイン
+        %li.inner__bottom__right__member
+          %a{ :href => '#', :class => 'inner__bottom__right__member--button' } 新規会員登録
