@@ -25,13 +25,13 @@
       .field
         %label{class: "first_name, last_name"} お名前(全角)
         %span.form-require
-        %br
+        %br/
         = f.text_field :first_name, autofocus: true, class: "input-half", placeholder: "鈴木"
         = f.text_field :last_name, autofocus: true, class: "input-half", placeholder: "一郎"
       .field
         %label{class: "first_name, last_name"} お名前カナ(全角)
         %span.form-require
-        %br
+        %br/
         = f.text_field :first_name_reading, autofocus: true, class: "input-half", placeholder: "スズキ"
         = f.text_field :last_name_reading, autofocus: true, class: "input-half", placeholder: "イチロウ"
       .field
@@ -41,7 +41,7 @@
       .field
         %label{class: "birth_day"} 生年月日
         %span.form-require
-        %br
+        %br/
         = f.text_field :birth_year, autofocus: true, class: "input-one-third", placeholder: "2020"
         年
         = f.text_field :birth_month, autofocus: true, class: "input-one-third", placeholder: "04"
