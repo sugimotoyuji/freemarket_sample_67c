@@ -1,0 +1,298 @@
+$six:600px;
+$fiv:50px;
+$for:40px;
+$ten:10px;
+
+* {
+  box-sizing: border-box;
+}
+
+.sell-main {
+  height: 100%;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  background-color: rgb(245, 239, 239);
+  &__sell-header {
+   width: 100%;
+   height: 150px;
+   background-color: rgb(245, 239, 239);
+   text-align: center;
+  }
+  &__sell-logo { 
+   height: 60px;
+   width: 130px;
+   margin-top: $fiv;
+   margin-bottom: 20px;
+  }
+  &__sell-box {
+   height: 2450px;
+   width: 700px;
+   background-color: white;
+   margin: 0 auto;
+  &__sell-label {
+   margin-top: 20px;
+   margin-left: 50px;
+   display: inline-block;
+   &__need {
+    background-color: red;
+    color: white;
+    left: 40px;
+    }
+  }
+  &__sell-text{
+   width: 300px;
+   margin-left: 50px;
+   margin-top: 10px;
+   margin-bottom: 10px;
+  }
+  &__sell-item-image{
+   width: 100%;
+   height: 300px;
+   &__sell-image {
+    width: $six;
+    height: 150px;
+    margin-left: 50px;
+    margin-top: $ten;
+    background-color:rgb(245, 239, 239) ;
+    position: relative;
+    }
+    &__sell-image-label {
+     position: absolute;
+     width: 300px;
+     height: 20px;
+     left: 520px;
+     top:300px;
+     text-align: center;
+     font-size: 12px;
+     .sell-item-image{
+       display: none;
+      }
+     }
+  }
+  &__sell-item-name {
+   width: 100%;
+   height: 110px;
+   &__form {
+    width: $six;
+    height: $fiv;
+    margin-top: $ten;
+    margin-left: 50px;
+   }
+  }    
+  &__sell-item-explanation {
+   width: 100%;
+   height: 300px;
+   margin-top: 10px;
+   &__form {
+    width: $six;
+    height: 200px;
+    margin-left: 50px;
+    text-align: center;
+    margin-top: $ten;
+   }
+  }
+  &__sell-item-category {
+   width: 100%;
+   height: 250px;
+   &__detail{
+    height: 10px;
+    width: 300px;
+    margin-left: 50px;
+    margin-top: 40px;
+    color: gray;
+   }
+   &__first {
+    width: $six;
+    height: $fiv;
+    margin-left: 50px;
+    margin-top: $ten;
+   }
+   &__second {
+    width: $six;
+    height: $fiv;
+    margin-left: 50px;
+    margin-top: $ten;
+   }
+   &__third {
+    width: $six;
+    height: $fiv;
+    margin-left: 50px;
+    margin-top: $ten;
+   }
+ }
+ &__sell-item-size{
+  width: 100%;
+  height: 150px;
+  &__form {
+   width: $six;
+   height: $fiv;
+   margin-left: 50px;
+   margin-top: $ten;
+  }
+ }
+ &__sell-item-brand {
+  width: 100%;
+  height: 150px;
+ .sell-label {
+  margin-top: $fiv;
+  margin-left: $for;
+  display: inline-block;
+  &__free {
+   background-color: gray;
+   color: white;
+   left: $for;
+  }
+  }   
+  &__form {
+    width: $six;
+    height: $fiv;
+    margin-left: 50px;
+    margin-top: $ten;
+  }
+ }
+ &__status  {
+  width: 100%;
+  height: 150px;
+  &__form {
+   width: $six;
+   height: $fiv;
+   margin-left: 50px;
+   margin-top: $ten;
+  }
+ }
+ &__delivery_charges{
+  width: 100%;
+  height: 150px;
+  &__form {
+   width: $six;
+   height: $fiv;
+   margin-left: 50px;
+   margin-top: $ten;
+  }
+ }
+ &__delivery_ways {
+  width: 100%;
+  height: 150px;
+  &__form {
+   width: $six;
+   height: $fiv;
+   margin-left: 50px;
+   margin-top: $ten;
+  }
+ }
+ &__delivery_date {
+  width: 100%;
+  height: 150px;
+  &__form {
+   width: $six;
+   height: $fiv;
+   margin-left: 50px;
+   margin-top: $ten;
+  }
+ } 
+ &__price {
+  width: 100%;
+  height: 120px;
+  &__area{
+   height: 15px;
+   width: 300px;
+   margin-left: 50px;
+   margin-top: 30px;
+   color: gray;
+   font-size: 15px;
+  }
+  &__yen{
+   margin-left: 50px;
+   margin-top: 20px;
+   height: 20px;
+   width: 100%;
+   position: relative;
+   &__form {
+    width: 200px;
+    height: 30px;
+    left: 400px;
+    top: 2152px;
+    margin-top: 10px;
+    position: absolute;
+   }
+  }
+ }
+ &__profit {
+    width: 100%;
+    height: 80px;
+  &__form {
+    width: 200px;
+    height: 30px;
+    margin-left: 50px;
+  }
+  &__sell{
+   width: 200px;
+   height: 30px;
+   margin-left: 50px;
+   margin-top: $ten;
+  }
+ }
+ &__submit {
+  width: 100%;
+  height: 100px;
+  &__form {
+   background-color: rgb(248, 10, 42);
+   color: white;
+   width: 380px;
+   height:$fiv;
+   margin-top: $fiv;
+   margin-left: 150px;
+   font-size: 20px;
+   line-height: 50px;
+   cursor: pointer;
+   font-size: 2.5rem;
+   &:hover {
+    background-color:rgba(0, 0, 0, 0.712);
+   }
+  }
+ }
+ &__back {
+  margin-top: 20px;
+  margin-left: 310px;
+  font-size: 12px;
+  color: blue;
+ }
+ &__rool {
+  color: darkgray;
+  font-size: 5px;
+  margin-top: $for;
+  margin-left: 100px;
+ }
+}
+&__sell-footer {
+ height: 200px;
+ width: 100%;
+ background-color: rgb(245, 239, 239);
+ position: relative;
+ text-align: center;
+ ul {
+     padding-top: 30px;
+     background-color: rgb(245, 239, 239);
+   }
+ li {
+     list-style: none;
+     font-size: 11px;
+     display: inline;
+     margin-left: 5px;
+  }
+  &__footer-logo {
+   height: 60px;
+   width: 130px;
+   position: absolute;
+   background-color: rgb(89, 212, 212);
+   margin-top:$fiv;
+   left: 620px;
+  } 
+ } 
+}
+
+ 
+ 
+
+ 
