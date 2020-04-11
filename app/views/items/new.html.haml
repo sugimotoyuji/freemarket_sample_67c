@@ -34,29 +34,35 @@
    =form_for @item do |f|
     =f.label :サイズ, class:"sell-main__sell-box__sell-label" 
     =f.label :必須,  class:"sell-main__sell-box__sell-label__need"
-    = f.collection_select :size_id, Size.all, :id, :name, {prompt: "---"},class: "sell-main__sell-box__sell-item-size__form"
+    = f.collection_select :size_id, Size.all, :id, :name, {prompt: "選択してください"},class: "sell-main__sell-box__sell-item-size__form"
   .sell-main__sell-box__sell-item-brand
-   %label{class:"sell-main__sell-box__sell-label"} ブランド
-   %label{class:"sell-label__free"} 任意
-   %input{value: "例）ナイキ", type:"text" ,class: "sell-main__sell-box__sell-item-brand__form"}
+   =form_for @item do |f|
+    =f.label :ブランド ,class:"sell-main__sell-box__sell-label" 
+    =f.label :任意, class:"sell-label__free"
+    =f.text_field :brand , placeholder:"例) ナイキ", class: "sell-main__sell-box__sell-item-brand__form"
   .sell-main__sell-box__status
-   %label{class:"sell-main__sell-box__sell-label"} 商品の状態
-   %label{class:"sell-main__sell-box__sell-label__need"} 必須
-   %input{value: "選択して下さい",type:"text" ,class: "sell-main__sell-box__status__form"}
+   =form_for @item do |f|
+    =f.label :商品の状態 ,class:"sell-main__sell-box__sell-label"
+    =f.label :必須, class:"sell-main__sell-box__sell-label__need"
+    = f.collection_select :condition_id, Condition.all, :id, :name, {prompt: "選択してください"},class: "sell-main__sell-box__status__form"
   .sell-main__sell-box__delivery_charges
-   %label{class:"sell-main__sell-box__sell-label"} 配送料の負担
-   %label{class:"sell-main__sell-box__sell-label__need"} 必須
-   %input{value: "選択して下さい", type:"text" ,class: "sell-main__sell-box__delivery_charges__form"}
+   =form_for @item do |f|
+    =f.label :配送料の負担, class:"sell-main__sell-box__sell-label"
+    =f.label :必須 ,class:"sell-main__sell-box__sell-label__need"
+    = f.collection_select :delivery_charge_id, DeliveryCharge.all, :id, :name, {prompt: "選択してください"},class: "sell-main__sell-box__delivery_charges__form"
   .sell-main__sell-box__delivery_ways
-   %label{class:"sell-main__sell-box__sell-label"} 発送元の地域
-   %label{class:"sell-main__sell-box__sell-label__need"} 必須
-   %input{value: "選択して下さい", type: "text" ,class: "sell-main__sell-box__delivery_ways__form"}
+   =form_for @item do |f|
+    =f.label :発送元の地域 ,class:"sell-main__sell-box__sell-label"
+    =f.label :必須 ,class:"sell-main__sell-box__sell-label__need"
+    = f.collection_select :delivery_way_id, DeliveryWay.all, :id, :name, {prompt: "選択してください"},class: "sell-main__sell-box__delivery_ways__form"
   .sell-main__sell-box__delivery_date
-   %label{class:"sell-main__sell-box__sell-label"} 発送までの日数
-   %label{class:"sell-main__sell-box__sell-label__need"} 必須
-   %input{value:"選択して下さい",type: "text" ,class: "sell-main__sell-box__delivery_date__form"}
+   =form_for @item do |f|
+    =f.label :発送までの日数, class:"sell-main__sell-box__sell-label"
+    =f.label :必須, class:"sell-main__sell-box__sell-label__need"
+    = f.collection_select :delivery_date_id, DeliveryDate.all, :id, :name, {prompt: "選択してください"},class: "sell-main__sell-box__delivery_ways__form"
   .sell-main__sell-box__price
    .sell-main__sell-box__price__area
+    =form_for @item do |f|
     %p 価格（¥300〜9,999,999）
    %label{class:"sell-main__sell-box__sell-label"} 販売価格
    %label{class:"sell-main__sell-box__sell-label__need"} 必須
