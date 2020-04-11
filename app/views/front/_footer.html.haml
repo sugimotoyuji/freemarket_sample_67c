@@ -33,5 +33,6 @@
   %p.footer__text © FURIMA
 %a{ :href => '#', :class => '' } 
   .exhibition
-    %span.exhibition__text 出品する
-    %img{src: "/assets/icon_camera.png", class: "exhibition__btn" }
+    =link_to new_item_path do
+      %span.exhibition__text 出品する
+      %img{src: "/assets/icon_camera.png", class: "exhibition__btn" }
