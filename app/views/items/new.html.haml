@@ -62,16 +62,19 @@
     = f.collection_select :delivery_date_id, DeliveryDate.all, :id, :name, {prompt: "選択してください"},class: "sell-main__sell-box__delivery_ways__form"
   .sell-main__sell-box__price
    .sell-main__sell-box__price__area
+    価格（¥300〜9,999,999）
+   .sell-main__sell-box__price__box
     =form_for @item do |f|
-    %p 価格（¥300〜9,999,999）
-   %label{class:"sell-main__sell-box__sell-label"} 販売価格
-   %label{class:"sell-main__sell-box__sell-label__need"} 必須
-   %p{class:"sell-main__sell-box__price__yen"} ￥
-   %input{type:"number" ,class: "sell-main__sell-box__price__yen__form"}
+     =f.label:販売価格, class:"sell-main__sell-box__sell-label"
+     =f.label:必須, class:"sell-main__sell-box__sell-label__need" 
+     .sell-main__sell-box__price__box__holder
+      ￥
+      = f.number_field :price, min:300, max:9999999 , class: "sell-main__sell-box__price__box__form"
   .sell-main__sell-box__profit
    .sell-main__sell-box__profit__sell
-    %p 販売利益
-   %input{type:"number" ,class: "sell-main__sell-box__profit__form"}
+    販売利益
+    =form_for @item do |f|
+     = f.number_field :profit,class: "sell-main__sell-box__profit__form"
   .sell-main__sell-box__submit
    =form_for @item do |f|
     =f.submit "出品する",class: "sell-main__sell-box__submit__form"

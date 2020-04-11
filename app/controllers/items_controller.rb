@@ -16,7 +16,7 @@ class ItemsController < ApplicationController
   private
 
   def item_params
-    params.require(:item).permit(item_images_attributes: [:image])
+    params.require(:item).permit(:category_id, item_images_attributes: [:image])
   end
 
 end
