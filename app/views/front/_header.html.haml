@@ -19,6 +19,6 @@
           %a{ :href => '#', :class => 'inner__bottom__left__brands--brand' } ブランド
       %ul.inner__bottom__right
         %li.inner__bottom__right__login
-          %a{ :href => '#', :class => 'inner__bottom__right__login--button' } ログイン
+          = link_to "ログイン", new_user_session_path, class:'inner__bottom__right__login--button'
         %li.inner__bottom__right__member
-          %a{ :href => '#', :class => 'inner__bottom__right__member--button' } 新規会員登録
+          = link_to "新規会員登録", new_user_registration_path, class: 'inner__bottom__right__member--button'
