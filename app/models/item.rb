@@ -16,6 +16,9 @@ class Item < ApplicationRecord
   belongs_to :delivery_charge
   belongs_to :delivery_date
   belongs_to :order_status
-  belongs_to :size
   belongs_to :delivery_way
+
+  extend ActiveHash::Associations::ActiveRecordExtensions
+  belongs_to_active_hash :size
+  
 end
