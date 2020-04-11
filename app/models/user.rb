@@ -15,6 +15,4 @@ class User < ApplicationRecord
   has_many :flag_items,through: :flags,source: :items
   has_many :addresses
   has_many :todo_lists
-  belongs_to :rate
-  belongs_to :payment_information,dependent: :destroy
 end

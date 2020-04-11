@@ -1,5 +1,6 @@
 class Item < ApplicationRecord
   has_many :item_images,dependent: :destroy
+  accepts_nested_attributes_for :item_images, allow_destroy: true
   has_many :communications,dependent: :destroy
   has_many :likes
   has_many :flags
@@ -15,6 +16,6 @@ class Item < ApplicationRecord
   belongs_to :delivery_charge
   belongs_to :delivery_date
   belongs_to :order_status
-  belongs_to_active_hash :size
+  belongs_to :size
   belongs_to :delivery_way
 end
