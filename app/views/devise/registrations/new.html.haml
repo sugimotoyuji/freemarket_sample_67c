@@ -1,21 +1,59 @@
-%h2 Sign up
-= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f|
-  = render "devise/shared/error_messages", resource: resource
-  .field
-    = f.label :email
-    %br/
-    = f.email_field :email, autofocus: true, autocomplete: "email"
-  .field
-    = f.label :password
-    - if @minimum_password_length
-      %em
-        (#{@minimum_password_length} characters minimum)
-    %br/
-    = f.password_field :password, autocomplete: "new-password"
-  .field
-    = f.label :password_confirmation
-    %br/
-    = f.password_field :password_confirmation, autocomplete: "new-password"
-  .actions
-    = f.submit "Sign up"
-= render "devise/shared/links"
+.resistration-page
+  .resistration-page__header
+    .resistration-page__header__logo
+      = link_to image_tag('FURIMA-logo.svg'), '#',class: "header__img"
+  .resistration-page__form
+    %h2 新規会員登録
+    = form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f|
+      = render "devise/shared/error_messages", resource: resource
+      .field
+        %label{class:"nickname"}ニックネーム
+        %span.form-require
+        = f.text_field :nickname, autofocus: true, class: "input-default", placeholder: "例)フリマ一郎"
+      .field
+        %label{class:"email"}メールアドレス
+        %span.form-require
+        = f.email_field :email, class: "input-default", placeholder: "PC・携帯どちらでも可"
+      .field
+        %label{class: "password"} パスワード
+        %span.form-require
+        = f.password_field :password, autocomplete: "off", class: "input-default", placeholder: "英数字8文字以上"
+      .field
+        %label{class: "password_confirmation"} パスワード確認
+        %span.form-require
+        = f.password_field :password_confirmation, autocomplete: "off", class: "input-default", placeholder: ""
+      .field
+        %label{class: "first_name, last_name"} お名前(全角)
+        %span.form-require
+        %br/
+        = f.text_field :first_name, autofocus: true, class: "input-half", placeholder: "鈴木"
+        = f.text_field :last_name, autofocus: true, class: "input-half", placeholder: "一郎"
+      .field
+        %label{class: "first_name, last_name"} お名前カナ(全角)
+        %span.form-require
+        %br/
+        = f.text_field :first_name_reading, autofocus: true, class: "input-half", placeholder: "スズキ"
+        = f.text_field :last_name_reading, autofocus: true, class: "input-half", placeholder: "イチロウ"
+      .field
+        %label{class: "telephone"} お電話番号
+        %span.form-require
+        = f.text_field :telephone, autofocus: true, class: "input-default", placeholder: "携帯電話"
+      .field
+        %label{class: "birth_day"} 生年月日
+        %span.form-require
+        %br/
+        = f.text_field :birth_year, autofocus: true, class: "input-one-third", placeholder: "2020"
+        年
+        = f.text_field :birth_month, autofocus: true, class: "input-one-third", placeholder: "04"
+        月
+        = f.text_field :birth_day, autofocus: true, class: "input-one-third", placeholder: "01"
+        日
+      .actions
+        = f.submit "アカウント登録", class: 'btn-submit'
+
+  .resistration-page__footer
+    %ul
+      %li プライバシーポリシー
+      %li フリマ利用規約
+      %li 特定商取引に関する表記
+    %h5 ©︎FURIMA, Inc
