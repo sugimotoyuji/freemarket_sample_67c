@@ -8,10 +8,15 @@
     %label{class:"sell-main__sell-box__sell-label"} 出品画像
     %label{class:"sell-main__sell-box__sell-label__need"} 必須
     %P{class:"sell-main__sell-box__sell-text"} 最大10枚までアップロードできます
-   .sell-main__sell-box__sell-item-image__box
+   #sell-main__sell-box__sell-item-image__box
     =form_for @item do |f|
      =f.label :ドラッグアンドドロップまたはクリックしてファイルをアップロード , class: "sell-main__sell-box__sell-item-image__sell-image-label" do
       = f.fields_for :item_images do |i|
+       .js-file_group{"data-index" => "#{f.index}"}
+        = f.file_field :src, class: 'js-file' 
+        .js-remove 
+         %span 削除
+
        =i.file_field :image ,class: "sell-item-image" 
   .sell-main__sell-box__sell-item-name
    =form_for @item do |f|
