@@ -65,8 +65,8 @@
     価格（¥300〜9,999,999）
    .sell-main__sell-box__price__box
     =form_for @item do |f|
-     =f.label:販売価格, class:"sell-main__sell-box__sell-label"
-     =f.label:必須, class:"sell-main__sell-box__sell-label__need" 
+     =f.label :販売価格, class:"sell-main__sell-box__sell-label"
+     =f.label :必須, class:"sell-main__sell-box__sell-label__need" 
      .sell-main__sell-box__price__box__holder
       ￥
       = f.number_field :price, min:300, max:9999999 , class: "sell-main__sell-box__price__box__form"
