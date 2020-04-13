@@ -25,7 +25,7 @@ $ten:10px;
    margin-top: $fiv;
    margin-bottom: 20px;
   }
-  &__sell-box {
+  &__sell-form {
    height: 2450px;
    width: 700px;
    background-color: white;
@@ -48,7 +48,6 @@ $ten:10px;
   }
   &__sell-item-image{
    width: 100%;
-   height: 300px;
    &__box {
     width: $six;
     height: 150px;
@@ -86,6 +85,7 @@ $ten:10px;
   &__sell-item-name {
    width: 100%;
    height: 110px;
+   margin-top: 30px;
    &__form {
     width: $six;
     height: $fiv;
@@ -197,7 +197,7 @@ $ten:10px;
  } 
  &__price {
   width: 100%;
-  height: 120px;
+  height: 50px;
   &__area{
    height: 15px;
    width: 300px;
