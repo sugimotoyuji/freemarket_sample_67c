@@ -49,7 +49,7 @@ $ten:10px;
   &__sell-item-image{
    width: 100%;
    height: 300px;
-   &__sell-image {
+   &__box {
     width: $six;
     height: 150px;
     margin-left: 50px;
@@ -65,9 +65,22 @@ $ten:10px;
      top:300px;
      text-align: center;
      font-size: 12px;
-     .sell-item-image{
-      
-      }
+     }
+#previews {
+     }
+     .js-file_group{
+     
+     }
+     .js-file {
+       
+     }
+     .js-remove{
+      line-height: 20px;
+      text-align: center;
+      height: 20px;
+      width: 40px;
+      background-color: rgb(41, 126, 236);
+      color:whitesmoke ;
      }
   }
   &__sell-item-name {
@@ -92,35 +105,26 @@ $ten:10px;
     margin-top: $ten;
    }
   }
-  &__sell-item-category {
+  .listing-product-detail__category {
    width: 100%;
    height: 250px;
+   .listing-select-wrapper {
+    &__box--select{
+      width: $six;
+      height: $fiv;
+      margin-top: $ten;
+      margin-left: 50px;
+    }
+   }
    &__detail{
     height: 10px;
     width: 300px;
-    margin-left: 50px;
+    margin-left: 60px;
     margin-top: 40px;
     color: gray;
    }
-   &__first {
-    width: $six;
-    height: $fiv;
-    margin-left: 50px;
-    margin-top: $ten;
-   }
-   &__second {
-    width: $six;
-    height: $fiv;
-    margin-left: 50px;
-    margin-top: $ten;
-   }
-   &__third {
-    width: $six;
-    height: $fiv;
-    margin-left: 50px;
-    margin-top: $ten;
-   }
- }
+  }
+  
  &__sell-item-size{
   width: 100%;
   height: 150px;

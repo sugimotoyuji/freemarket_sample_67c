@@ -8,16 +8,28 @@
     %label{class:"sell-main__sell-box__sell-label"} 出品画像
     %label{class:"sell-main__sell-box__sell-label__need"} 必須
     %P{class:"sell-main__sell-box__sell-text"} 最大10枚までアップロードできます
-   #sell-main__sell-box__sell-item-image__box
+   .sell-main__sell-box__sell-item-image__box
     =form_for @item do |f|
-     =f.label :ドラッグアンドドロップまたはクリックしてファイルをアップロード , class: "sell-main__sell-box__sell-item-image__sell-image-label" do
+     #image-box
+      #previews
+       - if @item.persisted?
+        - @item.item_images.each_with_index do |image, i|
+         = image_tag image.src.url, data: { index: i }, width: "100", height: '100'
       = f.fields_for :item_images do |i|
        .js-file_group{"data-index" => "#{f.index}"}
-        = f.file_field :src, class: 'js-file' 
-        .js-remove 
-         %span 削除
+        = i.file_field :src ,class: 'js-file' 
+        %span.js-remove 削除
+        %label{for: "img-file"}
+         %i.fas.fa-camera
+         
+       - if @item.persisted?
+        = image.check_box :_destroy, data:{ index: image.index }, class: ‘hidden-destroy’
+       - if @item.persisted?
+        .js-file_group{"data-index" => "#{@item.item_images.count}"}
+         = file_field_tag :src,name: 'item[item_images_attributes][#{@item.item_images.count}][src]', class: ‘js-file’
+         %span.js-remove 削除
 
-       =i.file_field :image ,class: "sell-item-image" 
+
   .sell-main__sell-box__sell-item-name
    =form_for @item do |f|
     =f.label :商品名, class:"sell-main__sell-box__sell-label" 
@@ -28,13 +40,15 @@
     =f.label :商品の説明, class:"sell-main__sell-box__sell-label" 
     =f.label :必須, class:"sell-main__sell-box__sell-label__need" 
     =f.text_field :description ,placeholder: "商品の説明（必須 1000文字以内) (色、重さ、素材、定価、注意点等)" ,class: "sell-main__sell-box__sell-item-explanation__form" 
-  .sell-main__sell-box__sell-item-category
-   %p{class:"sell-main__sell-box__sell-item-category__detail"} 商品の詳細
-   %label{class:"sell-main__sell-box__sell-label"} カテゴリー
-   %label{class:"sell-main__sell-box__sell-label__need"} 必須
-   %input{value: "選択して下さい",type: "text" ,class: "sell-main__sell-box__sell-item-category__first"}
-   %input{value: "選択して下さい", type:"text" ,class: "sell-main__sell-box__sell-item-category__second"}
-   %input{value: "選択して下さい", type: "text" ,class: "sell-main__sell-box__sell-item-category__third"}
+  .listing-product-detail__category
+   %p{class:"listing-product-detail__category__detail"} 商品の詳細
+   =form_for @item do |f|
+    =f.label :カテゴリー, class:"sell-main__sell-box__sell-label"
+    =f.label :必須, class:"sell-main__sell-box__sell-label__need"
+    .listing-select-wrapper
+     .listing-select-wrapper__box
+      = f.collection_select :category_id, Category.where(ancestry: nil),:id, :name, {prompt: "---"},class: "listing-select-wrapper__box--select", id: 'parent_category'
+
   .sell-main__sell-box__sell-item-size
    =form_for @item do |f|
     =f.label :サイズ, class:"sell-main__sell-box__sell-label" 
