@@ -4,6 +4,7 @@
  .sell-main__sell-form
   =form_for @item do |f|
    .sell-main__sell-form__sell-item-image
+    = render 'layouts/error_messages', model: f.object
     =f.label :出品画像, class:"sell-main__sell-form__sell-label"
     =f.label :必須 ,class:"sell-main__sell-form__sell-label__need"
     %P{class:"sell-main__sell-form__sell-text"} 最大10枚までアップロードできます
@@ -86,8 +87,6 @@
     %p 禁止されている行為および出品物を必ずご確認ください。偽ブランド品や盗品物などの販売は犯罪であり、
     %br法律により処罰される可能性があります。 また、出品をもちまして加盟店規約に同意したことになります。
 .sell-main__sell-footer
- -@items.each do |item|
-  =item.name
  %ul 
  %li プライバシーポリシー
  %li FURIMA利用規約
