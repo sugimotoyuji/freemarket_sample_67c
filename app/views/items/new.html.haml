@@ -15,7 +15,7 @@
         = image_tag image.src.url, data: { index: i }, width: "100", height: '100'
       = f.fields_for :item_images do |i|
        .js-file_group{"data-index" => "#{f.index}"}
-        = i.file_field :src ,class: 'js-file' 
+        = i.file_field :image ,class: 'js-file' 
         %span.js-remove 削除
         %label{for: "img-file"}
          %i.fas.fa-camera
@@ -51,7 +51,6 @@
    .sell-main__sell-form__sell-item-brand
     =f.label :ブランド ,class:"sell-main__sell-form__sell-label" 
     =f.label :任意, class:"sell-label__free"
-    =f.text_field :brand , placeholder:"例) ナイキ", class: "sell-main__sell-form__sell-item-brand__form"
    .sell-main__sell-form__status
     =f.label :商品の状態 ,class:"sell-main__sell-form__sell-label"
     =f.label :必須, class:"sell-main__sell-form__sell-label__need"
@@ -78,9 +77,6 @@
      ￥
      = f.number_field :price, min:300, max:9999999 , class: "sell-main__sell-form__price__box__form"
    .sell-main__sell-form__profit
-    .sell-main__sell-form__profit__sell
-     販売利益
-     = f.number_field :profit,class: "sell-main__sell-form__profit__form"
    .sell-main__sell-form__submit
     =f.submit "出品する",class: "sell-main__sell-form__submit__form"
    .sell-main__sell-form__back
@@ -90,6 +86,8 @@
     %p 禁止されている行為および出品物を必ずご確認ください。偽ブランド品や盗品物などの販売は犯罪であり、
     %br法律により処罰される可能性があります。 また、出品をもちまして加盟店規約に同意したことになります。
 .sell-main__sell-footer
+ -@items.each do |item|
+  =item.name
  %ul 
  %li プライバシーポリシー
  %li FURIMA利用規約

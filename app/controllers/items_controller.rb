@@ -1,5 +1,10 @@
 class ItemsController < ApplicationController
+
+  def index
+    @items = Item.all
+  end
   def new
+    @items = Item.all
     @item = Item.new
     @item.item_images.new
     @category_parent_array = ["---"]
@@ -18,16 +23,16 @@ class ItemsController < ApplicationController
 
   def create
    @item = Item.new(item_params)
-   if @item.save
+   if @item.save!
     redirect_to root_path
    else
-    render :new
+    redirect_to root_path
    end
   end
 
   private
   def item_params
-   params.require(:item).permit(:id,:name,:description,:price,:brand_id,:size,:condition_id,:delivery_charge_id,:delivery_way_id,:delivery_date_id	,  :category_id, item_images_attributes: [:image])
+   params.require(:item).permit(:name,:description,:price,:brand,:size_id,:condition_id,:delivery_charge_id,:delivery_way_id,:delivery_date_id	, :category_id, item_images_attributes: [:image]).merge(user_id: current_user.id)
   end
 
 end

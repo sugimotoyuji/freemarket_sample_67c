@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20200413035133) do
+ActiveRecord::Schema.define(version: 20200413140438) do
 
   create_table "brands", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.string   "name"
@@ -58,28 +58,19 @@ ActiveRecord::Schema.define(version: 20200413035133) do
   end
 
   create_table "items", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
-    t.integer  "user_id",                          null: false
-    t.integer  "category_id",                      null: false
-    t.integer  "brand_id",                         null: false
-    t.integer  "size_id",                          null: false
-    t.integer  "condition_id"
-    t.integer  "delivery_charge_id"
-    t.integer  "delivery_date_id"
-    t.integer  "delivery_way_id"
-    t.integer  "order_status_id"
-    t.string   "name",                             null: false
-    t.integer  "price",                            null: false
-    t.text     "description",        limit: 65535, null: false
-    t.datetime "created_at",                       null: false
-    t.datetime "updated_at",                       null: false
-    t.index ["brand_id"], name: "index_items_on_brand_id", using: :btree
-    t.index ["category_id"], name: "index_items_on_category_id", using: :btree
-    t.index ["condition_id"], name: "index_items_on_condition_id", using: :btree
-    t.index ["delivery_charge_id"], name: "index_items_on_delivery_charge_id", using: :btree
-    t.index ["delivery_date_id"], name: "index_items_on_delivery_date_id", using: :btree
-    t.index ["delivery_way_id"], name: "index_items_on_delivery_way_id", using: :btree
-    t.index ["order_status_id"], name: "index_items_on_order_status_id", using: :btree
-    t.index ["size_id"], name: "index_items_on_size_id", using: :btree
+    t.integer  "user_id",                                      null: false
+    t.integer  "category_id",                                  null: false
+    t.integer  "size_id",                                      null: false
+    t.integer  "condition_id",                                 null: false
+    t.integer  "delivery_charge_id",                           null: false
+    t.integer  "delivery_date_id",                             null: false
+    t.integer  "delivery_way_id",                              null: false
+    t.integer  "order_status_id",                  default: 1
+    t.string   "name",                                         null: false
+    t.integer  "price",                                        null: false
+    t.text     "description",        limit: 65535,             null: false
+    t.datetime "created_at",                                   null: false
+    t.datetime "updated_at",                                   null: false
     t.index ["user_id"], name: "index_items_on_user_id", using: :btree
   end
 
@@ -87,18 +78,6 @@ ActiveRecord::Schema.define(version: 20200413035133) do
     t.string   "order_status"
     t.datetime "created_at",   null: false
     t.datetime "updated_at",   null: false
-  end
-
-  create_table "profits", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
-    t.integer  "profit"
-    t.integer  "user_id"
-    t.integer  "item_id"
-    t.datetime "expiration_date"
-    t.boolean  "profit_is_vaild"
-    t.datetime "created_at",      null: false
-    t.datetime "updated_at",      null: false
-    t.index ["item_id"], name: "index_profits_on_item_id", using: :btree
-    t.index ["user_id"], name: "index_profits_on_user_id", using: :btree
   end
 
   create_table "sizes", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
@@ -120,15 +99,5 @@ ActiveRecord::Schema.define(version: 20200413035133) do
   end
 
   add_foreign_key "item_images", "items"
-  add_foreign_key "items", "brands"
-  add_foreign_key "items", "categories"
-  add_foreign_key "items", "conditions"
-  add_foreign_key "items", "delivery_charges"
-  add_foreign_key "items", "delivery_dates"
-  add_foreign_key "items", "delivery_ways"
-  add_foreign_key "items", "order_statuses"
-  add_foreign_key "items", "sizes"
   add_foreign_key "items", "users"
-  add_foreign_key "profits", "items"
-  add_foreign_key "profits", "users"
 end
