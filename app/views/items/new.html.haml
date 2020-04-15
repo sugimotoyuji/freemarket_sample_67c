@@ -15,7 +15,7 @@
         = image_tag image.src.url, data: { index: i }, width: "100", height: '100'
       = f.fields_for :item_images do |i|
        .js-file_group{"data-index" => "#{f.index}"}
-        = i.file_field :image ,class: 'js-file' 
+        = i.file_field :src ,class: 'js-file' 
         %span.js-remove 削除
         %label{for: "img-file"}
          %i.fas.fa-camera

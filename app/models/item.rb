@@ -20,5 +20,17 @@ class Item < ApplicationRecord
   belongs_to_active_hash :delivery_way
   belongs_to_active_hash :order_status
 
+  with_options presence: true do
+    validates :name
+    validates :price
+    validates :description ,length: { maximum: 1000 }
+    validates :category_id
+    validates :size_id
+    validates :condition_id
+    validates :delivery_date_id
+    validates :delivery_charge_id
+    validates :delivery_way_id
+  end
+
 
 end
