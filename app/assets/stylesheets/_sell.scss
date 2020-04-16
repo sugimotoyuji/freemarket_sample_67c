@@ -26,7 +26,7 @@ $ten:10px;
    margin-bottom: 20px;
   }
   &__sell-form {
-   height: 2450px;
+   height: 2700px;
    width: 700px;
    background-color: white;
    margin: 0 auto;
@@ -48,9 +48,10 @@ $ten:10px;
   }
   &__sell-item-image{
    width: 100%;
+  
    &__box {
     width: $six;
-    height: 150px;
+    height: 200px;
     margin-left: 50px;
     margin-top: $ten;
     background-color:rgb(245, 239, 239) ;
@@ -67,9 +68,7 @@ $ten:10px;
      }
 #previews {
      }
-     .js-file_group{
      
-     }
      .js-file {
        
      }
@@ -101,7 +100,6 @@ $ten:10px;
     width: $six;
     height: 200px;
     margin-left: 50px;
-    text-align: center;
     margin-top: $ten;
    }
   }
@@ -302,6 +300,8 @@ $ten:10px;
   padding: 2px;
  }
 }
+
+
 
  
  

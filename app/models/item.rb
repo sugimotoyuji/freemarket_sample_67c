@@ -11,6 +11,9 @@ class Item < ApplicationRecord
   belongs_to :profit ,optional: true
   belongs_to :user
   belongs_to :category
+  belongs_to :brand,optional: true
+  accepts_nested_attributes_for :brand
+ 
 
   extend ActiveHash::Associations::ActiveRecordExtensions
   belongs_to_active_hash :size
@@ -21,15 +24,18 @@ class Item < ApplicationRecord
   belongs_to_active_hash :order_status
 
   with_options presence: true do
+    validates :item_image_ids
     validates :name
-    validates :price
     validates :description ,length: { maximum: 1000 }
-    validates :category_id
+    validates :category
     validates :size_id
     validates :condition_id
-    validates :delivery_date_id
     validates :delivery_charge_id
     validates :delivery_way_id
+    validates :delivery_date_id
+    validates :price
+   
+
   end
 
 

@@ -7,6 +7,7 @@ class ItemsController < ApplicationController
     @items = Item.all
     @item = Item.new
     @item.item_images.new
+    @item.build_brand
     @category_parent_array = ["---"]
     Category.where(ancestry: nil).each do |parent|
       @category_parent_array << parent.name
@@ -32,7 +33,7 @@ class ItemsController < ApplicationController
 
   private
   def item_params
-   params.require(:item).permit(:name,:description,:price,:brand,:size_id,:condition_id,:delivery_charge_id,:delivery_way_id,:delivery_date_id	, :category_id, item_images_attributes: [:src,:id]).merge(user_id: current_user.id)
+   params.require(:item).permit(:name,:description,:price,:brand,:size_id,:condition_id,:delivery_charge_id,:delivery_way_id,:delivery_date_id	, :category_id, item_images_attributes: [:src,:id],brand_attributes: [:id, :name]).merge(user_id: current_user.id)
   end
   def set_item
     @item = Item.find(params[:id])
