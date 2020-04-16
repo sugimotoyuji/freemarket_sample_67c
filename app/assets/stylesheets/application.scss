@@ -1,5 +1,7 @@
 @import "reset";
 @import "sell"; 
+@import "variables";
+@import "buy";
 @import "modules/fronts/front";
 @import "modules/fronts/header";
 @import "modules/fronts/main";
@@ -9,4 +11,3 @@
 @import "font-awesome";
 @import "modules/users/user";
 @import "item_show";
-@import "buy";
