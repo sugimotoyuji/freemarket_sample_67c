@@ -12,6 +12,6 @@ ja:
         delivery_charge_id: 配送料の負担
         delivery_way_id: 配送元の地域
         delivery_date_id: 発送までの日数
-        item_image_ids: 画像
+        item_images: 画像
         price: 価格
         

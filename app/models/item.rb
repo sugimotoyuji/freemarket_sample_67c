@@ -24,7 +24,6 @@ class Item < ApplicationRecord
   belongs_to_active_hash :order_status
 
   with_options presence: true do
-    validates :item_image_ids
     validates :name
     validates :description ,length: { maximum: 1000 }
     validates :category
@@ -34,6 +33,7 @@ class Item < ApplicationRecord
     validates :delivery_way_id
     validates :delivery_date_id
     validates :price
+    validates :item_images
    
 
   end

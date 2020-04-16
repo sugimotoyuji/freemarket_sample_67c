@@ -35,7 +35,7 @@ $(document).on('turbolinks:load', function(){
       })
       var count = $('.preview-box').length;
       //プレビューが5あるときは、投稿ボックスを消しておく
-      if (count == 5) {
+      if (count == 4) {
         $('.label-content').hide();
       }
     }
