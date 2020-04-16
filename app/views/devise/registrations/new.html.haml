@@ -4,7 +4,7 @@
       = link_to image_tag('FURIMA-logo.svg'), '#',class: "header__img"
   .resistration-page__form
     %h2 新規会員登録
-    = form_for(@user, url: registration_path) do |f|
+    = form_for(@user, url: user_registration_path) do |f|
       = render "devise/shared/error_messages", resource: @user
       .field
         %label{class:"nickname"}ニックネーム
@@ -49,7 +49,7 @@
         = f.text_field :birth_day, autofocus: true, class: "input-one-third", placeholder: "01"
         日
       .actions
-        = f.submit "アカウント登録", class: 'btn-submit'
+        = f.submit "商品送付先住所情報登録へ", class: 'btn-submit'
 
   .resistration-page__footer
     %ul
