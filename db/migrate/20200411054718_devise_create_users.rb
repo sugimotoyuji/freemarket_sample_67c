@@ -11,7 +11,7 @@ class DeviseCreateUsers < ActiveRecord::Migration[5.0]
       t.string  :last_name_reading,  null: false
       t.string  :email,              null: false, default: ""
       t.string  :encrypted_password, null: false, default: ""
-      t.integer :telephone,          null: false
+      t.string  :telephone,          null: false
       t.text    :introduction
       t.integer :birth_year,         null: false
       t.integer :birth_month,        null: false
