@@ -1,0 +1,16 @@
+@mixin buy-inner{
+  max-width: 320px;
+  margin: 0 auto;
+}
+
+@mixin buy-method{
+  font-size: 14px;
+  margin-top: 8px;
+  line-height: 20px;
+}
+
+@mixin buy-button{
+  color: white;
+  padding: 14px;
+  width: 100%;
+}
