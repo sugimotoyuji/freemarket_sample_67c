@@ -7,26 +7,27 @@
     = render 'layouts/error_messages', model: f.object
     =f.label :出品画像, class:"sell-main__sell-form__sell-label"
     =f.label :必須 ,class:"sell-main__sell-form__sell-label__need"
-    %P{class:"sell-main__sell-form__sell-text"} 最大10枚までアップロードできます
-    %label{for: "img-file"}
-     %pre.fas.fa-camera    
+    %P{class:"sell-main__sell-form__sell-text"} 最大5枚までアップロードできます
    .sell-main__sell-form__sell-item-image__box
-    #image-box
-     #previews
-      - if @item.persisted?
-       - @item.item_images.each_with_index do |image, i|
-        = image_tag image.src.url, data: { index: i }, width: "100", height: '100'
-      = f.fields_for :item_images do |i|
-       .js-file_group{"data-index" => "#{f.index}"}
-        = i.file_field :src ,class: 'js-file' ,id:"img-file",style: "display:none"
-        %span.js-remove 削除
-       
-       - if @item.persisted?
-        = image.check_box :_destroy, data:{ index: image.index }, class: ‘hidden-destroy’
-       - if @item.persisted?
-        .js-file_group{"data-index" => "#{@item.item_images.count}"}
-         = file_field_tag :src,name: 'item[item_images_attributes][#{@item.item_images.count}][src]', class: ‘js-file’
-         %span.js-remove 削除
+    .prev-content
+     - @item.item_images.each do |image|
+      .preview-box
+       .upper-box
+        - if @item.persisted?
+         = image_tag image.image.url, width: "112", height: "112", alt: "preview"
+       .lower-box
+        .delete-box
+         .delete-btn
+          %span 削除
+    .label-content
+     = f.label :"item_images_attributes_#{@item.item_images.length}_image", class: "label-box", id: "label-box--#{@item.item_images.length}" do
+      %pre.label-box__text-visible クリックしてファイルをアップロード
+    .hidden-content
+     = f.fields_for :item_images do |i|
+      = i.file_field :image, class: "hidden-field"
+       = i.check_box:_destroy, class: "hidden-checkbox"
+       - @item.item_images.length.upto(4) do |i|
+       %input{name: "item[item_images_attributes][#{i}][image]", id: "item_images_attributes_#{i}_image", class:"hidden-field", type:"file"}
 
 
    .sell-main__sell-form__sell-item-name
