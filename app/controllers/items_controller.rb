@@ -3,15 +3,14 @@ class ItemsController < ApplicationController
   def index
     @items = Item.all
   end
-  
   def new
     @items = Item.all
     @item = Item.new
     @item.item_images.new
     @item.build_brand
     @category_parent_array = ["---"]
-    Category.where(ancestry: nil).each do |parent|
-      @category_parent_array << parent.name
+    Category.pluck {ancestry:nil} .each do |parent|
+      @category_parent_array << parent
     end
   end
 
