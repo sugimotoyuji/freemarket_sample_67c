@@ -10,9 +10,10 @@
           フリマアプリです
       .main__views__content__appLink
         %a{ :href => '#', :class => 'main__views__content__appLink--button' }
-          %img{src: "/assets/app-store-9c5e28e8f81bd9912e0ded2f78821e04778a1356c05dc7c7bf1e88614be37c34-1.svg", class: "main__views__content__appLink--button--img" }
+          %img{src: "/assets/app-store-9c5e28e8f81bd9912e0ded2f78821e04778a1356c05dc7c7bf1e88614be37c34-1.svg", class: "main__catch__inner--title--btn--1--img" }
+          
         %a{ :href => '#', :class => 'main__views__content__appLink--button2' }
-          %img{src: "/assets/google-play-469c63f1269e456307c4dde176b33cc3bbbbf142ac4d7369656010130149db1a-1.svg", class: "main__views__content__appLink--button2--img2" }
+          %img{src: "/assets/google-play-469c63f1269e456307c4dde176b33cc3bbbbf142ac4d7369656010130149db1a-1.svg", class: "main__catch__inner--title--btn--2--img" }
   %section.main__service
     %h2.main__service__title
       FURIMAが選ばれる理由
@@ -21,7 +22,7 @@
         .main__service__lists__left--img
           %span.main__service__lists__left--img--number
             1
-          %img{src: "/assets/pict-reason-01.jpg", class: "main__service__lists__left--img--1" }
+          = image_tag asset_path("pict-reason-01.jpg"), class: "main__service__lists__left--img--1" 
         %h3.main__service__lists__left--comment
           %span.main__service__lists__left--comment--1
             3分
@@ -32,7 +33,7 @@
         .main__service__lists__middle--img
           %span.main__service__lists__middle--img--number
             2
-          %img{src: "/assets/pict-reason-02.jpg", class: "main__service__lists__left--img--1" }
+          = image_tag asset_path("pict-reason-02.jpg"), class: "main__service__lists__left--img--1" 
         %h3.main__service__lists__middle--comment
           %span.main__service__lists__middle--comment--1
             シンプル
@@ -43,7 +44,7 @@
         .main__service__lists__right--img
           %span.main__service__lists__right--img--number
             ３
-          %img{src: "/assets/pict-reason-03.jpg", class: "main__service__lists__left--img--1" }
+          = image_tag asset_path("pict-reason-03.jpg"), class: "main__service__lists__left--img--1" 
         %h3.main__service__lists__right--comment
           %span.main__service__lists__right--comment--1
             手数料
@@ -64,28 +65,28 @@
         %a{ :href => '#', :class => 'main__catch__inner--title--btn--1' }
           %img{src: "/assets/app-store-9c5e28e8f81bd9912e0ded2f78821e04778a1356c05dc7c7bf1e88614be37c34-1.svg", class: "main__catch__inner--title--btn--1--img" }
         %a{ :href => '#', :class => 'main__catch__inner--title--btn--2' }
-          %img{src: "/assets/google-play-469c63f1269e456307c4dde176b33cc3bbbbf142ac4d7369656010130149db1a-1.svg", class: "main__catch__inner--title--btn--2--img" }
+          %img{src: "/assets/google-play-469c63f1269e456307c4dde176b33cc3bbbbf142ac4d7369656010130149db1a-1.svg", class: "main__catch__inner--title--btn--2--img" } 
   %section.main__feature
     %h2.main__feature--title
       FURIMAの特徴
     .main__feature__lists
       %section.main__feature__lists__left
         %figure.main__feature__lists__left--img
-          %img{src: "/assets/icon-01.png", class: "main__feature__lists__left--img--1" }
+          = image_tag asset_path("icon-01.png"), class: "main__feature__lists__left--img--1"
         %h3.main__feature__lists__left--title
           簡単に売り買いできる
         %p.main__feature__lists__left--title2
           スマホひとつで、いつでもどこでも簡単に出品・購入が可能！
       %section.main__feature__lists__middle
         %figure.main__feature__lists__middle--img
-          %img{src: "/assets/icon-03.png", class: "main__feature__lists__middle--img--2" }
+          = image_tag asset_path("icon-03.png"), class: "main__feature__lists__middle--img--2"
         %h3.main__feature__lists__middle--title
           売上金は即日振込みに対応
         %p.main__feature__lists__middle--title2
           午前9時までに振込を依頼いただければ、翌日に指定の口座に入金いたします!
       %section.main__feature__lists__right
         %figure.main__feature__lists__right--img
-          %img{src: "/assets/icon-04.png", class: "main__feature__lists__right--img--2" }
+          = image_tag asset_path("icon-04.png"), class: "main__feature__lists__right--img--2"
         %h3.main__feature__lists__right--title
           様々な支払いに対応
         %p.main__feature__lists__right--title2
@@ -102,7 +103,7 @@
         .main__categories__box__lists--list
           %a{ :href => '#', :class => 'main__categories__box__lists--list--link' }
             %figure.main__categories__box__lists--list--link--img
-              %img{src: "/assets/a007.png", class: "main__categories__box__lists--list--link--img--1" }
+              = image_tag asset_path("a007.png"), class: "main__categories__box__lists--list--link--img--1" 
             .main__categories__box__lists--list--link--comment
               %h3.main__categories__box__lists--list--link--comment--1 
                 product3
@@ -119,7 +120,7 @@
           .main__categories__box__lists--list
           %a{ :href => '#', :class => 'main__categories__box__lists--list--link' }
             %figure.main__categories__box__lists--list--link--img
-              %img{src: "/assets/a005.png", class: "main__categories__box__lists--list--link--img--1" }
+              = image_tag asset_path("a005.png"), class: "main__categories__box__lists--list--link--img--1" 
             .main__categories__box__lists--list--link--comment
               %h3.main__categories__box__lists--list--link--comment--1 
                 product2
@@ -136,7 +137,7 @@
           .main__categories__box__lists--list
           %a{ :href => '#', :class => 'main__categories__box__lists--list--link' }
             %figure.main__categories__box__lists--list--link--img
-              %img{src: "/assets/a001.png", class: "main__categories__box__lists--list--link--img--1" }
+              = image_tag asset_path("a001.png"), class: "main__categories__box__lists--list--link--img--1" 
             .main__categories__box__lists--list--link--comment
               %h3.main__categories__box__lists--list--link--comment--1 
                 product1
@@ -161,7 +162,7 @@
         .main__categories__box__lists--list
           %a{ :href => '#', :class => 'main__categories__box__lists--list--link' }
             %figure.main__categories__box__lists--list--link--img
-              %img{src: "/assets/a007.png", class: "main__categories__box__lists--list--link--img--1" }
+              = image_tag asset_path("a007.png"), class: "main__categories__box__lists--list--link--img--1" 
             .main__categories__box__lists--list--link--comment
               %h3.main__categories__box__lists--list--link--comment--1 
                 product3
@@ -178,7 +179,7 @@
           .main__categories__box__lists--list
           %a{ :href => '#', :class => 'main__categories__box__lists--list--link' }
             %figure.main__categories__box__lists--list--link--img
-              %img{src: "/assets/a005.png", class: "main__categories__box__lists--list--link--img--1" }
+              = image_tag asset_path("a005.png"), class: "main__categories__box__lists--list--link--img--1" 
             .main__categories__box__lists--list--link--comment
               %h3.main__categories__box__lists--list--link--comment--1 
                 product2
@@ -195,7 +196,7 @@
           .main__categories__box__lists--list
           %a{ :href => '#', :class => 'main__categories__box__lists--list--link' }
             %figure.main__categories__box__lists--list--link--img
-              %img{src: "/assets/a001.png", class: "main__categories__box__lists--list--link--img--1" }
+              = image_tag asset_path("a001.png"), class: "main__categories__box__lists--list--link--img--1" 
             .main__categories__box__lists--list--link--comment
               %h3.main__categories__box__lists--list--link--comment--1 
                 product1
