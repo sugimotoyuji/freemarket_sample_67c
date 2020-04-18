@@ -8,8 +8,7 @@ class ItemsController < ApplicationController
     @item.item_images.new
     @item.build_brand
     @category_parent_array = ["---"]
-    Category.pluck {ancestry:nil} .each do |parent|
-      @category_parent_array << parent
+    @category_parent_array = Category.where(ancestry: nil).pluck(:name)
     end
   end
 
