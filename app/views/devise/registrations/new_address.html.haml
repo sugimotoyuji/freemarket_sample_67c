@@ -1,0 +1,37 @@
+.resistration-page
+  .resistration-page__header
+    .resistration-page__header__logo
+      = link_to image_tag('FURIMA-logo.svg'), '#',class: "header__img"
+  .resistration-page__form
+    %h2 商品送付先住所情報登録
+    = form_for　@address  do |f|
+      = render "devise/shared/error_messages", resource: @address
+      .field
+        %label{class: "first_name, last_name"} お名前(全角)
+        %span.form-require
+        %br/
+        = f.text_field :first_name, autofocus: true, class: "input-half", placeholder: "鈴木"
+        = f.text_field :last_name, autofocus: true, class: "input-half", placeholder: "一郎"
+      .field
+        %label{class: "first_name, last_name"} お名前かな(全角)
+        %span.form-require
+        %br/
+        = f.text_field :first_name_reading, autofocus: true, class: "input-half", placeholder: "すずき"
+        = f.text_field :last_name_reading, autofocus: true, class: "input-half", placeholder: "いちろう"
+      .field
+        %label{class:"zip_code"}郵便番号
+        %span.form-require
+        = f.text_field :zip_code, autofocus: true, class: "input-default", placeholder: "例)123-4567"
+      .field
+        %label{class: "telephone"} お電話番号
+        %span.form-require
+        = f.text_field :telephone, autofocus: true, class: "input-default", placeholder: "携帯電話"
+      .actions
+        = f.submit "アカウント登録", class: 'btn-submit'
+
+  .resistration-page__footer
+    %ul
+      %li プライバシーポリシー
+      %li フリマ利用規約
+      %li 特定商取引に関する表記
+    %h5 ©︎FURIMA, Inc
