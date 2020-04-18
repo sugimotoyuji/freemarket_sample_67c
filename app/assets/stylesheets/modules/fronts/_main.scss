@@ -2,7 +2,7 @@
   &__views {
     width: 100%;
     height: 560px;
-    background-image: url(bg-mainVisual-pict_pc.jpg);
+    background-image: image-url("bg-mainVisual-pict_pc.jpg");
     background-size: cover;
     background-repeat: no-repeat;
     background-position: top center;
@@ -213,7 +213,7 @@
 }
 .main {
   &__catch {
-    background-image: url(/assets/bg-topMiddleDl-pict.jpg);
+    background-image: image-url("bg-topMiddleDl-pict.jpg");
     background-position: bottom right;
     height: 400px;
     background-size: cover;
