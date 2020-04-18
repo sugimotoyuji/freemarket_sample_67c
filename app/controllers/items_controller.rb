@@ -9,7 +9,6 @@ class ItemsController < ApplicationController
     @item.build_brand
     @category_parent_array = ["---"]
     @category_parent_array = Category.where(ancestry: nil).pluck(:name)
-    end
   end
 
 
