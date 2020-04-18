@@ -56,6 +56,9 @@ $ten:10px;
     .prev-content {
      display: flex;
      .preview-box {
+      height: 162px;
+      width: 112px;
+      margin: 0 15px 10px 0;
       .upper-box {
         img{
         width: 112px;
@@ -80,7 +83,7 @@ $ten:10px;
      .label-content{
       margin-bottom: 10px;
       width: 620px;
-      background-color: rgb(248, 10, 42);
+  
       .label-box {
         display: block;
         border: 1px dashed #ccc;
@@ -107,14 +110,7 @@ $ten:10px;
       }
     }
     .hidden-content {
-      
      .hidden-field {
-       display: none;
-     }
-    }
-    .hidden-content-1 {
-      display: none;
-     .hidden-checkbox {
        
      }
     }

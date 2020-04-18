@@ -3,6 +3,7 @@ class ItemsController < ApplicationController
   def index
     @items = Item.all
   end
+  
   def new
     @items = Item.all
     @item = Item.new
@@ -22,7 +23,7 @@ class ItemsController < ApplicationController
   def get_category_grandchildren
     @category_grandchildren = Category.find("#{params[:child_id]}").children
   end
-
+  
   def create
    @item = Item.new(item_params)
    if @item.save
