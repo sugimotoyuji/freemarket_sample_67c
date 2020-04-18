@@ -3,31 +3,47 @@
     .resistration-page__header__logo
       = link_to image_tag('FURIMA-logo.svg'), '#',class: "header__img"
   .resistration-page__form
-    %h2 商品送付先住所情報登録
-    = form_for　@address  do |f|
+    %h2.resistration-page__form__header お届け先住所情報登録
+    = form_for @address do |f|
       = render "devise/shared/error_messages", resource: @address
       .field
         %label{class: "first_name, last_name"} お名前(全角)
         %span.form-require
         %br/
-        = f.text_field :first_name, autofocus: true, class: "input-half", placeholder: "鈴木"
-        = f.text_field :last_name, autofocus: true, class: "input-half", placeholder: "一郎"
+        = f.text_field :shipping_first_name, autofocus: true, class: "input-half", placeholder: "鈴木"
+        = f.text_field :shipping_last_name, autofocus: true, class: "input-half", placeholder: "一郎"
       .field
         %label{class: "first_name, last_name"} お名前かな(全角)
         %span.form-require
         %br/
-        = f.text_field :first_name_reading, autofocus: true, class: "input-half", placeholder: "すずき"
-        = f.text_field :last_name_reading, autofocus: true, class: "input-half", placeholder: "いちろう"
+        = f.text_field :shipping_first_name_reading, autofocus: true, class: "input-half", placeholder: "すずき"
+        = f.text_field :shipping_last_name_reading, autofocus: true, class: "input-half", placeholder: "いちろう"
       .field
         %label{class:"zip_code"}郵便番号
         %span.form-require
-        = f.text_field :zip_code, autofocus: true, class: "input-default", placeholder: "例)123-4567"
+        = f.text_field :zip_code, autofocus: true, class: "input-default", placeholder: "例)542-0076"
+      .field
+        %label{class:"prefecture"}都道府県
+        %span.form-require
+        = f.collection_select :prefecture, Prefecture.all, :id, :name, {prompt: "---"},class: "input-default"
+      .field
+        %label{class:"city"}区市町村
+        %span.form-require
+        = f.text_field :city, autofocus: true, class: "input-default", placeholder: "例)大阪市中央区"
+      .field
+        %label{class:"address"}番地
+        %span.form-require
+        = f.text_field :address, autofocus: true, class: "input-default", placeholder: "例)難波5丁目1-60"
+      .field
+        %label{class:"building"}建物
+        %span.form-optional
+        = f.text_field :building, autofocus: true, class: "input-default", placeholder: "例)なんばスカイオ15F"
       .field
         %label{class: "telephone"} お電話番号
-        %span.form-require
-        = f.text_field :telephone, autofocus: true, class: "input-default", placeholder: "携帯電話"
+        %span.form-optional
+        = f.text_field :shipping_telephone, autofocus: true, class: "input-default", placeholder: "携帯電話"
       .actions
-        = f.submit "アカウント登録", class: 'btn-submit'
+        = f.submit "アカウント登録", class: 'btn-submit input-default'
 
   .resistration-page__footer
     %ul
