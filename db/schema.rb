@@ -112,7 +112,7 @@ ActiveRecord::Schema.define(version: 20200417140438) do
     t.string   "last_name_reading",                                 null: false
     t.string   "email",                                default: "", null: false
     t.string   "encrypted_password",                   default: "", null: false
-    t.string   "telephone",                                         null: false
+    t.integer  "telephone",                                         null: false
     t.text     "introduction",           limit: 65535
     t.integer  "birth_year",                                        null: false
     t.integer  "birth_month",                                       null: false
