@@ -33,7 +33,7 @@ Things you may want to cover:
 |last_name_reading|string|null:false|
 |email|string|null:false,unique|
 |password|string|null:false|
-|telephone|integer|null:false|
+|telephone|string|null:false|
 |address_id|string|foreign_key: true|
 |introduction|text|
 |birth_year|integer|null:false|

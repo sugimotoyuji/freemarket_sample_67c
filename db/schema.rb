@@ -12,6 +12,23 @@
 
 ActiveRecord::Schema.define(version: 20200417140438) do
 
+  create_table "addresses", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+    t.string   "shipping_first_name",         null: false
+    t.string   "shipping_first_name_reading", null: false
+    t.string   "shipping_last_name",          null: false
+    t.string   "shipping_last_name_reading",  null: false
+    t.string   "zip_code",                    null: false
+    t.string   "prefecture",                  null: false
+    t.string   "city",                        null: false
+    t.string   "address",                     null: false
+    t.string   "building"
+    t.string   "shipping_telephone"
+    t.integer  "user_id"
+    t.datetime "created_at",                  null: false
+    t.datetime "updated_at",                  null: false
+    t.index ["user_id"], name: "index_addresses_on_user_id", using: :btree
+  end
+
   create_table "brands", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.string   "name"
     t.datetime "created_at", null: false
@@ -95,7 +112,7 @@ ActiveRecord::Schema.define(version: 20200417140438) do
     t.string   "last_name_reading",                                 null: false
     t.string   "email",                                default: "", null: false
     t.string   "encrypted_password",                   default: "", null: false
-    t.integer  "telephone",                                         null: false
+    t.string   "telephone",                                         null: false
     t.text     "introduction",           limit: 65535
     t.integer  "birth_year",                                        null: false
     t.integer  "birth_month",                                       null: false
@@ -112,6 +129,7 @@ ActiveRecord::Schema.define(version: 20200417140438) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true, using: :btree
   end
 
+  add_foreign_key "addresses", "users"
   add_foreign_key "item_images", "items"
   add_foreign_key "items", "users"
 end
