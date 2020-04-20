@@ -100,13 +100,11 @@
           %h3.main__categories__box__lead__link--title
             新規投稿商品
       .main__categories__box__lists
-        .main__categories__box__lists__list
         -@items.each do|item|
-          .main__categories__box__lists--list--img
+          .main__categories__box__lists--img
             = link_to item_path(item.id) do
-          
-              = image_tag "#{item.item_images[0].image}", size: '220x200', class: "main__categories__box__lists--list--link--img--1" 
-            .main__categories__box__lists--comment
+              = image_tag "#{item.item_images[0].image}", size: '220x200'
+            .main__categories__box__lists--list--comment
               .main__categories__box__lists--comment--1 
                 =item.name
               .main__categories__box__lists--comment--2
@@ -122,24 +120,21 @@
                     (税込み)
       .main__categories__page
         = paginate(@items)
-                  
-                    
+
   %section.main__categories
     %h2.main__categories__title
-      高額商品ランキング
+      ピックアップカテゴリー
     .main__categories__box
       .main__categories__box__lead
         %a{ :href => '#', :class => 'main__categories__box__lead__link' }
           %h3.main__categories__box__lead__link--title
-            商品
+            新規投稿商品
       .main__categories__box__lists
-      
-        .main__categories__box__lists__list
-        -@item.each do |item|
-          .main__categories__box__lists--list--img
+        -@items.each do|item|
+          .main__categories__box__lists--img
             = link_to item_path(item.id) do
-              = image_tag "#{item.item_images[0].image}", size: '220x200', class: "main__categories__box__lists--list--link--img--1" 
-            .main__categories__box__lists--comment
+              = image_tag "#{item.item_images[0].image}", size: '220x200'
+            .main__categories__box__lists--list--comment
               .main__categories__box__lists--comment--1 
                 =item.name
               .main__categories__box__lists--comment--2
@@ -153,8 +148,11 @@
                   0
                   .main__categories__box__lists--comment--2--bottom
                     (税込み)
-    .main__categories__page
-      = paginate(@items)
-          
+      .main__categories__page
+        = paginate(@items)
+    
+                  
+                    
+
       
  
