@@ -394,76 +394,65 @@
         }
       }
       &__lists {
-        width: 780px;
-        margin: 26px auto;
+        width: 880px;
+        margin: 50px auto;
         margin-bottom: 0px;
         display: flex;
         justify-content: space-around;
-        &--list {
-          width: 220px;
+        &__list {
+        display: flex;
+        }
+        &--img {
+          display: flex;
+        }
+        &--comment {
+         color: #333;
+         width: 220px;
+         padding: 16px;
+         display: inline-block;
+         &--1 {
+          overflow: hidden;
+          line-height: 1.5;
+          font-size: 16px;
+          text-align: left;
           display: inline-block;
-          float: left;
-          &--link {
-            text-decoration:	none;
-            background-color: #fff;
-            display: inline-block;
-            &--img {
-              width: 220px;
-              height: 150px;
-              position: relative;
-              overflow: hidden;
-              margin: 0;
-              z-index: auto;
-              &--1 {
-                position: absolute;
-                top: 0;
-                left: 0;
-                right: 0;
-                bottom: 0;
-                width: 100%;
-                z-index: auto;
-                height: 150px;
-                object-fit: cover;
-              }
-            }
-            &--comment {
-              background-color: white;
-              color: #333;
-              padding: 16px;
-              &--1 {
-                overflow: hidden;
-                line-height: 1.5;
-                font-size: 16px;
-                text-align: left;
-              }
-              &--2 {
-                font-size: 16px;
-                &--top {
-                  display: flex;
-                  align-items: center;
-                  justify-content: space-between;
-                  &--2 {
-                    &--icn {
-                      display: inline-block;
-                      font: normal normal normal 14px/1 FontAwesome;
-                      font-size: inherit;
-                      text-rendering: auto;
-                      -webkit-font-smoothing: antialiased;
-                    }
-                  }
-                }
-                &--bottom {
-                  font-size: 10px;
-                  text-align: left;
-                }
-              }
-            }
           }
+         &--2 {
+          font-size: 16px;
+          &--top {
+          display: flex;
+          height: 20px;
+          line-height: 20px;
+            &--1 {
+            left: 30px;
+            top:0px;
+            }
+            &--2 {
+             height: 20px;
+             list-style: 10px;
+            }
+         }
+         &--icn {
+          font: normal normal normal 14px/1 FontAwesome;
+          font-size: inherit;
+          text-rendering: auto;
+          -webkit-font-smoothing: antialiased;
+          margin-top: 5px;
+         } 
+        
+        &--bottom {
+          margin-top: 10px;
+           font-size: 12px;
+           text-align: left;
+           margin-left: 5px;
         }
       }
+     }
     }
   }
+ }
 }
+
 
 
 .main {
