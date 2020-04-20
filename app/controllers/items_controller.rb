@@ -1,7 +1,7 @@
 class ItemsController < ApplicationController
   def index
     @items = Item.includes(:item_images).order('created_at DESC')
-    @items = Item.all.limit(3).order(id: "DESC")
+    @items = Item.all.limit(3).order(id: "DESC").page(params[:page]).per(3)
     
     @item = Item.includes(:item_images).order('created_at DESC')
     @item = Item.all.limit(3).order(price: "DESC")
@@ -34,6 +34,8 @@ class ItemsController < ApplicationController
     render :new
    end
   end
+
+
 
   private
   def item_params

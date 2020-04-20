@@ -373,6 +373,10 @@
     padding-top: 80px;
     background-color: #f8f8f8;
     height: 100%;
+    &__page {
+      text-align: center;
+      margin-top: 20px;
+    }
     &__title {
       text-align: center;
       font-size: 28px;
@@ -399,6 +403,7 @@
         margin-bottom: 0px;
         display: flex;
         justify-content: space-around;
+     
         &__list {
         display: flex;
         }
