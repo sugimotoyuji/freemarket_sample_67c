@@ -3,8 +3,7 @@ class ItemsController < ApplicationController
 
 
   def index
-    @items = Item.includes(:item_images).order('created_at DESC')
-    @items = Item.all.order(id: "DESC").page(params[:page]).per(5)
+    @items = Item.includes(:item_images).order('created_at DESC').page(params[:page]).per(5)
     @category = Item.includes(:item_images).where(category_id: "2").page(params[:page]).per(5)
 
   end
