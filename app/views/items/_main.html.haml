@@ -107,7 +107,8 @@
               Sold out
           .main__categories__box__lists--img
             = link_to item_path(item.id) do
-              = image_tag "#{item.item_images[0].image}", size: '220x200'
+              - if item.item_images.present?
+                = image_tag "#{item.item_images[0].image}", size: '220x200'
             .main__categories__box__lists--list--comment
               .main__categories__box__lists--comment--1 
                 =item.name
@@ -141,7 +142,8 @@
               Sold out
           .main__categories__box__lists--img
             = link_to item_path(item.id) do
-              = image_tag "#{item.item_images[0].image}", size: '220x200'
+              - if item.item_images.present?
+                = image_tag "#{item.item_images[0].image}", size: '220x200'
             .main__categories__box__lists--list--comment
               .main__categories__box__lists--comment--1 
                 =item.name
