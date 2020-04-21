@@ -93,7 +93,7 @@
           午前9時までに振込を依頼いただければ、翌日に指定の口座に入金いたします! 
   %section.main__categories
     %h2.main__categories__title
-      商品一覧
+      新規投稿商品一覧
     .main__categories__box
       .main__categories__box__lead
         %a{ :href => '#', :class => 'main__categories__box__lead__link' }
@@ -123,14 +123,19 @@
 
   %section.main__categories
     %h2.main__categories__title
-      ピックアップカテゴリー
+      ピックアップカテゴリー  ＜メンズ＞
     .main__categories__box
       .main__categories__box__lead
         %a{ :href => '#', :class => 'main__categories__box__lead__link' }
           %h3.main__categories__box__lead__link--title
             新規投稿商品
       .main__categories__box__lists
-        -@items.each do|item|
+        -@category.each do|item|
+          .sold-out
+          - if item.order_status_id == 4
+            .items-sold
+              .items-sold__inner
+                Sold out
           .main__categories__box__lists--img
             = link_to item_path(item.id) do
               = image_tag "#{item.item_images[0].image}", size: '220x200'
@@ -149,7 +154,7 @@
                   .main__categories__box__lists--comment--2--bottom
                     (税込み)
       .main__categories__page
-        = paginate(@items)
+        = paginate(@category)
     
                   
                     

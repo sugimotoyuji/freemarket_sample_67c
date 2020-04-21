@@ -1,12 +1,12 @@
 class ItemsController < ApplicationController
+  before_action :authenticate_user!,  except:[:index,:show]
+
+
   def index
     @items = Item.includes(:item_images).order('created_at DESC')
-    @items = Item.all.limit(3).order(id: "DESC").page(params[:page]).per(3)
-    
-    @item = Item.includes(:item_images).order('created_at DESC')
-    @item = Item.all.limit(3).order(price: "DESC")
-   
-  
+    @items = Item.all.order(id: "DESC").page(params[:page]).per(5)
+    @category = Item.includes(:item_images).where(category_id: "2").page(params[:page]).per(5)
+
   end
   def new
     @items = Item.all

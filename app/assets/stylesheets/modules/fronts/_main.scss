@@ -401,9 +401,9 @@
         width: 880px;
         height: 300px;
         margin-top: 20px;
-        margin-bottom: 0px;
+        padding-left: 70px;
         display: flex;
-        justify-content: center;
+        justify-content: start;
         
         &--img{
         margin-left: 15px;
@@ -413,7 +413,6 @@
          width: 220px;
          padding: 16px;
          display: inline-block;
-         background-color: pink;
          &--1 {
           overflow: hidden;
           line-height: 1.5;
