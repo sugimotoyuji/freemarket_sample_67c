@@ -404,11 +404,21 @@
         padding-left: 70px;
         display: flex;
         justify-content: start;
-        
+        &__inner{
+          color: rgb(22, 230, 212);
+          font-weight: 600;
+          font-size: 50px;
+          position: relative;
+          width: 0;
+          transform: translate(10px, 20px) rotate(20deg);
+          left: 30px;
+          background-color: chocolate;
+        }
         &--img{
-        margin-left: 15px;
+        margin-left: 15px;;
         }
         &--comment {
+         position: absolute;
          color: #333;
          width: 220px;
          padding: 16px;
@@ -456,6 +466,7 @@
   }
  }
 }
+
 
 
 

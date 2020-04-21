@@ -101,6 +101,10 @@
             新規投稿商品
       .main__categories__box__lists
         -@items.each do|item|
+          .main__categories__box__lists__sold
+          - if item.order_status_id == 4
+            .main__categories__box__lists__inner
+              Sold out
           .main__categories__box__lists--img
             = link_to item_path(item.id) do
               = image_tag "#{item.item_images[0].image}", size: '220x200'
@@ -131,11 +135,10 @@
             新規投稿商品
       .main__categories__box__lists
         -@category.each do|item|
-          .sold-out
+          .main__categories__box__lists__sold
           - if item.order_status_id == 4
-            .items-sold
-              .items-sold__inner
-                Sold out
+            .main__categories__box__lists__inner
+              Sold out
           .main__categories__box__lists--img
             = link_to item_path(item.id) do
               = image_tag "#{item.item_images[0].image}", size: '220x200'
