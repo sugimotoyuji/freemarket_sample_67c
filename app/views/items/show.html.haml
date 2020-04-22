@@ -60,19 +60,21 @@
                   %li
                     =@item.category.name
                   %li
-                    =@item.ca
+                   
                   %li
-                    =link_to "#" do
-                      アウター
+                    
             %tr
               %th  ブランド
               %td
+                =@item.brand.name
             %tr
               %th  商品のサイズ
               %td
+                =@item.size.name
             %tr
               %th  商品の状態
-              %td  未使用に近い
+              %td  
+                =@item.condition.name
             %tr
               %th  発送料の負担
               %td  送料込み（出品者負担）
