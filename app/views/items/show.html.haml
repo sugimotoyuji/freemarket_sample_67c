@@ -77,15 +77,25 @@
                 =@item.condition.name
             %tr
               %th  発送料の負担
-              %td  送料込み（出品者負担）
+              %td 
+                =@item.delivery_charge.name
             %tr
               %th  発送元の地域
               %td
-                =link_to "#" do
-                  岩手県
+                =@item.delivery_way.name
             %tr
               %th  発送日の目安
-              %td  4-7日で発送
+              %td  
+                =@item.delivery_date.name
+      .buy-box
+        - if @item.status == 4
+          = link_to '売り切れました', root_path,
+        - elsif @exhibit.user_id == current_user.id
+        = link_to '編集', edit_exhibit_path(@exhibit), class: "btn btn-current"
+        = link_to '削除', exhibit_path(@exhibit), method: :delete, class: "btn btn-current"
+        =link_to buy_items_path do
+          購入画面に進む
+       
       .optionArea
         %ul
           %li.okini
