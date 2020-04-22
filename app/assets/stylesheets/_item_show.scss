@@ -87,6 +87,25 @@
           }
         }
       }
+      .buy-box {
+         text-align: center;
+        a{
+          text-decoration: none;
+          
+          
+        }
+        .btn {
+          padding: 15px 100px 15px 100px;
+          margin: 0 auto;
+          line-height: 48px;
+          background: #3CCACE;
+          border: 1px solid #3CCACE;
+          color: #fff;
+          width: 300%;
+          font-size: 18px;
+          border-radius: 100px;
+        }
+      }
       .optionArea{
         display: flex;
         justify-content: space-between;
