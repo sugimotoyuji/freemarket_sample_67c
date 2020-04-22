@@ -1,6 +1,11 @@
 class ItemsController < ApplicationController
+  before_action :authenticate_user!,  except:[:index,:show]
+
+
   def index
-    @items = Item.all
+    @items = Item.includes(:item_images).order('created_at DESC').page(params[:page]).per(5)
+    @category = Item.includes(:item_images).where(category_id: "2").page(params[:page]).per(5)
+
   end
   def new
     @items = Item.all
@@ -28,6 +33,8 @@ class ItemsController < ApplicationController
     render :new
    end
   end
+
+
 
   private
   def item_params
