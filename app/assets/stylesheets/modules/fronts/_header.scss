@@ -118,6 +118,66 @@ body {
             line-height: 32px;
           }
         }
+        &__like {
+          color: #333;
+          line-height: 38px;
+          padding: 0 0 0 16px;
+          &--button {
+            display: flex;
+            align-items: center;
+            color: #333;
+            text-decoration: none;
+            line-height: 32px;
+          }
+        }
+        &__notification {
+          color: #333;
+          line-height: 38px;
+          padding: 0 0 0 16px;
+          &--button {
+            display: flex;
+            align-items: center;
+            color: #333;
+            text-decoration: none;
+            line-height: 32px;
+          }
+        }
+        &__todo {
+          color: #333;
+          line-height: 38px;
+          padding: 0 0 0 16px;
+          &--button {
+            display: flex;
+            align-items: center;
+            color: #333;
+            text-decoration: none;
+            line-height: 32px;
+          }
+        }
+        &__mypage {
+          color: #333;
+          line-height: 38px;
+          padding: 0 0 0 16px;
+          &--button {
+            display: flex;
+            align-items: center;
+            color: #333;
+            text-decoration: none;
+            line-height: 32px;
+          }
+        }
+        &__logout {
+          color: #333;
+          line-height: 38px;
+          padding: 0 0 0 16px;
+          &--button {
+            display: flex;
+            align-items: center;
+            color: #333;
+            text-decoration: none;
+            line-height: 32px;
+          }
+        }
       }  
     }
   }
