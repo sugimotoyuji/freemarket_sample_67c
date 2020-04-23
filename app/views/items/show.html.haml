@@ -26,65 +26,78 @@
   .topContents
     .contents
       .itembox
-        %h1.itembox__name item-yusername
+        %h1.itembox__name 
+          =@item.name
         .itembox__imagebox
-          %ul.imagebig
-            %li#bigimage
-              =image_tag src="https://s3-ap-northeast-1.amazonaws.com/mercarimaster/uploads/captured_image/content/13/a007.png"
-            %ul.imagesmale
-              %li#smaleimage
-                =image_tag src="https://s3-ap-northeast-1.amazonaws.com/mercarimaster/uploads/captured_image/content/13/a007.png"
-              %li
-                =image_tag src="https://s3-ap-northeast-1.amazonaws.com/mercarimaster/uploads/captured_image/content/14/a001.png"
-              %li
-                =image_tag src="https://s3-ap-northeast-1.amazonaws.com/mercarimaster/uploads/captured_image/content/15/a003.png"
+          -@item.item_images.each do |image|
+            .imagebig
+              .bigimage
+                =image_tag  image.image.url,class:"show-img"
+            
+           
+             
+                
         .itembox__price
-          %span.plice ¥30,000
+          %span.plice 
+            ￥
+            =@item.price
           .itembox__price-ditail
           %span (税込)
           %span 送料込み
       .itembox__Dtail
-        %span 親譲りの無鉄砲で小供の時から損ばかりしている。小学校に居る時分学校の二階から飛び降りて一週間ほど腰を抜かした事がある。なぜそんな無闇をしたと聞く人があるかも知れぬ。別段深い理由でもない。新築の二階から首を出していたら、同級生の一人が冗談に、いくら威張っても、そこから飛び降りる事は出来まい。弱虫やーい。と囃したからである。小使に負ぶさって帰って来た時、おやじが大きな眼をして二階ぐらいから飛び降りて腰
+        =@item.description
       .itemtable
         %table
           %tb
             %tr
               %th 出品者
-              %td hoge
+              %td
+                =@item.user.nickname
 
             %tr
               %th カテゴリー
               %td
                 %ul
                   %li
-                    =link_to "#" do
-                      ベビー・キッズ
+                    =@item.category.name
                   %li
-                    =link_to "#" do
-                      ベビー服(男女兼用) ~95cm
+                   
                   %li
-                    =link_to "#" do
-                      アウター
+                    
             %tr
               %th  ブランド
               %td
+                =@item.brand.name
             %tr
               %th  商品のサイズ
               %td
+                =@item.size.name
             %tr
               %th  商品の状態
-              %td  未使用に近い
+              %td  
+                =@item.condition.name
             %tr
               %th  発送料の負担
-              %td  送料込み（出品者負担）
+              %td 
+                =@item.delivery_charge.name
             %tr
               %th  発送元の地域
               %td
-                =link_to "#" do
-                  岩手県
+                =@item.delivery_way.name
             %tr
               %th  発送日の目安
-              %td  4-7日で発送
+              %td  
+                =@item.delivery_date.name
+      .buy-box
+        - if @item.order_status_id == 4
+          = link_to '売り切れました', root_path, class:"sold-btn"
+        - elsif @item.user_id == current_user.id
+          = link_to '編集', edit_item_path(@item) ,class:"edit-btn"
+          = link_to '削除', item_path(@item), method: :delete, data: { confirm: "削除しますか？" } ,class:"delete-btn"
+        -else
+          =link_to "購入画面に進む",buy_items_path ,class:"buy-btn"
+            
+       
       .optionArea
         %ul
           %li.okini
@@ -110,16 +123,12 @@
       -# footerの上のやつ
   %ul.topform
     %li.befor
-      =link_to "#" do
-        %i{class: "fas fa-angle-left"}
-        前のページ
+     
     %li.after
-      =link_to "#" do
-        次のページ
-        %i{class: "fas fa-angle-right"}
+     
   .relatedItem
-    =link_to "#" do
-      ベビー・キッズをもっと見る
+    =link_to root_path do
+      トップページへ戻る
 .footer 
   %ul.footer__menus
     %li.footer__menus__box
