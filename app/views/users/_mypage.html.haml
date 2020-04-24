@@ -1,0 +1,62 @@
+.mypage
+  .mypage__container
+    .mypage__content
+      .mypage__user__icon
+        %i(class="fas fa-user-circle")
+        %h2.mypage__user__icon--nickname= @user.nickname
+        %h2.mypage__user__icon--status 評価0 出品数0
+      .mypage__tab__container-notification_todo
+        %ul
+          %li お知らせ
+          %li やることリスト
+        .mypage__tab__container__content
+      .mypage__tab__container
+
+    .mypage__side
+      %nav.mypage__nav
+        %ul.mypage__nav__list
+          %li.mypage__nav__list__item
+            =link_to("マイページ", "/users/#{current_user.id}")
+          %li.mypage__nav__list__item
+            =link_to("お知らせ", "#")
+          %li.mypage__nav__list__item
+            =link_to("やることリスト", "#")
+          %li.mypage__nav__list__item
+            =link_to("いいね！一覧", "#")
+          %li.mypage__nav__list__item
+            =link_to("出品する", "#")
+          %li.mypage__nav__list__item
+            =link_to("下書き一覧", "#")
+          %li.mypage__nav__list__item
+            =link_to("出品した商品-出品中", "#")
+          %li.mypage__nav__list__item
+            =link_to("出品した商品-取引中", "#")
+          %li.mypage__nav__list__item
+            =link_to("出品した商品-売却済み", "#")
+          %li.mypage__nav__list__item
+            =link_to("購入した商品-取引中", "#")
+          %li.mypage__nav__list__item
+            =link_to("出品した商品-過去の取引", "#")
+          %li.mypage__nav__list__item
+            =link_to("ニュース一覧", "#")
+          %li.mypage__nav__list__item
+            =link_to("評価一覧", "#")
+          %li.mypage__nav__list__item
+            =link_to("ガイド", "#")
+          %li.mypage__nav__list__item
+            =link_to("お問い合わせ", "#")
+        %h3.mypage__nav__head
+          設定
+        %ul.mypage__nav__list
+          %li.mypage__nav__list__item
+            =link_to("プロフィール", "#")
+          %li.mypage__nav__list__item
+            =link_to("発送元・お届け先住所変更", "#")
+          %li.mypage__nav__list__item
+            =link_to("支払い情報", "#")
+          %li.mypage__nav__list__item
+            =link_to("メール・パスワード", "#")
+          %li.mypage__nav__list__item
+            =link_to("本人情報", "#")
+          %li.mypage__nav__list__item
+            = link_to "ログアウト", destroy_user_session_path, method: :delete
