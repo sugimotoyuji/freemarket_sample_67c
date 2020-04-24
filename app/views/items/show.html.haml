@@ -107,37 +107,5 @@
   .relatedItem
     =link_to root_path do
       トップページへ戻る
-.footer 
-  %ul.footer__menus
-    %li.footer__menus__box
-      %h2.footer__menus__box__top FURIMAについて
-      %ul.footer__menus__box--li
-        %li.footer__menus__box--li--1
-          %a{ :href => '#', :class => 'footer__menus__box--li--1--text' } 会社概要（運営会社）
-        %li.footer__menus__box--li--2
-          %a{ :href => '#', :class => 'footer__menus__box--li--1--text' } プライバシーポリシー
-        %li.footer__menus__box--li--3
-          %a{ :href => '#', :class => 'footer__menus__box--li--1--text' } FURIMA利用規約
-        %li.footer__menus__box--li--4
-          %a{ :href => '#', :class => 'footer__menus__box--li--1--text' } ポイントに関する特約
-    %li.footer__menus__box
-      %h2.footer__menus__box__top FURIMAを見る
-      %ul.footer__menus__box--li
-        %li.footer__menus__box--li--1
-          %a{ :href => '#', :class => 'footer__menus__box--li--1--text' } カテゴリー一覧
-        %li.footer__menu__box--li--2
-          %a{ :href => '#', :class => 'footer__menus__box--li--1--text' } ブランド一覧
-    %li.footer__menus__box
-      %h2.footer__menus__box__top ヘルプ＆ガイド
-      %ul.footer__menus__box--li
-        %li.footer__menus__box--li--1
-          %a{ :href => '#', :class => 'footer__menus__box--li--1--text' } FURIMAガイド
-        %li.footer__menus__box--li--2
-          %a{ :href => '#', :class => 'footer__menus__box--li--1--text' } FURIMAロゴ利用ガイドライン
-        %li.footer__menus__box--li--3
-          %a{ :href => '#', :class => 'footer__menus__box--li--1--text' } お知らせ
-  .footer__rodo 
-    %a{ :href => '#', :class => 'footer__rodo--1' } 
-      = image_tag asset_path("logo-white.png"), class: "footer__rodo--1--img" 
-  %p.footer__text © FURIMA
-%a{ :href => '#', :class => '' } 
+
+=render "items/footer"
