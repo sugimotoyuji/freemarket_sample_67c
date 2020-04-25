@@ -47,6 +47,24 @@
 .mypage__content{
   float: right;
   width: 700px;
+  .mypage__logout{
+    height: 200px;
+    background-color: #fff;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    .logout--btn{
+      height: 50px;
+      width: 300px;
+      display: block;
+      border: 1px solid red;
+      background: red;
+      color: #fff;
+      text-decoration: inherit;
+      text-align: center;
+      line-height: 50px;
+    }
+  }
   .mypage__user__icon{
     height: 200px;
     padding: 40px;
