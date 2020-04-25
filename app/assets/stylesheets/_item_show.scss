@@ -38,13 +38,13 @@
             border-bottom: 10px solid transparent;
           }
           .imagebig{
-            
+
            
             .show-img{
+              max-width: 100%;
               height: 300px;
-              width: 600px;
               margin: 0 auto;
-
+              object-fit: cover; 
             }
             .imagesmale{
               display: flex;
@@ -52,7 +52,7 @@
               margin: 0 auto;
               margin-top: 10px;
               img{
-                height: 87px;
+                height: 100%;
                 width: 100%;
               }
             }
