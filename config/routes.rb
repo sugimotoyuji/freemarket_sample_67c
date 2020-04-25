@@ -6,7 +6,12 @@ Rails.application.routes.draw do
     get 'addresses', to: 'users/registrations#new_address'
     post 'addresses', to: 'users/registrations#create_address'
   end
-  resources :users,only: :show
+  resources :users,only: [:show]
+  resources :users,only: :logout, path: '' do
+    collection do
+      get 'logout'
+    end
+  end
   root 'front#index'
    resources :items do
     collection do
