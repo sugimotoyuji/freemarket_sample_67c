@@ -37,14 +37,15 @@
             border-top: 10px solid transparent;
             border-bottom: 10px solid transparent;
           }
-          .imagebig{
-            
-           
+          .bigimage{
+            position: relative;
+            width: 100%;
+            height: 350px;
             .show-img{
-              height: 300px;
-              width: 600px;
+              width: 100%;
+              height: 100%;
+              object-fit: scale-down;
               margin: 0 auto;
-
             }
             .imagesmale{
               display: flex;
