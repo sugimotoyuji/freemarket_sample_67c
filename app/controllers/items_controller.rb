@@ -35,7 +35,25 @@ class ItemsController < ApplicationController
 
   def show
    @item = Item.find(params[:id])
-   
+  end
+
+  def buy
+    @item = Item.find(params[:id])
+  end
+
+  def pay
+    @item = Item.find(params[:id])
+    Payjp.api_key = ENV['PAYJP_PRIVATE_KEY']
+    charge = Payjp::Charge.create(
+    amount: @item.price,
+    card: params['payjp-token'],
+    currency: 'jpy'
+    )
+    @item.update(order_status_id: 4)
+    redirect_to action: :done
+  end
+
+  def done
   end
 
 
