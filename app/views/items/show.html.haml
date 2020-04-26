@@ -85,6 +85,11 @@
             %tr
               %th  発送日の目安
               %td  4-7日で発送
+      .item-buy
+        
+        =link_to buy_items_path(item.id) ,data: {"turbolinks" => false} do
+          %P 購入する
+          
       .optionArea
         %ul
           %li.okini

@@ -38,12 +38,9 @@
           .buy-form__error
             %p.buy-form__error__message 配送先と支払い方法の入力を完了してください
           .buy-form__purchase
-            = button_to "購入する", "#", class: "buy-form__purchase__disabled"
-
-      
-                
-      
-      
-
+            = form_tag url: buy_items_path do
+              :plain
+                <script type="text/javascript" src="https://checkout.pay.jp" class="payjp-button" data-key="pk_test_86b13e1bd8c0366d33309fc0"></script>
+           
 
 = render partial: 'front/footer'
