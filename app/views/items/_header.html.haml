@@ -15,7 +15,13 @@
       %ul.inner__bottom__left
         %li.inner__bottom__left__categories
           %a{ :href => '#', :class => 'inner__bottom__left__categories--categorie' } カテゴリー
-        %li.inner__bottom__left__brands
+          .categor
+            %ul.categor1
+              - @parents.each do |parent|
+                %li.categor1__li
+                  = link_to "#{parent.name}", 'category_path(parent)', class: 'categor2',id: "#{parent.id}"
+            %ul.categor3
+            %ul.categor4
           %a{ :href => '#', :class => 'inner__bottom__left__brands--brand' } ブランド
       %ul.inner__bottom__right
         - if user_signed_in?
