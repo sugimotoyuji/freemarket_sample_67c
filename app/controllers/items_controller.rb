@@ -1,12 +1,14 @@
 class ItemsController < ApplicationController
 
 
-  def index
-    @items = Item.all
-  end
+  before_action :authenticate_user!,  except:[:index,:show]
 
-  def show
-    @item = Item.find(params[:id])
+
+
+  def index
+    @items = Item.includes(:item_images).order('created_at DESC').page(params[:page]).per(5)
+    @category = Item.includes(:item_images).where(category_id: "2").page(params[:page]).per(5)
+
   end
 
 
@@ -15,7 +17,6 @@ class ItemsController < ApplicationController
     @item = Item.new
     @item.item_images.new
     @item.build_brand
-    @category_parent_array = ["---"]
     @category_parent_array = Category.where(ancestry: nil).pluck(:name)
   end
   
@@ -42,6 +43,7 @@ class ItemsController < ApplicationController
     render :new
   end
 
+
   def pay
     Payjp.api_key = 'sk_test_e74ef4bbca2d501919314c45'
     Payjp::Charge.create(
@@ -56,6 +58,13 @@ class ItemsController < ApplicationController
   end
   
 end
+
+  def show
+   @item = Item.find(params[:id])
+   
+  end
+
+
 
 
   private
