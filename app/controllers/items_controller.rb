@@ -29,10 +29,6 @@ class ItemsController < ApplicationController
     @category_grandchildren = Category.find("#{params[:child_id]}").children
   end
 
-  def buy
-    @item = Item.find(params[:id])
-  end
-
   
   
   def create
@@ -41,23 +37,31 @@ class ItemsController < ApplicationController
     redirect_to root_path
    else
     render :new
+    end
   end
 
 
+  def buy
+    @item = Item.find(params[:id])
+  end
+
+
+
   def pay
+    @item = Item.find(params[:id])
     Payjp.api_key = 'sk_test_e74ef4bbca2d501919314c45'
-    Payjp::Charge.create(
-      #amountは値段を記載
-      amount: 3500, 
+    charge=Payjp::Charge.create(
+      amount: @item.price, 
       card: params['payjp-token'],
       currency: 'jpy'
     )
+    @item.update(order_status_id: 4)
+    redirect_to action: :done
   end
 
   def done
   end
   
-end
 
   def show
    @item = Item.find(params[:id])
