@@ -11,30 +11,22 @@
         購入内容の確認
 
     .buy-main
-
       .buy-item
         .buy-item__box.clearfix
-        -@item.item_images.each do |image|
-          =image_tag  image.image.url,size: "100x100"
+          = image_tag "#{@item.item_images[0].image}", class:"buy-img"
     .buy-item__box__name 
       =@item.name
-
       .buy-form
-
         %p.buy-form__price
           ￥
           =@item.price 
           %span.buy-form__price--shipping 
-         
           %span.buy-form__price--shipping 
             =@item.delivery_charge.name
-        .buy-form__point
-          %p.buy-form__point__info ポイントはありません
-
         .buy-form__payment
           .buy-form__payment__box.clearfix
-            %p.buy-form__payment__box--head 支払い金額
             %p.buy-form__payment__box--content
+              支払い金額
               ￥
               = @item.price
 
