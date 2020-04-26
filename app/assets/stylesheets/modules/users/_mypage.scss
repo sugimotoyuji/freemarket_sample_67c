@@ -54,15 +54,16 @@
     justify-content: center;
     align-items: center;
     .logout--btn{
-      height: 50px;
-      width: 300px;
-      display: block;
-      border: 1px solid red;
-      background: red;
-      color: #fff;
-      text-decoration: inherit;
-      text-align: center;
-      line-height: 50px;
+      @include delete-btn;
+    }
+  }
+  .mypage__card__info{
+    height: 200px;
+    background-color: #fff;
+    .mypage__card__delete{
+      .delete-btn{
+      @include delete-btn;
+      }
     }
   }
   .mypage__user__icon{
