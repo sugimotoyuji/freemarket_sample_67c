@@ -54,6 +54,9 @@
   right: 32px;
   position: fixed;
   padding: 15px;
+  a {
+    text-decoration: none;
+  }
   &__text {
     color: #fff;
     display: block;
@@ -63,5 +66,8 @@
   }
   &__btn {
     width: 60%;
+  }
+  a {
+    text-decoration: none;
   }
 }

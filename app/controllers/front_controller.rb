@@ -3,4 +3,7 @@ class FrontController < ApplicationController
     @parents = Category.where(ancestry: nil)
   end
 
+  def new
+  end
+
 end

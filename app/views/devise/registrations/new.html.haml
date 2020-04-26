@@ -1,0 +1,59 @@
+.resistration-page
+  .resistration-page__header
+    .resistration-page__header__logo
+      = link_to image_tag('FURIMA-logo.svg'), '#',class: "header__img"
+  .resistration-page__form
+    %h2.resistration-page__form__header 新規会員登録
+    = form_for(@user, url: user_registration_path) do |f|
+      = render "devise/shared/error_messages", resource: @user
+      .field
+        %label{class:"nickname"}ニックネーム
+        %span.form-require
+        = f.text_field :nickname, autofocus: true, class: "input-default", placeholder: "例)フリマ一郎"
+      .field
+        %label{class:"email"}メールアドレス
+        %span.form-require
+        = f.email_field :email, class: "input-default", placeholder: "PC・携帯どちらでも可"
+      .field
+        %label{class: "password"} パスワード
+        %span.form-require
+        = f.password_field :password, autocomplete: "off", class: "input-default", placeholder: "英数字8文字以上"
+      .field
+        %label{class: "password_confirmation"} パスワード確認
+        %span.form-require
+        = f.password_field :password_confirmation, autocomplete: "off", class: "input-default", placeholder: ""
+      .field
+        %label{class: "first_name, last_name"} お名前(全角)
+        %span.form-require
+        %br/
+        = f.text_field :first_name, autofocus: true, class: "input-half", placeholder: "鈴木"
+        = f.text_field :last_name, autofocus: true, class: "input-half", placeholder: "一郎"
+      .field
+        %label{class: "first_name, last_name"} お名前かな(全角)
+        %span.form-require
+        %br/
+        = f.text_field :first_name_reading, autofocus: true, class: "input-half", placeholder: "すずき"
+        = f.text_field :last_name_reading, autofocus: true, class: "input-half", placeholder: "いちろう"
+      .field
+        %label{class: "telephone"} お電話番号
+        %span.form-require
+        = f.text_field :telephone, autofocus: true, class: "input-default", placeholder: "携帯電話"
+      .field
+        %label{class: "birth_day"} 生年月日
+        %span.form-require
+        %br/
+        = f.text_field :birth_year, autofocus: true, class: "input-one-third", placeholder: "2020"
+        年
+        = f.text_field :birth_month, autofocus: true, class: "input-one-third", placeholder: "04"
+        月
+        = f.text_field :birth_day, autofocus: true, class: "input-one-third", placeholder: "01"
+        日
+      .actions
+        = f.submit "商品送付先住所情報登録へ", class: 'btn-submit'
+
+  .resistration-page__footer
+    %ul
+      %li プライバシーポリシー
+      %li フリマ利用規約
+      %li 特定商取引に関する表記
+    %h5 ©︎FURIMA, Inc
