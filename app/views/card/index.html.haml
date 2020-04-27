@@ -1,0 +1,17 @@
+.card-index-main
+  .card-inde-main__header
+    =render partial: "items/header"
+  .card-index-main__notice-mesage-box
+    .card-index-main__notice-mesage-box__notice-message
+      %P カード情報が登録されていません
+      =icon("fas", "exclamation-triangle",class:"card-icon")
+
+    .card-index-main__notice-mesage-box__new-card-box
+      %p カード情報を入力してください
+      =icon("fas", "exclamation-triangle",class:"card-icon-new")
+    .card-index-main__notice-mesage-box__new-card-page
+      =link_to "カード入力画面に進む", new_card_path 
+      =icon("fab", "cc-amazon-pay",class:"card-icon-credit")
+    
+  .card-inde-main__fooder
+    =render partial: "items/footer"

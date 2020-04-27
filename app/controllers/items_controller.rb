@@ -39,10 +39,16 @@ class ItemsController < ApplicationController
 
   def buy
     @item = Item.find(params[:id])
+   
   end
 
   def pay
+    if card.blank?
+      flash[:notice] = "カードを登録して下さい"
+      redirect_to controller: 'card', action: 'index' 
+    else
     @item = Item.find(params[:id])
+    card = current_user.card
     Payjp.api_key = ENV['PAYJP_PRIVATE_KEY']
     charge = Payjp::Charge.create(
     amount: @item.price,
@@ -51,12 +57,15 @@ class ItemsController < ApplicationController
     )
     @item.update(order_status_id: 4)
     redirect_to action: :done
+    end
   end
 
   def done
   end
 
-
+  def card
+    card = Card.where(user_id: current_user.id)
+  end
 
   private
   def item_params

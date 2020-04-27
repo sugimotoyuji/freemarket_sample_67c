@@ -20,4 +20,5 @@ class User < ApplicationRecord
   has_many :like_items,through: :likes,source: :items
   has_many :flag_items,through: :flags,source: :items
   has_many :todo_lists
+  has_one :card
 end
