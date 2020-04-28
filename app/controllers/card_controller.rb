@@ -52,15 +52,6 @@ class CardController < ApplicationController
       redirect_to action: "new"
   end
 
-  def pay
-    Payjp.api_key = 'sk_test_e74ef4bbca2d501919314c45'
-    Payjp::Charge.create(
-      #amountは値段を記載
-      amount: 3500, 
-      card: params['payjp-token'],
-      currency: 'jpy'
-    )
-  end
 end
 
 

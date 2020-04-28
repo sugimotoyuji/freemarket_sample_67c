@@ -46,20 +46,28 @@ class ItemsController < ApplicationController
   end
 
 
-
   def pay
+    if card.blank?
+      redirect_to controller: 'card', action: 'new'
+    else
     @item = Item.find(params[:id])
+    card = current_user.cards
     Payjp.api_key = 'sk_test_e74ef4bbca2d501919314c45'
-    charge=Payjp::Charge.create(
-      amount: @item.price, 
-      card: params['payjp-token'],
-      currency: 'jpy'
+    charge = Payjp::Charge.create(
+    amount: @item.price,
+    card: params['payjp-token'],
+    currency: 'jpy'
     )
     @item.update(order_status_id: 4)
     redirect_to action: :done
+    end
   end
 
   def done
+  end
+
+  def card
+    card = Card.where(user_id: current_user.id)
   end
   
 
