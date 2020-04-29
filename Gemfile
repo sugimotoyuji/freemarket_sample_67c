@@ -74,4 +74,7 @@ gem 'jquery-rails'
 gem 'rails-i18n'
 gem 'rspec-rails'
 gem 'kaminari'
+gem 'omniauth-facebook'
+gem 'omniauth-google-oauth2'
+gem "omniauth-rails_csrf_protection"
 
