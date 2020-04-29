@@ -4,12 +4,12 @@
       = link_to image_tag('FURIMA-logo.svg'), '#',class: "header__img"
   .resistration-page__form
     %h2.resistration-page__form__header 新規会員登録
-    .resistration-page__form__facebook
+    .resistration-page__form__facebook-box
       =icon("fab","facebook-square",class:"icon-facebook")
-      = link_to 'Facebookで登録', user_facebook_omniauth_authorize_path, method: :post
-    .resistration-page__form__google
+      = link_to 'Facebookで登録する', user_facebook_omniauth_authorize_path, method: :post
+    .resistration-page__form__google-box
       =icon("fab","google",class:"icon-google")
-      = link_to 'Googleで登録', user_google_oauth2_omniauth_authorize_path, method: :post
+      = link_to 'Googleで登録する', user_google_oauth2_omniauth_authorize_path, method: :post
     = form_for(@user, url: user_registration_path) do |f|
       = render "devise/shared/error_messages", resource: @user
       .field
