@@ -4,8 +4,12 @@
       = link_to image_tag('FURIMA-logo.svg'), '#',class: "header__img"
   .resistration-page__form
     %h2.resistration-page__form__header 新規会員登録
-    = link_to 'Facebookで登録', user_facebook_omniauth_authorize_path, method: :post
-    = link_to 'Googleで登録', user_google_oauth2_omniauth_authorize_path, method: :post
+    .resistration-page__form__facebook
+      =icon("fab","facebook-square",class:"icon-facebook")
+      = link_to 'Facebookで登録', user_facebook_omniauth_authorize_path, method: :post
+    .resistration-page__form__google
+      =icon("fab","google",class:"icon-google")
+      = link_to 'Googleで登録', user_google_oauth2_omniauth_authorize_path, method: :post
     = form_for(@user, url: user_registration_path) do |f|
       = render "devise/shared/error_messages", resource: @user
       .field
@@ -17,9 +21,12 @@
         %span.form-require
         = f.email_field :email, class: "input-default", placeholder: "PC・携帯どちらでも可"
       .field
-        %label{class: "password"} パスワード
-        %span.form-require
-        = f.password_field :password, autocomplete: "off", class: "input-default", placeholder: "英数字8文字以上"
+        - if @sns_id.present?
+          = hidden_field_tag :sns_auth, true
+        - else
+          %label{class: "password"} パスワード
+          %span.form-require
+          = f.password_field :password, autocomplete: "off", class: "input-default", placeholder: "英数字8文字以上"
       .field
         %label{class: "password_confirmation"} パスワード確認
         %span.form-require
