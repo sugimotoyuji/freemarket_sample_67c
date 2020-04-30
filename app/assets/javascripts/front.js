@@ -8,6 +8,7 @@ $(function() {
       $(".categor").css('display','none');
     },500);
     $(".categor2").on("mouseenter", function() {
+      $(".child_category").remove();
       clearTimeout(hoge);
     });
   });
@@ -15,6 +16,7 @@ $(function() {
     $(".categor").css('display','none');
   });
   $(".categor2").on("mouseenter", function() {
+    $(".child_category").remove();
     var id = this.id
     $("#" + id).css('color','red');
   });

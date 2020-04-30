@@ -3,6 +3,7 @@ class ItemsController < ApplicationController
 
 
   def index
+    @parents = Category.where(ancestry: nil)
     @items = Item.includes(:item_images).order('created_at DESC').page(params[:page]).per(5)
     @category = Item.includes(:item_images).where(category_id: "2").page(params[:page]).per(5)
     @parents = Category.where(ancestry: nil)
@@ -35,7 +36,8 @@ class ItemsController < ApplicationController
   end
 
   def show
-   @item = Item.find(params[:id])
+    @parents = Category.where(ancestry: nil)
+    @item = Item.find(params[:id])
    
   end
 
