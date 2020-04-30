@@ -22,6 +22,7 @@ class User < ApplicationRecord
   has_many :flag_items,through: :flags,source: :items
   has_many :todo_lists
   has_many :sns_credentials
+  
   def self.from_omniauth(auth)
     sns = SnsCredential.where(provider: auth.provider, uid: auth.uid).first_or_create
     # sns認証したことがあればアソシエーションで取得
