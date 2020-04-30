@@ -1,10 +1,25 @@
 Rails.application.routes.draw do
+
+  resources :cards, only: [:index, :new, :show] do
+    collection do
+      post 'show', to: 'cards#show'
+      post 'pay', to: 'cards#pay'
+      delete 'delete', to: 'cards#delete'
+    end
+  end
+
   devise_for :users, controllers: {
     registrations: 'users/registrations',
   }
   devise_scope :user do
     get 'addresses', to: 'users/registrations#new_address'
     post 'addresses', to: 'users/registrations#create_address'
+  end
+  resources :users,only: [:show]
+  resources :users,only: :logout, path: '' do
+    collection do
+      get 'logout'
+    end
   end
   root 'items#index'
   get '/category/new'

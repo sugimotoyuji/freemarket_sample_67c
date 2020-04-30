@@ -9,6 +9,7 @@ class User < ApplicationRecord
   validates :email, presence: true, uniqueness: true, format: { with: VALID_EMAIL_REGEX }
   validates :password, length: { minimum: 8 }
   has_one  :address
+  has_many :cards
   has_many :items
   has_many :orders,dependent: :destroy
   has_many :profits
