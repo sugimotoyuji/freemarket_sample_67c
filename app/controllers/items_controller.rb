@@ -36,6 +36,7 @@ class ItemsController < ApplicationController
 
   def show
    @item = Item.find(params[:id])
+   @parents = Category.where(ancestry: nil)
    
   end
 
