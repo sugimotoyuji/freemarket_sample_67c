@@ -1,82 +1,90 @@
-=render "items/header"
-
+.header
+  .inner
+    .inner__top
+      %h1.inner__top__icn
+        %a{ :href => '#', :class => 'inner__top__icn--image' }
+          = image_tag 'logo.png', class: 'inner__top__icn--image--tag' 
+      .inner__top__searchBox
+        %form.inner__top__searchBox__fom
+          %input{:type => "hidden", :class => "inner__top__searchBox__fom--text" }
+          %input{:class => "inner__top__searchBox__fom--text", :placeholder => "キーワードから探す", }
+          %button{:type => "submit", :class => "inner__top__searchBox__fom--submit"}
+            .inner__top__searchBox__fom--submit--box
+              = image_tag 'icon-search 1.png', class: 'inner__top__searchBox__fom--submit--box--image'
+    .inner__bottom
+      %ul.inner__bottom__left
+        %li.inner__bottom__left__categories
+          %a{ :href => '#', :class => 'inner__bottom__left__categories--categorie' } カテゴリー
+        %li.inner__bottom__left__brands
+          %a{ :href => '#', :class => 'inner__bottom__left__brands--brand' } ブランド
+      %ul.inner__bottom__right
+        %li.inner__bottom__right__login
+          = link_to "ログイン", new_user_session_path, class:'inner__bottom__right__login--button'
+        %li.inner__bottom__right__member
+          = link_to "新規会員登録", new_user_registration_path, class: 'inner__bottom__right__member--button'
 .wrapper
   .topContents
     .contents
       .itembox
-        %h1.itembox__name 
-          =@item.name
+        %h1.itembox__name item-yusername
         .itembox__imagebox
-          -@item.item_images.each do |image|
-            .imagebig
-              .bigimage
-                =image_tag  image.image.url,class:"show-img"
-            
-           
-             
-                
+          %ul.imagebig
+            %li#bigimage
+              =image_tag src="https://s3-ap-northeast-1.amazonaws.com/mercarimaster/uploads/captured_image/content/13/a007.png"
+            %ul.imagesmale
+              %li#smaleimage
+                =image_tag src="https://s3-ap-northeast-1.amazonaws.com/mercarimaster/uploads/captured_image/content/13/a007.png"
+              %li
+                =image_tag src="https://s3-ap-northeast-1.amazonaws.com/mercarimaster/uploads/captured_image/content/14/a001.png"
+              %li
+                =image_tag src="https://s3-ap-northeast-1.amazonaws.com/mercarimaster/uploads/captured_image/content/15/a003.png"
         .itembox__price
-          %span.plice 
-            ￥
-            =@item.price
+          %span.plice ¥30,000
           .itembox__price-ditail
           %span (税込)
           %span 送料込み
       .itembox__Dtail
-        =@item.description
+        %span 親譲りの無鉄砲で小供の時から損ばかりしている。小学校に居る時分学校の二階から飛び降りて一週間ほど腰を抜かした事がある。なぜそんな無闇をしたと聞く人があるかも知れぬ。別段深い理由でもない。新築の二階から首を出していたら、同級生の一人が冗談に、いくら威張っても、そこから飛び降りる事は出来まい。弱虫やーい。と囃したからである。小使に負ぶさって帰って来た時、おやじが大きな眼をして二階ぐらいから飛び降りて腰
       .itemtable
         %table
           %tb
             %tr
               %th 出品者
-              %td
-                =@item.user.nickname
+              %td hoge
 
             %tr
               %th カテゴリー
               %td
                 %ul
                   %li
-                    =@item.category.name
+                    =link_to "#" do
+                      ベビー・キッズ
                   %li
-                   
+                    =link_to "#" do
+                      ベビー服(男女兼用) ~95cm
                   %li
-                    
+                    =link_to "#" do
+                      アウター
             %tr
               %th  ブランド
               %td
-                =@item.brand.name
             %tr
               %th  商品のサイズ
               %td
-                =@item.size.name
             %tr
               %th  商品の状態
-              %td  
-                =@item.condition.name
+              %td  未使用に近い
             %tr
               %th  発送料の負担
-              %td 
-                =@item.delivery_charge.name
+              %td  送料込み（出品者負担）
             %tr
               %th  発送元の地域
               %td
-                =@item.delivery_way.name
+                =link_to "#" do
+                  岩手県
             %tr
               %th  発送日の目安
-              %td  
-                =@item.delivery_date.name
-      .buy-box
-        - if @item.order_status_id == 4
-          = link_to '売り切れました', root_path, class:"sold-btn"
-        - elsif user_signed_in?
-          - if @item.user_id == current_user.id
-            = link_to '編集', edit_item_path(@item) ,class:"edit-btn"
-            = link_to '削除', item_path(@item), method: :delete, data: { confirm: "削除しますか？" } ,class:"delete-btn"
-          - else
-            =link_to "購入画面に進む",buy_items_path ,class:"buy-btn"
-            
-       
+              %td  4-7日で発送
       .optionArea
         %ul
           %li.okini
@@ -102,11 +110,47 @@
       -# footerの上のやつ
   %ul.topform
     %li.befor
-     
+      =link_to "#" do
+        %i{class: "fas fa-angle-left"}
+        前のページ
     %li.after
-     
+      =link_to "#" do
+        次のページ
+        %i{class: "fas fa-angle-right"}
   .relatedItem
-    =link_to root_path do
-      トップページへ戻る
-
-=render "items/footer"
+    =link_to "#" do
+      ベビー・キッズをもっと見る
+.footer 
+  %ul.footer__menus
+    %li.footer__menus__box
+      %h2.footer__menus__box__top FURIMAについて
+      %ul.footer__menus__box--li
+        %li.footer__menus__box--li--1
+          %a{ :href => '#', :class => 'footer__menus__box--li--1--text' } 会社概要（運営会社）
+        %li.footer__menus__box--li--2
+          %a{ :href => '#', :class => 'footer__menus__box--li--1--text' } プライバシーポリシー
+        %li.footer__menus__box--li--3
+          %a{ :href => '#', :class => 'footer__menus__box--li--1--text' } FURIMA利用規約
+        %li.footer__menus__box--li--4
+          %a{ :href => '#', :class => 'footer__menus__box--li--1--text' } ポイントに関する特約
+    %li.footer__menus__box
+      %h2.footer__menus__box__top FURIMAを見る
+      %ul.footer__menus__box--li
+        %li.footer__menus__box--li--1
+          %a{ :href => '#', :class => 'footer__menus__box--li--1--text' } カテゴリー一覧
+        %li.footer__menu__box--li--2
+          %a{ :href => '#', :class => 'footer__menus__box--li--1--text' } ブランド一覧
+    %li.footer__menus__box
+      %h2.footer__menus__box__top ヘルプ＆ガイド
+      %ul.footer__menus__box--li
+        %li.footer__menus__box--li--1
+          %a{ :href => '#', :class => 'footer__menus__box--li--1--text' } FURIMAガイド
+        %li.footer__menus__box--li--2
+          %a{ :href => '#', :class => 'footer__menus__box--li--1--text' } FURIMAロゴ利用ガイドライン
+        %li.footer__menus__box--li--3
+          %a{ :href => '#', :class => 'footer__menus__box--li--1--text' } お知らせ
+  .footer__rodo 
+    %a{ :href => '#', :class => 'footer__rodo--1' } 
+      = image_tag asset_path("logo-white.png"), class: "footer__rodo--1--img" 
+  %p.footer__text © FURIMA
+%a{ :href => '#', :class => '' } 

@@ -21,8 +21,7 @@ Rails.application.routes.draw do
       get 'logout'
     end
   end
-  root 'items#index'
-  get '/category/new'
+  root 'front#index'
    resources :items do
     collection do
       get 'get_category_children', defaults: { format: 'json' }
@@ -30,5 +29,7 @@ Rails.application.routes.draw do
       get "buy"
     end
    end
+  
+
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end

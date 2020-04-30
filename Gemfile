@@ -74,5 +74,3 @@ gem 'jquery-rails'
 gem 'rails-i18n'
 gem 'rspec-rails'
 gem 'payjp'
-gem 'kaminari'
-
