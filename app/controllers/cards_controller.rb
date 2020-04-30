@@ -1,5 +1,5 @@
 class CardsController < ApplicationController
-  before_action :set_parents
+
   require "payjp"
 
   def index
@@ -54,11 +54,4 @@ class CardsController < ApplicationController
       @default_card_information = customer.cards.retrieve(card.card_id)
     end
   end
-
-  private
-
-  def set_parents
-    @parents = Category.where(ancestry: nil)
-  end
-
 end
