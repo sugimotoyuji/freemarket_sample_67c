@@ -14,3 +14,15 @@
 //= require jquery_ujs
 //= require turbolinks
 //= require_tree .
+
+$(function() {
+  $('.itembox__imagebox').slick({
+    autoplay: true,
+    autoplaySpeed: 2000,
+    dots: false,
+    arrows: true,
+    prevArrow: '<button class="slide-arrow prev-arrow"></button>',
+    nextArrow: '<button class="slide-arrow next-arrow"></button>',
+    speed:  1000,
+  });
+});

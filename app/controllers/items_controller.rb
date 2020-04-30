@@ -1,13 +1,18 @@
 class ItemsController < ApplicationController
+  before_action :authenticate_user!,  except:[:index,:show]
+
+
   def index
-    @items = Item.all
+    @items = Item.includes(:item_images).order('created_at DESC').page(params[:page]).per(5)
+    @category = Item.includes(:item_images).where(category_id: "2").page(params[:page]).per(5)
+    @parents = Category.where(ancestry: nil)
+
   end
   def new
     @items = Item.all
     @item = Item.new
     @item.item_images.new
     @item.build_brand
-    @category_parent_array = ["---"]
     @category_parent_array = Category.where(ancestry: nil).pluck(:name)
   end
 
@@ -28,6 +33,13 @@ class ItemsController < ApplicationController
     render :new
    end
   end
+
+  def show
+   @item = Item.find(params[:id])
+   
+  end
+
+
 
   private
   def item_params

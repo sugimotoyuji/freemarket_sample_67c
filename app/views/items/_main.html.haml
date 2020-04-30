@@ -1,0 +1,166 @@
+.main
+  %section.main__views
+    .main__views__content
+      %h2.main__views__content--title
+        %br 
+          人生を変えるフリマアプリ
+      %p.main__views__content--subtitle
+        FURIMAはだれでもかんたんに出品・購入できる
+        %br
+          フリマアプリです
+      .main__views__content__appLink
+        .main__views__content__appLink--button
+          <a href="https://apps.apple.com/us/app/amazon-shopping-made-easy/id297606951?mt=8" style="display:inline-block;overflow:hidden;background:url(https://linkmaker.itunes.apple.com/ja-jp/badge-lrg.svg?releaseDate=2008-12-03&kind=iossoftware&bubble=ios_apps) no-repeat;width:218px; height:65px; margin:16px; background-size:contain;"></a>
+        .main__views__content__appLink--button2
+          <a href='https://play.google.com/store/apps/details?id=jp.naver.line.android&pcampaignid=pcampaignidMKT-Other-global-all-co-prtnr-py-PartBadge-Mar2515-1'><img alt='Google Play で手に入れよう' src='https://play.google.com/intl/us-en/badges/static/images/badges/ja_badge_web_generic.png''width="250px" height="97px"/></a>
+  %section.main__service
+    %h2.main__service__title
+      FURIMAが選ばれる理由
+    %ul.main__service__lists
+      %li.main__service__lists__left
+        .main__service__lists__left--img
+          %span.main__service__lists__left--img--number
+            1
+          = image_tag asset_path("pict-reason-01.jpg"), class: "main__service__lists__left--img--1" 
+        %h3.main__service__lists__left--comment
+          %span.main__service__lists__left--comment--1
+            3分
+          ですぐに出品
+        %p.main__service__lists__left--comment--2
+          スマホで入力するだけで簡単に出品できる！
+      %li.main__service__lists__middle
+        .main__service__lists__middle--img
+          %span.main__service__lists__middle--img--number
+            2
+          = image_tag asset_path("pict-reason-02.jpg"), class: "main__service__lists__left--img--1" 
+        %h3.main__service__lists__middle--comment
+          %span.main__service__lists__middle--comment--1
+            シンプル
+          で使いやすい
+        %p.main__service__lists__middle--comment--2
+          めんどくさい入力は必要なく、検索も購入もスムーズ！
+      %li.main__service__lists__right
+        .main__service__lists__right--img
+          %span.main__service__lists__right--img--number
+            ３
+          = image_tag asset_path("pict-reason-03.jpg"), class: "main__service__lists__left--img--1" 
+        %h3.main__service__lists__right--comment
+          %span.main__service__lists__right--comment--1
+            手数料
+          業界最安
+        %p.main__service__lists__right--comment--2
+          最大3%でお得に出品&購入！
+  %section.main__catch
+    .main__catch__inner
+      %h2.main__catch__inner--title 
+        会員数日本一位
+      %p.main__catch__inner--title--sub
+        FURIMAは、フリマアプリで最も人気。
+        %br
+          出品・購入回数も業界最多です！
+          %br
+            ほしかったあの商品に出会えるかもしれません。
+      .main__catch__inner--title--btn
+        .main__catch__inner--title--btn--1
+          <a href="https://apps.apple.com/us/app/amazon-shopping-made-easy/id297606951?mt=8" style="display:inline-block;overflow:hidden;background:url(https://linkmaker.itunes.apple.com/ja-jp/badge-lrg.svg?releaseDate=2008-12-03&kind=iossoftware&bubble=ios_apps) no-repeat;width:218px; height:65px; margin:16px; background-size:contain;"></a>
+        .main__catch__inner--title--btn--2
+          <a href='https://play.google.com/store/apps/details?id=jp.naver.line.android&pcampaignid=pcampaignidMKT-Other-global-all-co-prtnr-py-PartBadge-Mar2515-1'><img alt='Google Play で手に入れよう' src='https://play.google.com/intl/us-en/badges/static/images/badges/ja_badge_web_generic.png''width="200px" height="97px"/></a>
+          
+  %section.main__feature
+    %h2.main__feature--title
+      FURIMAの特徴
+    .main__feature__lists
+      %section.main__feature__lists__left
+        %figure.main__feature__lists__left--img
+          = image_tag asset_path("icon-01.png"), class: "main__feature__lists__left--img--1"
+        %h3.main__feature__lists__left--title
+          簡単に売り買いできる
+        %p.main__feature__lists__left--title2
+          スマホひとつで、いつでもどこでも簡単に出品・購入が可能！
+      %section.main__feature__lists__middle
+        %figure.main__feature__lists__middle--img
+          = image_tag asset_path("icon-03.png"), class: "main__feature__lists__middle--img--2"
+        %h3.main__feature__lists__middle--title
+          売上金は即日振込みに対応
+        %p.main__feature__lists__middle--title2
+          午前9時までに振込を依頼いただければ、翌日に指定の口座に入金いたします!
+      %section.main__feature__lists__right
+        %figure.main__feature__lists__right--img
+          = image_tag asset_path("icon-04.png"), class: "main__feature__lists__right--img--2"
+        %h3.main__feature__lists__right--title
+          様々な支払いに対応
+        %p.main__feature__lists__right--title2
+          午前9時までに振込を依頼いただければ、翌日に指定の口座に入金いたします! 
+  %section.main__categories
+    %h2.main__categories__title
+      新規投稿商品一覧
+    .main__categories__box
+      .main__categories__box__lead
+        %h3.main__categories__box__lead--title
+          新規投稿商品
+      .main__categories__box__lists
+        -@items.each do|item|
+          .main__categories__box__lists__sold
+          - if item.order_status_id == 4
+            .main__categories__box__lists__inner
+              Sold out
+          .main__categories__box__lists--img
+            = link_to item_path(item.id) ,data: {"turbolinks" => false} do
+              - if item.item_images.present?
+                = image_tag "#{item.item_images[0].image}", size: '220x200'
+            .main__categories__box__lists--list--comment
+              .main__categories__box__lists--comment--1 
+                =item.name
+              .main__categories__box__lists--comment--2
+                .main__categories__box__lists--comment--2--top
+                  =item.price
+                  .main__categories__box__lists--comment--2--top--1 
+                    .main__categories__box__lists--comment--2--top--2
+                      円
+                .main__categories__box__lists--comment--2--icn
+                  = icon('fas','star',)
+                  0
+                  .main__categories__box__lists--comment--2--bottom
+                    (税込み)
+      .main__categories__page
+        = paginate(@items)
+
+  %section.main__categories
+    %h2.main__categories__title
+      ピックアップカテゴリー  ＜メンズ＞
+    .main__categories__box
+      .main__categories__box__lead
+        %h3.main__categories__box__lead--title
+          新規投稿商品
+      .main__categories__box__lists
+        -@category.each do|item|
+          .main__categories__box__lists__sold
+          - if item.order_status_id == 4
+            .main__categories__box__lists__inner
+              Sold out
+          .main__categories__box__lists--img
+            = link_to item_path(item.id) ,data: {"turbolinks" => false} do
+              - if item.item_images.present?
+                = image_tag "#{item.item_images[0].image}", size: '220x200'
+            .main__categories__box__lists--list--comment
+              .main__categories__box__lists--comment--1 
+                =item.name
+              .main__categories__box__lists--comment--2
+                .main__categories__box__lists--comment--2--top
+                  =item.price
+                  .main__categories__box__lists--comment--2--top--1 
+                    .main__categories__box__lists--comment--2--top--2
+                      円
+                .main__categories__box__lists--comment--2--icn
+                  = icon('fas','star',)
+                  0
+                  .main__categories__box__lists--comment--2--bottom
+                    (税込み)
+      .main__categories__page
+        = paginate(@category)
+    
+                  
+                    
+
+      
+ 
