@@ -1,5 +1,6 @@
 class ItemsController < ApplicationController
   before_action :authenticate_user!,  except:[:index,:show]
+  before_action :set_item, only: [:edit, :update]
 
 
   def index
@@ -9,6 +10,7 @@ class ItemsController < ApplicationController
     @parents = Category.where(ancestry: nil)
 
   end
+  
   def new
     @items = Item.all
     @item = Item.new
@@ -41,11 +43,22 @@ class ItemsController < ApplicationController
    
   end
 
+  def edit
+  end
+
+  def update
+    if @item.update(item_params)
+      redirect_to item_path(@item)
+    else
+      render :edit
+    end
+  end
+
 
 
   private
   def item_params
-   params.require(:item).permit(:name,:description,:price,:brand,:size_id,:condition_id,:delivery_charge_id,:delivery_way_id,:delivery_date_id	, :category_id, item_images_attributes: [:image,:id,:_destroy],brand_attributes: [:id, :name]).merge(user_id: current_user.id)
+    params.require(:item).permit(:name,:description,:price,:brand,:size_id,:condition_id,:delivery_charge_id,:delivery_way_id,:delivery_date_id	, :category_id, item_images_attributes: [:image,:id,:_destroy],brand_attributes: [:id, :name]).merge(user_id: current_user.id)
   end
 
   def set_item
