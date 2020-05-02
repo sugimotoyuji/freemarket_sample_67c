@@ -2,12 +2,14 @@ class ItemsController < ApplicationController
 
 
   before_action :authenticate_user!,  except:[:index,:show]
-  before_action :set_item, only: [:buy,:pay,:show]
+  before_action :set_item, only: [:buy,:pay,:show,:destroy]
 
 
   def index
+    @parents = Category.where(ancestry: nil)
     @items = Item.includes(:item_images).order('created_at DESC').page(params[:page]).per(5)
     @category = Item.includes(:item_images).where(category_id: "2").page(params[:page]).per(5)
+    @parents = Category.where(ancestry: nil)
 
   end
 
@@ -72,9 +74,16 @@ class ItemsController < ApplicationController
   
 
   def show
-   
+    @parents = Category.where(ancestry: nil)
+    
    
   end
+
+  def destroy
+    @item.destroy
+    redirect_to("/")
+  end
+
 
 
 
