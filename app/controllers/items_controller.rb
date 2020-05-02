@@ -44,13 +44,13 @@ class ItemsController < ApplicationController
 
 
   def buy
-    
+    @parents = Category.where(ancestry: nil)
   end
 
 
   def pay
     if card.blank?
-      redirect_to controller: 'card', action: 'new'
+      redirect_to controller: 'cards', action: 'new'
     else
     
     card = current_user.cards
