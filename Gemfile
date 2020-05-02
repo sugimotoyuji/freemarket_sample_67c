@@ -76,4 +76,5 @@ gem 'rspec-rails'
 gem 'payjp'
 gem 'dotenv'
 gem 'kaminari'
+gem 'dotenv-rails'
 

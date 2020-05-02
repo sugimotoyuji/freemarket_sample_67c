@@ -10,9 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-
-ActiveRecord::Schema.define(version: 20200418054718) do
-
+ActiveRecord::Schema.define(version: 20200423152929) do
 
   create_table "addresses", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.string   "shipping_first_name",         null: false
@@ -122,7 +120,7 @@ ActiveRecord::Schema.define(version: 20200418054718) do
     t.string   "last_name_reading",                                 null: false
     t.string   "email",                                default: "", null: false
     t.string   "encrypted_password",                   default: "", null: false
-    t.string   "telephone",                                         null: false
+    t.integer  "telephone",                                         null: false
     t.text     "introduction",           limit: 65535
     t.integer  "birth_year",                                        null: false
     t.integer  "birth_month",                                       null: false

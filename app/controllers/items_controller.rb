@@ -2,7 +2,7 @@ class ItemsController < ApplicationController
 
 
   before_action :authenticate_user!,  except:[:index,:show]
-
+  before_action :set_item, only: [:buy,:pay,:show]
 
 
   def index
@@ -42,7 +42,7 @@ class ItemsController < ApplicationController
 
 
   def buy
-    @item = Item.find(params[:id])
+    
   end
 
 
@@ -50,9 +50,9 @@ class ItemsController < ApplicationController
     if card.blank?
       redirect_to controller: 'card', action: 'new'
     else
-    @item = Item.find(params[:id])
+    
     card = current_user.cards
-    Payjp.api_key = 'sk_test_e74ef4bbca2d501919314c45'
+    Payjp.api_key = ENV["PAYJP_PRIVATE_KEY"]
     charge = Payjp::Charge.create(
     amount: @item.price,
     card: params['payjp-token'],
@@ -72,7 +72,7 @@ class ItemsController < ApplicationController
   
 
   def show
-   @item = Item.find(params[:id])
+   
    
   end
 
@@ -86,6 +86,6 @@ class ItemsController < ApplicationController
   
   def set_item
     @item = Item.find(params[:id])
-    @images = @item.images
+    
   end
 end
