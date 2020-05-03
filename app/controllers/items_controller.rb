@@ -1,6 +1,6 @@
 class ItemsController < ApplicationController
 
-
+  before_action :set_category,  only: [:new, :create]
   before_action :authenticate_user!,  except:[:index,:show]
   before_action :set_item, only: [:buy,:pay,:show,:destroy]
 
@@ -19,7 +19,6 @@ class ItemsController < ApplicationController
     @item = Item.new
     @item.item_images.new
     @item.build_brand
-    @category_parent_array = Category.where(ancestry: nil).pluck(:name)
   end
   
 
@@ -83,10 +82,13 @@ class ItemsController < ApplicationController
     @item.destroy
     redirect_to("/")
   end
-
-
-
-
+  
+  def set_category
+    @category_parent_array = []
+      Category.where(ancestry: nil).each do |parent|
+        @category_parent_array << parent
+      end
+  end
 
   private
   def item_params
