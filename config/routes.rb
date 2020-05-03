@@ -23,12 +23,12 @@ Rails.application.routes.draw do
   end
   root 'items#index'
   get '/category/new'
-   resources :items do
+  resources :items do
     collection do
       get 'get_category_children', defaults: { format: 'json' }
       get 'get_category_grandchildren', defaults: { format: 'json' }
       get "buy"
     end
-   end
+  end
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end
