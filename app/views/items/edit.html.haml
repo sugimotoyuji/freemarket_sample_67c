@@ -12,10 +12,13 @@
    .sell-main__sell-form__sell-item-image__box
     .prev-content
      - @item.item_images.each do |image|
-      .upper-box
-       - if @item.persisted?
+      .preview-box
+       .upper-box
         = image_tag image.image.url, width: "112", height: "112", alt: "preview"
-       
+        .lower-box
+         .delete-box
+          .delete-btn 削除
+      
     .label-content
      = f.label :"images_attributes_#{@item.item_images.length}_image",class: "label-box",id: "label-box--#{@item.item_images.length}" do
       %pre.label-box__text-visible ファイルを選択をクリックしてアップロード
