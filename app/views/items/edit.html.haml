@@ -11,13 +11,12 @@
     %P{class:"sell-main__sell-form__sell-text"} 最大5枚までアップロードできます
    .sell-main__sell-form__sell-item-image__box
     .prev-content
-     - @item.item_images.each do |image|
-      .preview-box
+     - @item.item_images.each_with_index do |image,i|
+      .preview-box{id: "preview-box__#{i}"}
        .upper-box
         = image_tag image.image.url, width: "112", height: "112", alt: "preview"
         .lower-box
-         .delete-box
-          .delete-btn 削除
+         .delete-box{id: "delete-btn-#{i}"} 削除
       
     .label-content
      = f.label :"images_attributes_#{@item.item_images.length}_image",class: "label-box",id: "label-box--#{@item.item_images.length}" do
