@@ -37,6 +37,7 @@
               %td
                 %ul
                   %li
+                    =@item.category.root.name
                     =@item.category.name
                   %li
                    
@@ -71,10 +72,10 @@
           = link_to '売り切れました', root_path, class:"sold-btn"
         - elsif user_signed_in?
           - if @item.user_id == current_user.id
-            = link_to '編集', edit_item_path(@item) ,class:"edit-btn", data: {turbolinks: :false}
+            = link_to '編集', edit_item_path(@item) ,class:"edit-btn",data:{turbolinks: :false}
             = link_to '削除', item_path(@item), method: :delete, data: { confirm: "削除しますか？" } ,class:"delete-btn"
-          - else
-            =link_to "購入画面に進む",buy_items_path ,class:"buy-btn"
+          -else
+            =link_to "購入画面に進む",buy_items_path(@item),data:{"turbolinks" => false} ,class:"buy-btn"
             
        
       .optionArea
@@ -108,5 +109,4 @@
   .relatedItem
     =link_to root_path do
       トップページへ戻る
-
 =render "items/footer"

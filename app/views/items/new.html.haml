@@ -39,8 +39,7 @@
     =f.label :必須, class:"sell-main__sell-form__sell-label__need"
     .listing-select-wrapper
      .listing-select-wrapper__box
-      = f.collection_select :category_id, Category.where(ancestry: nil),:id, :name, {prompt: "---"},class: "listing-select-wrapper__box--select", id: 'parent_category'
-
+      = f.collection_select :category_id, @category_parent_array,:id, :name, {prompt: "---"},class: "listing-select-wrapper__box--select", id: 'parent_category'
    .sell-main__sell-form__sell-item-size
     =f.label :サイズ, class:"sell-main__sell-form__sell-label" 
     =f.label :必須,  class:"sell-main__sell-form__sell-label__need"
