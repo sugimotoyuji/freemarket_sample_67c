@@ -11,10 +11,6 @@
     %P{class:"sell-main__sell-form__sell-text"} 最大5枚までアップロードできます
    .sell-main__sell-form__sell-item-image__box
     .prev-content
-     - @item.item_images.each do |image|
-      .upper-box
-       - if @item.persisted?
-        = image_tag image.image.url, width: "112", height: "112", alt: "preview"
        
     .label-content
      = f.label :"images_attributes_#{@item.item_images.length}_image",class: "label-box",id: "label-box--#{@item.item_images.length}" do
