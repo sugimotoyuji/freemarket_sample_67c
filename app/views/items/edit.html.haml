@@ -16,16 +16,17 @@
        .upper-box
         = image_tag image.image.url, width: "112", height: "112", alt: "preview"
         .lower-box
-         .delete-box{id: "delete-btn-#{i}"} 削除
+         .delete-box{id: "delete-btn__#{i}", data_delete_id: "#{i}"} 削除
       
     .label-content
-     = f.label :"images_attributes_#{@item.item_images.length}_image",class: "label-box",id: "label-box--#{@item.item_images.length}" do
+     = f.label :"item_images_attributes_0_image",class: "label-box",id: "label-box--#{@item.item_images.length}" do
       %pre.label-box__text-visible ファイルを選択をクリックしてアップロード
     .hidden-content
      = f.fields_for :item_images do |i|
-      = i.file_field :image, class: "hidden-field", id: "item_images_attributes_0_image"
+      = i.file_field :image, class: "hidden-field"
+      = i.check_box:_destroy
      - @item.item_images.length.upto(4) do |i|
-      %input{name: "item[item_images_attributes][#{i}][image]", id: "item_images_attributes_#{i}_image", class:"hidden-field", type:"file"}
+      %input{name: "item[item_images_attributes][#{i}][image]", id: "item_item_images_attributes_#{i}_image", class:"hidden-field", type:"file"}
        
    .sell-main__sell-form__sell-item-name
     =f.label :商品名, class:"sell-main__sell-form__sell-label" 
