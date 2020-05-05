@@ -10,7 +10,7 @@ $(document).on('turbolinks:load', function(){
                     <div class="lower-box">
                       <div class="update-box">
                       </div>
-                      <div class="delete-box" id="delete_btn_${id}">
+                      <div class="delete-box" id="delete-btn__${id}" data_delete_id= ${id}>
                         <span>削除</span>
                       </div>
                     </div>
@@ -30,7 +30,7 @@ $(document).on('turbolinks:load', function(){
         labelWidth = (620 - parseInt($(prevContent).css('width')));
         $('.label-content').css('width', labelWidth);
         //id・forの値を変更
-        $('.label-box').attr({for: `item_images_attributes_${count}_image`});
+        $('.label-box').attr({for: `item_item_images_attributes_${count}_image`});
       }
     }
 
@@ -75,17 +75,16 @@ $(document).on('turbolinks:load', function(){
     // 画像の削除
     $(document).on('click', '.delete-box', function() {
       //item_images_attributes_${id}_image から${id}に入った数字のみを抽出
-      if ($(`#item_images_attributes_${id}__destroy`).length) {
-        $(`#item_images_attributes_${id}__destroy`).prop('checked',true);
-      }
       var id = $(this).attr('id').replace(/[^0-9]/g, '');
+      if ($(`#item_item_images_attributes_${id}__destroy`).length) {
+        $(`#item_item_images_attributes_${id}__destroy`).prop('checked',true);
+      }
       //取得したidに該当するプレビューを削除
       $(`#preview-box__${id}`).remove();
       //フォームの中身を削除 
-      $(`#item_images_attributes_${id}_image`).val("");
+      $(`#item_item_images_attributes_${id}_image`).val("");
       //プレビューの数を取得
-      var count = $('.preview-box').length;
       //countに応じてラベルのwidth・id・forの値を変更
-      setLabel(count);
+      setLabel(id);
     });
 });
