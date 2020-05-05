@@ -62,8 +62,8 @@ $(document).on('turbolinks:load', function(){
         var prevContent = $('.label-content').prev();
         $(prevContent).append(html);
         //プレビュー削除したフィールドにチェックボックスがあった場合、チェックを外す
-        if ($(`#item_images_attributes_${id}__destroy`)){
-          $(`#item_images_attributes_${id}__destroy`).prop('checked',false);
+        if ($(`#item_item_images_attributes_${id}__destroy`)){
+          $(`#item_item_images_attributes_${id}__destroy`).prop('checked',false);
         }
         ////プレビューの数を取得
         var count = $('.preview-box').length;
