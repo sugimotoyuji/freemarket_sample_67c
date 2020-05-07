@@ -138,6 +138,8 @@ ActiveRecord::Schema.define(version: 20200423152929) do
   end
 
   add_foreign_key "addresses", "users"
+  add_foreign_key "comments", "items"
+  add_foreign_key "comments", "users"
   add_foreign_key "item_images", "items"
   add_foreign_key "items", "users"
 end
