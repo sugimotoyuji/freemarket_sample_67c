@@ -33,7 +33,9 @@ Rails.application.routes.draw do
       get  'done'=>      'items#done', as: 'done'
       delete 'item/:id' =>  'items#destroy'
     end
+    resources :comments, only:[:create,:update,:destroy]
   end
+  
 
 
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html

@@ -229,7 +229,47 @@
           }
         }
       }
-    }  
+      .comment-title{
+        width: 90%;
+        padding-top: 15px;
+        display: flex;
+        justify-content: center;
+        border-top: solid 1px silver;
+        margin-top: 20px;
+        font-size: 18px;
+        font-weight: bold;
+        color: rgb(47, 47, 47)
+      }
+      &__comments{
+        height: 400px;
+        width:90%;
+        padding-left: 20px;
+        overflow: scroll;
+        margin-bottom: 70px;
+        &__box{
+          p{
+            margin-bottom: 28px;
+            border-bottom: 1px silver solid;
+            &__info{
+            font-size: 10px;
+            margin-bottom: 20px;
+            color: rgb(102, 102, 102);
+            display: flex;
+            justify-content: space-between;
+              a{
+                font-size: 14px;
+                color: black;
+                font-weight: bold;
+              }
+            }
+            &__content{
+              margin-bottom: 8px;
+            }
+          }
+  
+        }
+      }
+    }
   }
   .relatedItem{
     text-align: center;
