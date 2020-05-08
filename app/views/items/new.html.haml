@@ -1,6 +1,6 @@
 .sell-main
  .sell-main__sell-header
-  =link_to root_path do
+  =link_to root_path ,data: {"turbolinks" => false} do
    =image_tag "logo.png",class: "sell-main__sell-logo"
  .sell-main__sell-form
   =form_for @item do |f|

@@ -2,7 +2,7 @@
   .inner
     .inner__top
       %h1.inner__top__icn
-        =link_to root_path do
+        =link_to root_path ,data: {"turbolinks" => false} do
           = image_tag 'logo.png', class: 'inner__top__icn--image--tag' 
       .inner__top__searchBox
         %form.inner__top__searchBox__fom
