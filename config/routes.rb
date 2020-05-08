@@ -33,6 +33,9 @@ Rails.application.routes.draw do
       get  'done'=>      'items#done', as: 'done'
       delete 'item/:id' =>  'items#destroy'
     end
+    member do
+      get 'category_index'
+    end
   end
 
 

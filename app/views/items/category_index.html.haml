@@ -1,0 +1,39 @@
+.header
+  .inner
+    .inner__top
+      %h1.inner__top__icn
+        =link_to root_path ,data: {"turbolinks" => false} do
+          = image_tag 'logo.png', class: 'inner__top__icn--image--tag' 
+      .inner__top__searchBox
+        %form.inner__top__searchBox__fom
+          %input{:type => "hidden", :class => "inner__top__searchBox__fom--text" }
+          %input{:class => "inner__top__searchBox__fom--text", :placeholder => "キーワードから探す", }
+          %button{:type => "submit", :class => "inner__top__searchBox__fom--submit"}
+            .inner__top__searchBox__fom--submit--box
+              = image_tag 'icon-search 1.png', class: 'inner__top__searchBox__fom--submit--box--image'
+   
+.category-main
+  .category-main__category-title
+    %h1.categ__title__jaru 
+      ="#{@category.name}の商品一覧"
+    -unless @pro.empty?
+      .category-main__box
+        -@pro.each do |item|
+          =link_to item_path(item.id) do
+            = image_tag "#{item.item_images[0].image}",class:"category-main__box__category-image"
+          .category-main__box__name
+            =item.name
+          .category-main__box__price
+            ￥
+            =item.price
+    - else
+      .category-main__non
+        ="#{@category.name}は現在出品されていません"
+    .category-main__pagenation
+      =paginate(@pro)
+    .category-main__top
+      =link_to "トップページに戻る",root_path ,data: {"turbolinks" => false} 
+
+
+.category-footer
+  = render partial: 'items/footer'

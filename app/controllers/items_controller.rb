@@ -6,11 +6,9 @@ class ItemsController < ApplicationController
 
 
   def index
-    @parents = Category.where(ancestry: nil)
     @items = Item.includes(:item_images).order('created_at DESC').page(params[:page]).per(5)
     @category = Item.includes(:item_images).where(category_id: "2").page(params[:page]).per(5)
     @parents = Category.where(ancestry: nil)
-
   end
 
 
@@ -74,8 +72,6 @@ class ItemsController < ApplicationController
 
   def show
     @parents = Category.where(ancestry: nil)
-    
-   
   end
 
   def destroy
@@ -90,6 +86,12 @@ class ItemsController < ApplicationController
       end
   end
 
+  def category_index
+    @category = Category.find(params[:id])
+    @pro = Item.where(category_id: @category.id).page(params[:page]).per(5)
+    @parents = Category.where(ancestry: nil)
+  end
+
   private
   def item_params
    params.require(:item).permit(:name,:description,:price,:brand,:size_id,:condition_id,:delivery_charge_id,:delivery_way_id,:delivery_date_id	, :category_id, item_images_attributes: [:image,:id,:_destroy],brand_attributes: [:id, :name]).merge(user_id: current_user.id)
@@ -97,6 +99,5 @@ class ItemsController < ApplicationController
   
   def set_item
     @item = Item.find(params[:id])
-    
   end
 end
