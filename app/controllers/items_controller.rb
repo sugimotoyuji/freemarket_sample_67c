@@ -63,6 +63,7 @@ class ItemsController < ApplicationController
   end
 
   def done
+    @parents = Category.where(ancestry: nil)
   end
 
   def card
