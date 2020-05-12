@@ -108,28 +108,17 @@ class ItemsController < ApplicationController
       render :edit
     end
   end
-
-  def destroy
-    @item.destroy
-    redirect_to("/")
-  end
-  
-  def set_category
-    @category_parent_array = []
-      Category.where(ancestry: nil).each do |parent|
-        @category_parent_array << parent
-  end
-    
-  def destroy
-    @item.destroy
-    redirect_to("/")
-  end
   
   def set_category
     @category_parent_array = []
       Category.where(ancestry: nil).each do |parent|
         @category_parent_array << parent
       end
+  end
+    
+  def destroy
+    @item.destroy
+    redirect_to("/")
   end
 
   def category_index
@@ -139,12 +128,13 @@ class ItemsController < ApplicationController
   end
 
   private
+
   def item_params
    params.require(:item).permit(:name,:description,:price,:brand,:size_id,:condition_id,:delivery_charge_id,:delivery_way_id,:delivery_date_id, :category_id, item_images_attributes: [:image,:id,:_destroy],brand_attributes: [:id, :name]).merge(user_id: current_user.id)
   end
   
   def set_item
     @item = Item.find(params[:id])
-    
   end
+
 end
