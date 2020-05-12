@@ -117,8 +117,11 @@ class ItemsController < ApplicationController
   end
     
   def destroy
-    @item.destroy
-    redirect_to("/")
+    if @item.destroy
+       redirect_to root_path
+    else
+      render :show
+    end
   end
 
   def category_index
