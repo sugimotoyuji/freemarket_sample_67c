@@ -2,7 +2,7 @@
   .inner
     .inner__top
       %h1.inner__top__icn
-        =link_to root_path do
+        =link_to root_path ,data: {"turbolinks" => false} do
           = image_tag 'logo.png', class: 'inner__top__icn--image--tag' 
       .inner__top__searchBox
         %form.inner__top__searchBox__fom
@@ -19,14 +19,20 @@
             %ul.categor1
               - @parents.each do |parent|
                 %li.categor1__li
-                  = link_to "#{parent.name}", 'category_path(parent)', class: 'categor2',id: "#{parent.id}"
+                  = link_to "#{parent.name}", category_index_item_path(parent.id),data: {"turbolinks" => false},id: "#{parent.id}",class:"categor2"
             %ul.categor3
             %ul.categor4
           %a{ :href => '#', :class => 'inner__bottom__left__brands--brand' } ブランド
       %ul.inner__bottom__right
         - if user_signed_in?
-          = link_to "マイページ", "#" , class:'inner__bottom__right__login--button'
-          = link_to "ログアウト", destroy_user_session_path, method: :delete, class:'inner__bottom__right__member--button'
+          %li.inner__bottom__right__like
+            = link_to "いいね！一覧", "#" , class:'inner__bottom__right__like--button'
+          %li.inner__bottom__right__notification
+            = link_to "お知らせ", "#" , class:'inner__bottom__right__notification--button'
+          %li.inner__bottom__right__todo
+            = link_to "やることリスト", "#" , class:'inner__bottom__right__todo--button'
+          %li.inner__bottom__right__mypage
+            = link_to "マイページ", "/users/#{current_user.id}" , class:'inner__bottom__right__mypage--button'
         - else
           %li.inner__bottom__right__login
             = link_to "ログイン", new_user_session_path, class:'inner__bottom__right__login--button'

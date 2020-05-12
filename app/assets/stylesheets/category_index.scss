@@ -1,0 +1,55 @@
+.category-main{
+  height: 500px;
+  width:  100%;
+  &__top {
+    font-size: 20px;
+    margin-top: 20px;
+    a {
+      color: blue;
+    }
+  }
+
+  &__category-title {
+    font-size: 30px;
+    height: 50px;
+    text-align: center;
+    list-style: 50px;
+  }
+  
+  &__box {
+    margin-top: 70px;
+    height: 300px;
+    display: flex;
+    justify-content: center;
+    position: relative;
+    a {
+      text-decoration: none;
+    }
+    &__category-image{
+      height: 200px;
+      width: 200px;
+      margin: 5px;
+    }
+    &__name {
+      font-size: 18px;
+      top:210px;
+      position: absolute;
+
+    }
+    &__price {
+      font-size: 18px;
+      top: 230px;
+      position: absolute;
+     
+    }
+  }
+
+  &__non {
+    font-size: 30px;
+    height: 50px;
+    text-align: center;
+    list-style: 50px;
+    margin-top: 100px;
+    
+  }
+}

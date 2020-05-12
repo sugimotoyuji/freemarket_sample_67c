@@ -73,8 +73,11 @@ gem 'active_hash'
 gem 'jquery-rails'
 gem 'rails-i18n'
 gem 'rspec-rails'
+gem 'payjp'
+gem 'dotenv'
 gem 'kaminari'
 gem 'omniauth-facebook'
 gem 'omniauth-google-oauth2'
 gem "omniauth-rails_csrf_protection"
+gem 'dotenv-rails'
 
