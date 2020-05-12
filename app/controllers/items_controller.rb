@@ -2,7 +2,7 @@ class ItemsController < ApplicationController
 
   before_action :set_category,  only: [:new, :create]
   before_action :authenticate_user!,  except:[:index,:show]
-  before_action :set_item, only: [:buy,:pay,:show,:destroy]
+  before_action :set_item, only: [:buy,:pay,:show,:destroy,:edit,:update]
 
 
   def index
@@ -15,10 +15,14 @@ class ItemsController < ApplicationController
   def new
     @items = Item.all
     @item = Item.new
-    @item.item_images.new
+    @images = @item.item_images.build
     @item.build_brand
   end
   
+
+  def get_category_parents
+    @parents  = Category.where(ancestry: nil)
+  end
 
   def get_category_children
     @category_children = Category.find_by(id: "#{params[:parent_name]}", ancestry: nil).children
@@ -75,9 +79,34 @@ class ItemsController < ApplicationController
     @parents = Category.where(ancestry: nil)
   end
 
-  def destroy
-    @item.destroy
-    redirect_to("/")
+  def edit
+    grandchild_category = @item.category
+    child_category = grandchild_category.parent
+    parent_category = grandchild_category.parent.parent
+
+
+    @category_parent_array = []
+    Category.where(ancestry: nil).each do |parent|
+      @category_parent_array << parent.name
+    end
+
+    @category_children_array = []
+    Category.where(ancestry: child_category.ancestry).each do |children|
+      @category_children_array << children
+    end
+
+    @category_grandchildren_array = []
+    Category.where(ancestry: grandchild_category.ancestry).each do |grandchildren|
+      @category_grandchildren_array << grandchildren
+    end
+  end
+
+  def update
+    if @item.update(item_params)
+      redirect_to item_path(@item)
+    else
+      render :edit
+    end
   end
   
   def set_category
@@ -85,6 +114,14 @@ class ItemsController < ApplicationController
       Category.where(ancestry: nil).each do |parent|
         @category_parent_array << parent
       end
+  end
+    
+  def destroy
+    if @item.destroy
+       redirect_to root_path
+    else
+      render :show
+    end
   end
 
   def category_index
@@ -94,11 +131,13 @@ class ItemsController < ApplicationController
   end
 
   private
+
   def item_params
-   params.require(:item).permit(:name,:description,:price,:brand,:size_id,:condition_id,:delivery_charge_id,:delivery_way_id,:delivery_date_id	, :category_id, item_images_attributes: [:image,:id,:_destroy],brand_attributes: [:id, :name]).merge(user_id: current_user.id)
+   params.require(:item).permit(:name,:description,:price,:brand,:size_id,:condition_id,:delivery_charge_id,:delivery_way_id,:delivery_date_id, :category_id, item_images_attributes: [:image,:id,:_destroy],brand_attributes: [:id, :name]).merge(user_id: current_user.id)
   end
   
   def set_item
     @item = Item.find(params[:id])
   end
+
 end

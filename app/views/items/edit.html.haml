@@ -1,6 +1,6 @@
 .sell-main
  .sell-main__sell-header
-  =link_to root_path ,data: {"turbolinks" => false} do
+  =link_to root_path do
    =image_tag "logo.png",class: "sell-main__sell-logo"
  .sell-main__sell-form
   =form_for @item do |f|
@@ -11,12 +11,20 @@
     %P{class:"sell-main__sell-form__sell-text"} 最大5枚までアップロードできます
    .sell-main__sell-form__sell-item-image__box
     .prev-content
+     - @item.item_images.each_with_index do |image,i|
+      .preview-box{id: "preview-box__#{i}"}
+       .upper-box
+        = image_tag image.image.url, width: "112", height: "112", alt: "preview"
+        .lower-box
+         .delete-box{id: "delete-btn__#{i}", data_delete_id: "#{i}"} 削除
+      
     .label-content
      = f.label :"item_images_attributes_0_image",class: "label-box",id: "label-box--#{@item.item_images.length}" do
       %pre.label-box__text-visible ファイルを選択をクリックしてアップロード
     .hidden-content
      = f.fields_for :item_images do |i|
-      = i.file_field :image, class: "hidden-field", id: "item_item_images_attributes_0_image"
+      = i.file_field :image, class: "hidden-field"
+      = i.check_box:_destroy
      - @item.item_images.length.upto(4) do |i|
       %input{name: "item[item_images_attributes][#{i}][image]", id: "item_item_images_attributes_#{i}_image", class:"hidden-field", type:"file"}
        
@@ -33,8 +41,16 @@
     =f.label :カテゴリー, class:"sell-main__sell-form__sell-label"
     =f.label :必須, class:"sell-main__sell-form__sell-label__need"
     .listing-select-wrapper
-     .listing-select-wrapper__box
-      = f.collection_select :category_id, @category_parent_array,:id, :name, {prompt: "---"},class: "listing-select-wrapper__box--select", id: 'parent_category'
+     .listing-select-wrapper#parent_wrapper
+      .listing-select-wrapper__box
+       = f.select :parents_name, @category_parent_array, {selected:@item.category.parent.parent.name}, { class: 'listing-select-wrapper__box--select category-wrapper__category form-control', id: 'parent_category'}
+      .listing-select-wrapper#children_wrapper
+      .listing-select-wrapper__box
+       = f.select :category_id, options_for_select(@category_children_array.map{|b| [b.name, b.id, {data:{category: b.id}}]}, {prompt: "指定なし", selected: @item.category.parent.id}),{}, {class: 'listing-select-wrapper__box--select category-wrapper__category form-control', id: 'child_category'}
+     .listing-select-wrapper#grandchildren_wrapper
+      .listing-select-wrapper__box
+       = f.select :category_id, options_for_select(@category_grandchildren_array.map{|b| [b.name, b.id, {data:{category: b.id}}]}, {prompt: "指定なし", selected: @item.category.id}),{}, {class: 'listing-select-wrapper__box--select category-wrapper__category form-control', id: 'grandchild_category'}
+
    .sell-main__sell-form__sell-item-size
     =f.label :サイズ, class:"sell-main__sell-form__sell-label" 
     =f.label :必須,  class:"sell-main__sell-form__sell-label__need"
@@ -71,7 +87,7 @@
      = f.number_field :price, min:300, max:9999999 , class: "sell-main__sell-form__price__box__form"
    .sell-main__sell-form__profit
    .sell-main__sell-form__submit
-    =f.submit "出品する",class: "sell-main__sell-form__submit__form"
+    =f.submit "商品情報を更新する",class: "sell-main__sell-form__submit__form"
    .sell-main__sell-form__back
     =link_to root_path do
      %p もどる
