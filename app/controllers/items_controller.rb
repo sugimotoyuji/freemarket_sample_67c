@@ -6,11 +6,9 @@ class ItemsController < ApplicationController
 
 
   def index
-    @parents = Category.where(ancestry: nil)
     @items = Item.includes(:item_images).order('created_at DESC').page(params[:page]).per(5)
-    @category = Item.includes(:item_images).where(category_id: "2").page(params[:page]).per(5)
+    @category = Item.includes(:item_images).where(category_id: "58").page(params[:page]).per(5)
     @parents = Category.where(ancestry: nil)
-
   end
 
 
@@ -21,6 +19,7 @@ class ItemsController < ApplicationController
     @item.build_brand
   end
   
+
   def get_category_parents
     @parents  = Category.where(ancestry: nil)
   end
@@ -68,6 +67,7 @@ class ItemsController < ApplicationController
   end
 
   def done
+    @parents = Category.where(ancestry: nil)
   end
 
   def card
@@ -118,7 +118,24 @@ class ItemsController < ApplicationController
     @category_parent_array = []
       Category.where(ancestry: nil).each do |parent|
         @category_parent_array << parent
+  end
+    
+  def destroy
+    @item.destroy
+    redirect_to("/")
+  end
+  
+  def set_category
+    @category_parent_array = []
+      Category.where(ancestry: nil).each do |parent|
+        @category_parent_array << parent
       end
+  end
+
+  def category_index
+    @category = Category.find(params[:id])
+    @pro = Item.where(category_id: @category.id).page(params[:page]).per(5)
+    @parents = Category.where(ancestry: nil)
   end
 
   private

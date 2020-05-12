@@ -14,23 +14,24 @@
 
       .buy-item
         .buy-item__box.clearfix
-          = image_tag "pict-reason-01.jpg" ,size: "60x60" ,class: "buy-item__box__image"
-          %p.buy-item__box__name abc
+          = image_tag "#{@item.item_images[0].image}", class:"buy-img"
+      .buy-item__box__name
+        =@item.name
 
       .buy-form
-
         %p.buy-form__price
-          = "500円" 
+          ￥
+          =@item.price
           %span.buy-form__price--shipping 送料込み
           %span.buy-form__price--shipping 着払い
-        .buy-form__point
-          %p.buy-form__point__info ポイントはありません
+      
 
         .buy-form__payment
           .buy-form__payment__box.clearfix
             %p.buy-form__payment__box--head 支払い金額
             %p.buy-form__payment__box--content
-              = "500円" 
+              ￥
+              =@item.price
 
         
           
@@ -38,12 +39,7 @@
           .buy-form__error
             %p.buy-form__error__message 配送先と支払い方法の入力を完了してください
           .buy-form__purchase
-            = button_to "購入する", "#", class: "buy-form__purchase__disabled"
-
-      
-                
-      
-      
-
+            = form_tag(action: :pay, method: :post) do
+              %script.payjp-button{:src => "https://checkout.pay.jp", :type => "text/javascript" ,"data-text" => "購入する" ,"data-key" => "pk_test_86b13e1bd8c0366d33309fc0"}
 
 = render partial: 'items/footer'

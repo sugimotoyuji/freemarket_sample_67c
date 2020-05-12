@@ -8,6 +8,7 @@ Rails.application.routes.draw do
     end
   end
 
+
   devise_for :users, controllers: {
     registrations: 'users/registrations',
   }
@@ -28,7 +29,13 @@ Rails.application.routes.draw do
       get 'get_category_parents', defaults: { format: 'json' } 
       get 'get_category_children', defaults: { format: 'json' }
       get 'get_category_grandchildren', defaults: { format: 'json' }
-      get "buy"
+      get "buy/:id" =>  'items#buy', as: 'buy'
+      post 'pay/:id'=>   'items#pay', as: 'pay'
+      get  'done'=>      'items#done', as: 'done'
+      delete 'item/:id' =>  'items#destroy'
+    end
+    member do
+      get 'category_index'
     end
   end
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
