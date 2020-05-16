@@ -7,6 +7,12 @@ end
 crumb :mypage do
   link "マイページ", user_path
 end
+
+# ログアウト
+crumb :logout do
+  link "ログアウト", logout_users_path
+end
+
 # crumb :projects do
 #   link "Projects", projects_path
 # end
