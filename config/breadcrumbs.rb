@@ -1,7 +1,12 @@
+# ルート
 crumb :root do
-  link "Home", root_path
+  link "フルマ", root_path
 end
 
+# マイページ
+crumb :mypage do
+  link "マイページ", user_path
+end
 # crumb :projects do
 #   link "Projects", projects_path
 # end
