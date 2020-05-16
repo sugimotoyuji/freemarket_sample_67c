@@ -14,6 +14,23 @@ crumb :logout do
   parent :mypage
 end
 
+# 支払い情報
+crumb :card do
+  link "支払い情報", card_path
+  parent :mypage
+end
+
+crumb :card_index do
+  link "支払い情報", "/cards"
+  parent :mypage
+end
+
+crumb :card_new do
+  link "支払い情報", new_card_path
+  parent :mypage
+end
+
+
 # crumb :projects do
 #   link "Projects", projects_path
 # end
