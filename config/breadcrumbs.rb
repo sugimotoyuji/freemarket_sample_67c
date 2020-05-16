@@ -1,16 +1,17 @@
 # ルート
 crumb :root do
-  link "フルマ", root_path
+  link "フリマ", root_path
 end
 
 # マイページ
 crumb :mypage do
-  link "マイページ", user_path
+  link "マイページ", "/users/#{current_user.id}"
 end
 
 # ログアウト
 crumb :logout do
   link "ログアウト", logout_users_path
+  parent :mypage
 end
 
 # crumb :projects do
