@@ -33,10 +33,11 @@ class Item < ApplicationRecord
     validates :delivery_way_id
     validates :delivery_date_id
     validates :price
-    
-   
-
   end
 
+  def self.search(search)
+    return Item.all unless search
+    Item.where(['name LIKE?', "%#{search}%"])
+  end
 
 end

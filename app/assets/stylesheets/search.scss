@@ -1,0 +1,27 @@
+.search-main{
+  width: 100%;
+  height: 500px;
+  background-color: cadetblue;
+  display: flex;
+  &__left {
+    height: 100%;
+    width: 400px;
+    background-color: coral;
+  }
+  &__right {
+    height: 100%;
+    width: calc(100% - 400px);
+    background-color: cornflowerblue;
+    &__title {
+      text-align: center;
+      height: 30px;
+      font-size: 20px;
+      line-height: 30px;
+    }
+    &__item-box{
+      height: calc(100% - 30px);
+      width: 100%;
+      background-color: cornsilk;
+    }
+  }
+}
