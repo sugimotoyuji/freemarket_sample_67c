@@ -20,5 +20,7 @@
       -else
         .search-main__right__non
           ="#{@search}は現在出品されていません"
+        .search-main__pagenation
+          =paginate(@items)
 
 =render "footer"

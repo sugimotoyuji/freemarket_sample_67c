@@ -7,9 +7,9 @@
       .inner__top__searchBox
         .inner__top__searchBox__fom
           =form_tag(search_items_path,method: :get) do
-            =text_field_tag :search , :"", placeholder: "キーワードから探す"
-            .inner__top__searchBox__fom--submit--box
-              =submit_tag :"" , :name => nil
+            =text_field_tag :search , :"", placeholder: "キーワードから探す",class:"inner__top__searchBox__fom--text"
+            =submit_tag :"" , :name => nil, class:"inner__top__searchBox__fom--submit"
+            .inner__top__searchBox__fom--submit--box--image
               %i.fas.fa-search
     .inner__bottom
       %ul.inner__bottom__left
