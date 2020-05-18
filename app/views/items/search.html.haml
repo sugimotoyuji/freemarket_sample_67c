@@ -11,10 +11,12 @@
         .search-main__right__box__item
           -@items.each do |item|
             =link_to item_path(item.id) do
-              = image_tag "#{item.item_images[0].image}", size: '220x200'
-            = item.name
-            ￥
-            = item.price
+              = image_tag "#{item.item_images[0].image}", size: '220x200',class:"item-image"
+            .search-main__right__box__item__item-box
+              %span{class:'search-main__right__box__item__item-box__name'}
+                = item.name
+              %span{class: 'search-main__right__box__item__item-box__price'}
+                = "￥#{item.price}"
       -else
         .search-main__right__non
           ="#{@search}は現在出品されていません"
