@@ -42,9 +42,10 @@ body {
           }
           &--submit {
             top:-40px;
-            left: 780px;
+            left: 793px;
             position: absolute;
-            width: 36px;
+            width: 40px;
+            height: 36px;
             cursor: pointer;
             padding: 6px;
             position: relative;
@@ -55,8 +56,9 @@ body {
               &--image {
                 position: absolute;
                 top:10px;
-                right: 53px;
+                right: 32px;
                 font-size: 20px;
+                color: white;
               }
             }
           }
