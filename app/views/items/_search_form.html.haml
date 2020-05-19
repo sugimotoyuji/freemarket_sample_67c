@@ -1,35 +1,37 @@
-.search-main
-  .search-main__left
-    =search_form_for(@q, url: detail_search_items_path) do |f|
-      .search-main__left__search_sort
-        =f.select( :sorts, { '並び替え': 'id desc', "価格の安い順": "price asc", "価格の高い順": "price desc", "新着順": "upataed_at desc", "古い順": "updated_at asc"}, {onchandge: "this.form.submit()"},class: "search-main__left__search_sort__box")
-      .search-main__left__search_form
-        .search-main__left__search_form__title
-          詳細検索
-        .search-main__left__search_form__keyword
-          キーワードを追加する
-        =f.search_field :name_cont, placeholder: "値下げ", class:"search-main__left__search_form__keyword_box"
-        .search-main__left__search_form__price-title
-          価格
-        .search-main__left__search_form__price-box
-          =f.search_field :price_gteq, placeholder: "￥ Min",class:"search-main__left__search_form__price-box__box1"
-          %span{class:'search-main__left__search_form__price-box__box3'} 〜
-          =f.search_field :price_lteq, placeholder: "￥ Max",class:"search-main__left__search_form__price-box__box2"
-        .search-main__left__search_form__condition-title
-          商品の状態
-        .search-main__left__search_form__condition-box
-          =f.check_box :condition_id_in, value:'1'
-          = "新品,未使用"
-          =f.check_box :condition_id_in, value:'2'
-          = "未使用に近い"
-          =f.check_box :condition_id_in, value:'3'
-          = "目立った傷や汚れなし"
-          =f.check_box :condition_id_in, value:'4'
-          = "やや傷や汚れあり"
-          =f.check_box :condition_id_in, value:'5'
-          = "傷や汚れあり"
-          =f.check_box :condition_id_in, value:'6'
-          = "全体的に状態が悪い"
-        .search-main__left__search_form__btn
-          = link_to "クリア", detail_search_items_path, type:"button"
-        =f.submit "完了"
+.search-main__left
+  =search_form_for(@q, url: detail_search_items_path) do |f|
+    .search-main__left__search_sort
+      =f.select( :sorts, { '並び替え': 'id desc', "価格の安い順": "price asc", "価格の高い順": "price desc", "新着順": "upataed_at desc", "古い順": "updated_at asc"}, {onchandge: "this.form.submit()"},class: "search-main__left__search_sort__box")
+    .search-main__left__search_form
+      .search-main__left__search_form__title
+        詳細検索
+      .search-main__left__search_form__keyword
+        キーワードを追加する
+      =f.search_field :name_cont, placeholder: "値下げ", class:"search-main__left__search_form__keyword_box"
+      .search-main__left__search_form__price-title
+        価格
+      .search-main__left__search_form__price-box
+        =f.search_field :price_gteq, placeholder: "￥ Min",class:"search-main__left__search_form__price-box__box1"
+        %span{class:'search-main__left__search_form__price-box__box3'} 〜
+        =f.search_field :price_lteq, placeholder: "￥ Max",class:"search-main__left__search_form__price-box__box2"
+      .search-main__left__search_form__condition-title
+        商品の状態
+      .search-main__left__search_form__condition-box1
+        =f.check_box :condition_id_in, value:'1'
+        = "新品,未使用"
+        =f.check_box :condition_id_in, value:'2'
+        = "未使用に近い"
+      .search-main__left__search_form__condition-box2
+        =f.check_box :condition_id_in, value:'3'
+        = "目立った傷や汚れなし"
+      .search-main__left__search_form__condition-box3
+        =f.check_box :condition_id_in, value:'4'
+        = "やや傷や汚れあり"
+      .search-main__left__search_form__condition-box4
+        =f.check_box :condition_id_in, value:'5'
+        = "傷や汚れあり"
+        =f.check_box :condition_id_in, value:'6'
+        = "全体的に状態が悪い"
+      .search-main__left__search_form__btn-box
+        = link_to "クリア", detail_search_items_path, type:"button"
+        =f.submit "完了", class:"search-main__left__search_form__submit"
