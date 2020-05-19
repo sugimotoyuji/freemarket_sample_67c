@@ -143,8 +143,9 @@ class ItemsController < ApplicationController
   end
 
   def detail_search
-    
     @q = Item.ransack(params[:q])
+    @search_item = Item.ransack(params[:q]) 
+    @result = @search_item.result.page(params[:page])
     @parents = Category.where(ancestry: nil)
   end
 

@@ -17,21 +17,15 @@
       .search-main__left__search_form__condition-title
         商品の状態
       .search-main__left__search_form__condition-box1
-        =f.check_box :condition_id_in, value:'1'
-        = "新品,未使用"
-        =f.check_box :condition_id_in, value:'2'
-        = "未使用に近い"
-      .search-main__left__search_form__condition-box2
-        =f.check_box :condition_id_in, value:'3'
-        = "目立った傷や汚れなし"
-      .search-main__left__search_form__condition-box3
-        =f.check_box :condition_id_in, value:'4'
-        = "やや傷や汚れあり"
-      .search-main__left__search_form__condition-box4
-        =f.check_box :condition_id_in, value:'5'
-        = "傷や汚れあり"
-        =f.check_box :condition_id_in, value:'6'
-        = "全体的に状態が悪い"
+        = f.collection_select :condition_id_eq, Condition.all, :id, :name, {prompt: "選択してください"},class:"search-main__left__search_form__condition-box1__box"
+      .search-main__left__search_form__prefecture-title
+        発送元の地域
+      .search-main__left__search_form__prefecture-box1
+        = f.collection_select :delivery_way_id_eq, DeliveryWay.all, :id, :name, {prompt: "選択してください"},class:"search-main__left__search_form__prefecture-box1__box"
+      .search-main__left__search_form__delivery_charge-title
+        配送の負担
+      .search-main__left__search_form__delivery_charge-box1
+        = f.collection_select :delivery_charge_id_eq, DeliveryCharge.all, :id, :name, {prompt: "選択してください"},class: "search-main__left__search_form__delivery_charge-box1__box"
       .search-main__left__search_form__btn-box
         = link_to "クリア", detail_search_items_path, type:"button"
         =f.submit "完了", class:"search-main__left__search_form__submit"

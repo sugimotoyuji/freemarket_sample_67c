@@ -20,7 +20,7 @@
     }
     &__search_form {
       border: solid 1px;
-      height: 480px;
+      height: 520px;
       width:350px;
       margin-top: 30px;
       background: rgb(245, 245, 245);
@@ -81,22 +81,52 @@
         margin-top: 10px;
         padding-left: 50px;
         font-size: 15px;
+        &__box {
+        width: 200px;
+        height: 40px;
+        background-color:white;
+        text-align: center;
+        margin-top: 5px;
+        border-radius: 5px;
+        }
       }
-      &__condition-box2{
+      &__prefecture-title{
+        font-size: 15px;
+        margin-top: 10px;
+        padding-left: 50px;
+      }
+      &__prefecture-box1{
         margin-top: 10px;
         padding-left: 50px;
         font-size: 15px;
+        &__box {
+          width: 200px;
+          height: 40px;
+          background-color:white;
+          text-align: center;
+          margin-top: 5px;
+          border-radius: 5px;
+        }
       }
-      &__condition-box3{
+      &__delivery_charge-title{
+        font-size: 15px;
+        margin-top: 10px;
+        padding-left: 50px;
+      }
+      &__delivery_charge-box1{
         margin-top: 10px;
         padding-left: 50px;
         font-size: 15px;
+        &__box {
+          width: 200px;
+          height: 40px;
+          background-color:white;
+          text-align: center;
+          margin-top: 5px;
+          border-radius: 5px;
+        }
       }
-      &__condition-box4{
-        margin-top: 10px;
-        padding-left: 50px;
-        font-size: 15px;
-      }
+
       &__btn-box{
         margin-top: 10px;
         margin-left: 50px;
