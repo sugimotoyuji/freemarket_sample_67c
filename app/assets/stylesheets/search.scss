@@ -41,6 +41,35 @@
         margin-top: 10px;
         border-radius: 5px;
       }
+      &__price-title {
+      font-size: 15px;
+      margin-top: 10px;
+      padding-left: 100px;
+      }
+      &__price-box{
+        display: flex;
+        &__box1 {
+        width: 95px;
+        height: 40px;
+        background-color:white;
+        text-align: center;
+        margin-left: 100px;
+        margin-top: 10px;
+        border-radius: 5px;
+        }
+        &__box2 {
+        width: 95px;
+        height: 40px;
+        background-color:white;
+        text-align: center;
+        margin-top: 10px;
+        border-radius: 5px;
+        }
+        &__box3{
+        height: 40px;
+        line-height: 60px;
+        }
+     }
     }
   }
   &__right {

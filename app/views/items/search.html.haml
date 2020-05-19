@@ -10,10 +10,13 @@
         .search-main__left__search_form__keyword
           キーワードを追加する
         =f.search_field :name_cont, placeholder: "値下げ", class:"search-main__left__search_form__keyword_box"
-        .search-main__left__search_form__price
+        .search-main__left__search_form__price-title
           価格
         .search-main__left__search_form__price-box
-          =f.search.
+          =f.search_field :price_gteq, placeholder: "￥ Min",class:"search-main__left__search_form__price-box__box1"
+          %span{class:'search-main__left__search_form__price-box__box3'} 〜
+          =f.search_field :price_lteq, placeholder: "￥ Max",class:"search-main__left__search_form__price-box__box2"
+        .search-main__left__search_form__price-box
 
   .search-main__right
     .search-main__right__title
