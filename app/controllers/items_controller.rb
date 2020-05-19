@@ -136,7 +136,7 @@ class ItemsController < ApplicationController
   end
 
   def search
-    @items = Item.search(params[:search]).page(params[:page]).per(4)
+    @items = Item.search(params[:search])
     @search = params[:search]
     @parents = Category.where(ancestry: nil)
   end

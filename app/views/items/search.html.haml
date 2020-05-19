@@ -4,8 +4,11 @@
 
   .search-main__right
     .search-main__right__title
-      =@search
-      の検索結果
+      -unless @search.empty?
+        =@search
+        の検索結果
+      -else 
+        すべての商品の一覧
     .search-main__right__box
       -unless @items.empty?
         .search-main__right__box__item
@@ -20,7 +23,4 @@
       -else
         .search-main__right__non
           ="#{@search}は現在出品されていません"
-        .search-main__pagenation
-          =paginate(@items)
-
-=render "footer"
+       
