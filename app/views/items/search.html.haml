@@ -1,8 +1,19 @@
 =render "header"
 .search-main
   .search-main__left
-    =search_form_for (@q, uril: do |f|
-
+    =search_form_for(@q, url: search_items_path) do |f|
+      .search-main__left__search_sort
+        =f.select( :sorts, { '並び替え': 'id desc', "価格の安い順": "price asc", "価格の高い順": "price desc", "新着順": "upataed_at desc", "古い順": "updated_at asc"}, {onchandge: "this.form.submit()"},class: "search-main__left__search_sort__box")
+      .search-main__left__search_form
+        .search-main__left__search_form__title
+          詳細検索
+        .search-main__left__search_form__keyword
+          キーワードを追加する
+        =f.search_field :name_cont, placeholder: "値下げ", class:"search-main__left__search_form__keyword_box"
+        .search-main__left__search_form__price
+          価格
+        .search-main__left__search_form__price-box
+          =f.search.
 
   .search-main__right
     .search-main__right__title

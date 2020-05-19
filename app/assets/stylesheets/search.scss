@@ -6,6 +6,42 @@
   &__left {
     height: 100%;
     width: 400px;
+    &__search_sort{
+      height: 50px;
+      width: 100%;
+      text-align: center;
+      padding-top: 10px;
+      &__box {
+        width: 200px;
+        height: 40px;
+        background-color: white;
+        text-align: center;
+      }
+    }
+    &__search_form {
+      height: 400px;
+      width:100%;
+      margin-top: 30px;
+      background: rgb(245, 245, 245);
+      &__title {
+      font-size: 17px;
+      padding-left: 100px;
+      }
+      &__keyword {
+      font-size: 15px;
+      margin-top: 10px;
+      padding-left: 100px;
+      }
+      &__keyword_box{
+        width: 200px;
+        height: 40px;
+        background-color:white;
+        text-align: center;
+        margin-left: 100px;
+        margin-top: 10px;
+        border-radius: 5px;
+      }
+    }
   }
   &__right {
     height: 100%;

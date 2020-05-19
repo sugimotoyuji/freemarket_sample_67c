@@ -139,7 +139,10 @@ class ItemsController < ApplicationController
     @items = Item.search(params[:search])
     @search = params[:search]
     @parents = Category.where(ancestry: nil)
+    @q = Item.ransack(params[:q])
   end
+
+
 
   private
 
