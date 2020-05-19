@@ -1,4 +1,3 @@
-=render "header"
 .search-main
   .search-main__left
     =search_form_for(@q, url: detail_search_items_path) do |f|
@@ -34,26 +33,3 @@
         .search-main__left__search_form__btn
           = link_to "クリア", detail_search_items_path, type:"button"
         =f.submit "完了"
-
-  .search-main__right
-    .search-main__right__title
-      -unless @search.empty?
-        =@search
-        の検索結果
-      -else 
-        すべての商品の一覧
-    .search-main__right__box
-      -unless @items.empty?
-        .search-main__right__box__item
-          -@items.each do |item|
-            =link_to item_path(item.id) do
-              = image_tag "#{item.item_images[0].image}", size: '220x200',class:"item-image"
-            .search-main__right__box__item__item-box
-              %span{class:'search-main__right__box__item__item-box__name'}
-                = item.name
-              %span{class: 'search-main__right__box__item__item-box__price'}
-                = "￥#{item.price}"
-      -else
-        .search-main__right__non
-          ="#{@search}は現在出品されていません"
-       

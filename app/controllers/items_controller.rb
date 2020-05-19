@@ -142,6 +142,10 @@ class ItemsController < ApplicationController
     @q = Item.ransack(params[:q])
   end
 
+  def detail_search
+    @q = Item.ransack(params[:q])
+  end
+
 
 
   private
