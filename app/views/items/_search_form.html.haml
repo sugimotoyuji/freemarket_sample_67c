@@ -27,5 +27,5 @@
       .search-main__left__search_form__delivery_charge-box1
         = f.collection_select :delivery_charge_id_eq, DeliveryCharge.all, :id, :name, {prompt: "選択してください"},class: "search-main__left__search_form__delivery_charge-box1__box"
       .search-main__left__search_form__btn-box
-        = link_to "クリア", detail_search_items_path, type:"button"
-        =f.submit "完了", class:"search-main__left__search_form__submit"
+        =f.button "クリア", type: :reset, class:"search-main__left__search_form__btn-box__box"
+        =f.submit "完了", class:"search-main__left__search_form__btn-box__submit"
