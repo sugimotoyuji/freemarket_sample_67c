@@ -3,14 +3,12 @@ class ItemsController < ApplicationController
   before_action :set_category,  only: [:new, :create]
   before_action :authenticate_user!,  except:[:index,:show]
   before_action :set_item, only: [:buy,:pay,:show,:destroy,:edit,:update]
-
+  before_action :set_parent, only: [:index,:get_category_parents,:buy,:done,:show,:category_index,:search,:detail_search]
 
   def index
     @items = Item.includes(:item_images).order('created_at DESC').page(params[:page]).per(5)
     @category = Item.includes(:item_images).where(category_id: "58").page(params[:page]).per(5)
-    @parents = Category.where(ancestry: nil)
   end
-
 
   def new
     @items = Item.all
@@ -19,9 +17,7 @@ class ItemsController < ApplicationController
     @item.build_brand
   end
   
-
   def get_category_parents
-    @parents  = Category.where(ancestry: nil)
   end
 
   def get_category_children
@@ -32,8 +28,6 @@ class ItemsController < ApplicationController
     @category_grandchildren = Category.find("#{params[:child_id]}").children
   end
 
-  
-  
   def create
    @item = Item.new(item_params)
    if @item.save
@@ -43,11 +37,8 @@ class ItemsController < ApplicationController
     end
   end
 
-
   def buy
-    @parents = Category.where(ancestry: nil)
   end
-
 
   def pay
     if card.blank?
@@ -67,28 +58,19 @@ class ItemsController < ApplicationController
   end
 
   def done
-    @parents = Category.where(ancestry: nil)
   end
 
   def card
     card = Card.where(user_id: current_user.id)
   end
   
-
   def show
-
-   @item = Item.find(params[:id])
-   @parents = Category.where(ancestry: nil)
-   
-    @parents = Category.where(ancestry: nil)
-
   end
 
   def edit
     grandchild_category = @item.category
     child_category = grandchild_category.parent
     parent_category = grandchild_category.parent.parent
-
 
     @category_parent_array = []
     Category.where(ancestry: nil).each do |parent|
@@ -132,13 +114,11 @@ class ItemsController < ApplicationController
   def category_index
     @category = Category.find(params[:id])
     @pro = Item.where(category_id: @category.id).page(params[:page]).per(5)
-    @parents = Category.where(ancestry: nil)
   end
 
   def search
     @items = Item.search(params[:search])
     @search = params[:search]
-    @parents = Category.where(ancestry: nil)
     @q = Item.ransack(params[:q])
   end
 
@@ -146,10 +126,7 @@ class ItemsController < ApplicationController
     @q = Item.ransack(params[:q])
     @search_item = Item.ransack(params[:q]) 
     @result = @search_item.result.page(params[:page])
-    @parents = Category.where(ancestry: nil)
   end
-
-
 
   private
 
@@ -159,6 +136,10 @@ class ItemsController < ApplicationController
   
   def set_item
     @item = Item.find(params[:id])
+  end
+
+  def set_parent
+    @parents = Category.where(ancestry: nil)
   end
 
 end
