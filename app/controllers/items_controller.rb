@@ -79,9 +79,6 @@ class ItemsController < ApplicationController
 
    @item = Item.find(params[:id])
    @parents = Category.where(ancestry: nil)
-   
-    @parents = Category.where(ancestry: nil)
-
   end
 
   def edit

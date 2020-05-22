@@ -1,4 +1,8 @@
 = render "items/header"
+-# config/breadcrumbs.rbに定義したlogoutを呼び出し
+- breadcrumb :logout
+-# 下記を記述した箇所にパンくずリストが表示される。
+= render "layouts/breadcrumbs"
 .mypage
   .mypage__container
     .mypage__content

@@ -11,7 +11,8 @@
           %button{:type => "submit", :class => "inner__top__searchBox__fom--submit"}
             .inner__top__searchBox__fom--submit--box
               = image_tag 'icon-search 1.png', class: 'inner__top__searchBox__fom--submit--box--image'
-   
+- breadcrumb :category
+= render "layouts/breadcrumbs"
 .category-main
   .category-main__category-title
     %h1.categ__title__jaru 
