@@ -1,27 +1,28 @@
 class ItemsController < ApplicationController
 
-
+  before_action :set_category,  only: [:new, :create]
   before_action :authenticate_user!,  except:[:index,:show]
-  before_action :set_item, only: [:buy,:pay,:show,:destroy]
+  before_action :set_item, only: [:buy,:pay,:show,:destroy,:edit,:update]
 
 
   def index
-    @parents = Category.where(ancestry: nil)
     @items = Item.includes(:item_images).order('created_at DESC').page(params[:page]).per(5)
-    @category = Item.includes(:item_images).where(category_id: "2").page(params[:page]).per(5)
+    @category = Item.includes(:item_images).where(category_id: "58").page(params[:page]).per(5)
     @parents = Category.where(ancestry: nil)
-
   end
 
 
   def new
     @items = Item.all
     @item = Item.new
-    @item.item_images.new
+    @images = @item.item_images.build
     @item.build_brand
-    @category_parent_array = Category.where(ancestry: nil).pluck(:name)
   end
   
+
+  def get_category_parents
+    @parents  = Category.where(ancestry: nil)
+  end
 
   def get_category_children
     @category_children = Category.find_by(id: "#{params[:parent_name]}", ancestry: nil).children
@@ -66,6 +67,7 @@ class ItemsController < ApplicationController
   end
 
   def done
+    @parents = Category.where(ancestry: nil)
   end
 
   def card
@@ -74,6 +76,7 @@ class ItemsController < ApplicationController
   
 
   def show
+
     @parents = Category.where(ancestry: nil)
     @item = Item.find(params[:id])
     @comment = Comment.new
@@ -91,19 +94,74 @@ class ItemsController < ApplicationController
   def destroy
     @item.destroy
     redirect_to("/")
+
   end
 
+  def edit
+    grandchild_category = @item.category
+    child_category = grandchild_category.parent
+    parent_category = grandchild_category.parent.parent
 
 
+    @category_parent_array = []
+    Category.where(ancestry: nil).each do |parent|
+      @category_parent_array << parent.name
+    end
 
+    @category_children_array = []
+    Category.where(ancestry: child_category.ancestry).each do |children|
+      @category_children_array << children
+    end
+
+    @category_grandchildren_array = []
+    Category.where(ancestry: grandchild_category.ancestry).each do |grandchildren|
+      @category_grandchildren_array << grandchildren
+    end
+  end
+
+  def update
+    if @item.update(item_params)
+      redirect_to item_path(@item)
+    else
+      render :edit
+    end
+  end
+  
+  def set_category
+    @category_parent_array = []
+      Category.where(ancestry: nil).each do |parent|
+        @category_parent_array << parent
+      end
+  end
+    
+  def destroy
+    if @item.destroy
+       redirect_to root_path
+    else
+      render :show
+    end
+  end
+
+  def category_index
+    @category = Category.find(params[:id])
+    @pro = Item.where(category_id: @category.id).page(params[:page]).per(5)
+    @parents = Category.where(ancestry: nil)
+  end
+
+  def search
+    @items = Item.search(params[:search])
+    @search = params[:search]
+    @parents = Category.where(ancestry: nil)
+  end
 
   private
+
   def item_params
-   params.require(:item).permit(:name,:description,:price,:brand,:size_id,:condition_id,:delivery_charge_id,:delivery_way_id,:delivery_date_id	, :category_id, item_images_attributes: [:image,:id,:_destroy],brand_attributes: [:id, :name]).merge(user_id: current_user.id)
+   params.require(:item).permit(:name,:description,:price,:brand,:size_id,:condition_id,:delivery_charge_id,:delivery_way_id,:delivery_date_id, :category_id, item_images_attributes: [:image,:id,:_destroy],brand_attributes: [:id, :name]).merge(user_id: current_user.id)
   end
   
   def set_item
     @item = Item.find(params[:id])
-    
   end
+
 end

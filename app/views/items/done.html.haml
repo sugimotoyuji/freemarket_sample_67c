@@ -1,8 +1,14 @@
 .done-container
-  .done-wrapper
+  .done-header
+    =render partial: 'items/header'
+  .done-container__main
 
-    .done-title
-      %h2.done-title__text
-        購入ありがとうございました！
-      =link_to "トップページへ戻る",root_path 
+    .done-container__main__title
+      ご購入ありがとうございます
+    .done-container__main__text
+      到着までしばらくお待ちください。
+    .done-container__main__top
+      =link_to "トップページへ戻る",root_path,data:{"turbolinks" => false} 
+  .done-footer
+    = render partial: 'items/footer'
       

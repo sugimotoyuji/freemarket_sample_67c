@@ -7,6 +7,13 @@
       %p アカウントをお持ちでない方はこちら
       = link_to "新規会員登録", new_registration_path(resource_name), class: "btn-resistration"
     %p アカウントをお持ちの方はこちら
+    .facebook-sign-in
+      =icon("fab","facebook-square",class:"icon-facebook-in")
+      = link_to 'Facebookでログイン', user_facebook_omniauth_authorize_path, method: :post
+    .google-sign-in
+      =icon("fab","google",class:"google-in")
+      = link_to 'Googleでログイン', user_google_oauth2_omniauth_authorize_path, method: :post
+
     = form_for(resource, as: resource_name, url: session_path(resource_name)) do |f|
       .field
         = f.email_field :email, autofocus: true, autocomplete: "email", class: "input-default", placeholder: "メールアドレス"

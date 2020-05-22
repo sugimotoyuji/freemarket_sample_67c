@@ -26,7 +26,7 @@ $(function() {
   });
   
   function buildChildHTML(child){
-    var html = ` <a class="child_category" id="${child.id}" href="/category/${child.id}">${child.name}</a>`;
+    var html = ` <a class="child_category" id="${child.id}" href="items/${child.id}/category_index/">${child.name}</a>`;
     return html;
   }
   $(".categor2").on("mouseenter", function() {
@@ -55,7 +55,7 @@ $(function() {
   });
   function buildGrandChildHTML(child){
     var html =`<a class="grand_child_category" id="${child.id}"
-               href="/category/${child.id}">${child.name}</a>`;
+               href="items/${child.id}/category_index/">${child.name}</a>`;
     return html;
   }
   $(document).on("mouseenter", ".child_category", function () {//子カテゴリーのリストは動的に追加されたHTMLのため

@@ -14,7 +14,8 @@ Rails.application.routes.draw do
 
 
   devise_for :users, controllers: {
-    registrations: 'users/registrations',
+    omniauth_callbacks: 'users/omniauth_callbacks',
+    registrations: 'users/registrations'
   }
   devise_scope :user do
     get 'addresses', to: 'users/registrations#new_address'
@@ -35,6 +36,8 @@ Rails.application.routes.draw do
     resources :likes, only: [:create, :destroy]
     
     collection do
+      get 'search'
+      get 'get_category_parents', defaults: { format: 'json' } 
       get 'get_category_children', defaults: { format: 'json' }
       get 'get_category_grandchildren', defaults: { format: 'json' }
       get "buy/:id" =>  'items#buy', as: 'buy'
@@ -44,8 +47,9 @@ Rails.application.routes.draw do
       post   '/like/:item_id' => 'likes#create',   as: 'create'
       delete '/like/:item_id' => 'likes#destroy', as: 'destroy'
     end
+    member do
+      get 'category_index'
+    end
   end
-
-
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end

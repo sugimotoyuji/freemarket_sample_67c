@@ -2,15 +2,15 @@
   .inner
     .inner__top
       %h1.inner__top__icn
-        =link_to root_path do
+        =link_to root_path ,data: {"turbolinks" => false} do
           = image_tag 'logo.png', class: 'inner__top__icn--image--tag' 
       .inner__top__searchBox
-        %form.inner__top__searchBox__fom
-          %input{:type => "hidden", :class => "inner__top__searchBox__fom--text" }
-          %input{:class => "inner__top__searchBox__fom--text", :placeholder => "キーワードから探す", }
-          %button{:type => "submit", :class => "inner__top__searchBox__fom--submit"}
-            .inner__top__searchBox__fom--submit--box
-              = image_tag 'icon-search 1.png', class: 'inner__top__searchBox__fom--submit--box--image'
+        .inner__top__searchBox__fom
+          =form_tag(search_items_path,method: :get) do
+            =text_field_tag :search , :"", placeholder: "キーワードから探す",class:"inner__top__searchBox__fom--text"
+            =submit_tag :"" , :name => nil, class:"inner__top__searchBox__fom--submit"
+            .inner__top__searchBox__fom--submit--box--image
+              %i.fas.fa-search
     .inner__bottom
       %ul.inner__bottom__left
         %li.inner__bottom__left__categories
@@ -19,7 +19,7 @@
             %ul.categor1
               - @parents.each do |parent|
                 %li.categor1__li
-                  = link_to "#{parent.name}", 'category_path(parent)', class: 'categor2',id: "#{parent.id}"
+                  = link_to "#{parent.name}", category_index_item_path(parent.id),data: {"turbolinks" => false},id: "#{parent.id}",class:"categor2"
             %ul.categor3
             %ul.categor4
           %a{ :href => '#', :class => 'inner__bottom__left__brands--brand' } ブランド
