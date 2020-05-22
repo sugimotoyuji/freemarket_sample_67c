@@ -174,16 +174,7 @@
         ul{
           margin: 10px 0 0;
           display: flex;
-          .okini{
-            margin-right: auto;
-            border-radius: 40px;
-            border: 1px solid #ffb340;
-            padding: 6px 10px;
-            a{
-              text-decoration: none;
-              color: #3CCACE;
-            }
-          }
+          
           .hata{
             font-size: 14px;
             border:1px solid lightslategrey;
@@ -198,38 +189,95 @@
           }
         }
       }
-      .item-coments{
-        padding: 24px;
-        background-color: #fff;
+      .commentBox {
         margin: 10px 0;
+        padding: 24px;
         text-align: center;
-        form{
-          margin: 0;
-          padding: 0;
-          textarea{
+        background-color: #ffffff;
+        &__list {
+          display: flex;
+          margin-bottom: 20px;
+          i {
+            font-size: 45px;
+            color: #3CCACE;
+            margin-top: 25px;
+          }
+          &__content {
             width: 100%;
-            height: 104px;
-            padding: 10px;
+            margin-left: 20px;
+            
+            &__name {
+              text-align: left;
+              font-size: 14px;
+            }
+            &__message {
+              border-radius: 5px;
+              text-align: left;
+              position: relative;
+              padding: 22px;
+              background-color: #3CCACE;
+              border-radius: 10px;
+              word-break: break-all;
+            }
+            &__message::before {
+              content: '';
+              position: absolute;
+              display: block;
+              width: 0;
+              height: 0;
+              border-radius: 50%;
+              transform: rotate(45deg);
+              top: 20px;
+              left: -15px;
+              border-bottom: 20px solid #3CCACE;
+              border-left: 20px solid #3CCACE;
+              border-top: 20px solid transparent;
+              border-right: 20px solid transparent;
+            }
+            &__message::after {
+              content: '';
+              position: absolute;
+              display: block;
+              width: 0;
+              height: 0;
+              border-radius: 50%;
+              transform: rotate(45deg);
+              top: 10px;
+              left: -20px;
+              border-bottom: 20px solid #ffffff;
+              border-left: 20px solid #ffffff;
+              border-top: 20px solid transparent;
+              border-right: 20px solid transparent;
+            }
           }
-          p{
-            padding: 8px;
-            font-size: 14px;
-            background-color: #f8f8f8;
-            margin: 10px 0;
-            text-align: left;
-          }
-          .commentBtn{
-            line-height: 48px;
-            background: #3CCACE;
-            border: 1px solid #3CCACE;
-            color: #fff;
-            width: 60%;
-            font-size: 18px;
-            border-radius: 100px;
+        }
+        textarea {
+          width: 100%;
+          height: 104px;
+        }
+      
+        p {
+          font-size: 14px;
+          
+          text-align: left;
+        }
+        .noticeMsg {
+          padding: 8px;
+          margin: 10px 0;
+          background-color: #f8f8f8;
+        }
+        .commentBtn {
+          background: #3CCACE;
+          line-height: 48px;
+          color: #fff;
+          font-size: 18px;
+          border-radius: 100px;
+          width: 60%;
+          border: 1px solid #3CCACE;
           }
         }
       }
-    }  
+    }
   }
   .relatedItem{
     text-align: center;
@@ -245,7 +293,7 @@
     position: relative;         
     }
   }
-}
+
 .footer_show {
   padding: 60px 0;
   color:black;

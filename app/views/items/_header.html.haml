@@ -26,7 +26,7 @@
       %ul.inner__bottom__right
         - if user_signed_in?
           %li.inner__bottom__right__like
-            = link_to "いいね！一覧", "#" , class:'inner__bottom__right__like--button'
+            = link_to "いいね！一覧", "/like" , class:'inner__bottom__right__like--button'
           %li.inner__bottom__right__notification
             = link_to "お知らせ", "#" , class:'inner__bottom__right__notification--button'
           %li.inner__bottom__right__todo

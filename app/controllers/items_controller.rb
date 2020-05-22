@@ -75,8 +75,17 @@ class ItemsController < ApplicationController
 
   def show
     @parents = Category.where(ancestry: nil)
+    @item = Item.find(params[:id])
+    @comment = Comment.new
+    @comments = @item.comments.includes(:user)
     
    
+  end
+
+  def like
+    @user = current_user
+    @item = Item.all
+    @likes = Like.where(user_id: @user.id).all
   end
 
   def destroy
