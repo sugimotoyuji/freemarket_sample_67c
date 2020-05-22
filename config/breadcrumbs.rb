@@ -30,6 +30,11 @@ crumb :card_new do
   parent :mypage
 end
 
+# カテゴリ
+crumb :category do
+  link Category.find(params[:id]).name, category_index_item_path
+end
+
 
 # crumb :projects do
 #   link "Projects", projects_path
