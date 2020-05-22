@@ -1,16 +1,4 @@
 # README
-    @likes = Like.where(user_id: @user.id)
-    
-    @items = []
-    @likes.each do |like|
-      @items << Item.find(like.item_id)
-    end
-
-    ##likesテーブルからログインしているユーザーのidが入っているレコードを取得してくる
-    ##ユーザーがいいねしたアイテムのこレードをアイテムテーブルから取得してくる eachを使って処理を行う
-    where  find  find_by
-
-
 This README would normally document whatever steps are necessary to get the
 application up and running.
 
