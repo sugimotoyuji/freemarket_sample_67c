@@ -9,11 +9,10 @@
         -@pro.each do |item|
           =link_to item_path(item.id) do
             = image_tag "#{item.item_images[0].image}",class:"category-main__box__category-image"
-          .category-main__box__name
-            =item.name
-          .category-main__box__price
-            ￥
-            =item.price
+            .category-main__box__name
+              = item.name
+            .category-main__box__price
+              = "¥#{item.price}"
     - else
       .category-main__non
         ="#{@category.name}は現在出品されていません"

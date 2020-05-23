@@ -35,13 +35,18 @@
       font-size: 18px;
       top:210px;
       position: absolute;
+      margin-left: 10px;
 
     }
     &__price {
       font-size: 18px;
-      top: 230px;
+      height: 24px;
+      top: 177px;
       position: absolute;
-     
+      padding-right: 5px;
+      margin-left: 5px;
+      background-color: rgba(0,0,0,0.3);
+      border-radius: 0 16px 16px 0;
     }
   }
 
