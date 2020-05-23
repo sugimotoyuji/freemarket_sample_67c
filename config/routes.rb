@@ -37,6 +37,7 @@ Rails.application.routes.draw do
     
     collection do
       get 'search'
+      get 'detail_search'
       get 'get_category_parents', defaults: { format: 'json' } 
       get 'get_category_children', defaults: { format: 'json' }
       get 'get_category_grandchildren', defaults: { format: 'json' }
