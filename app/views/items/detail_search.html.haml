@@ -2,16 +2,10 @@
 .search-main
   =render "search_form"
   .search-main__right
-    .search-main__right__title
-      -unless @search.empty?
-        =@search
-        の検索結果
-      -else 
-        すべての商品の一覧
     .search-main__right__box
-      -unless @items.empty?
+      -unless @result.empty?
         .search-main__right__box__item
-          -@items.each do |item|
+          -@result.each do |item|
             =link_to item_path(item.id) do
               = image_tag "#{item.item_images[0].image}", size: '220x200',class:"item-image"
             .search-main__right__box__item__item-box
@@ -21,5 +15,4 @@
                 = "￥#{item.price}"
       -else
         .search-main__right__non
-          ="#{@search}は現在出品されていません"
-       
+          ="お探しの商品はございません"
