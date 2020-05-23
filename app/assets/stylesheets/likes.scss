@@ -19,13 +19,13 @@
   width: 280px;
   background-color: #fff;
   .mypage__nav{
-    .mypage__nav__head{
+    &__head{
       font-size: 16px;
       font-weight: bold;
       padding-top: 40px;
       background-color: #f5f5f5;
     }
-    .mypage__nav__list li{
+    &__list li{
       border-top: 1px solid #eee;
       height: 40px;
       line-height: 40px;

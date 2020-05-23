@@ -4,20 +4,20 @@ class UsersController < ApplicationController
 
   def show
     @user = User.find(params[:id])
+    
   end
 
   def logout
   end
   
   def like
-    @user = current_user
-    @likes = Like.where(user_id: @user.id)
+    @likes = Like.where(user_id: current_user.id)
     @item = @likes.map(&:item)
     @items = Item.all
   end
   
   def likes
-    @user = User.find_by(id: params[:id])
+    @user = User.find(params[:id])
     @likes = Like.where(user_id: @user.id)
   end
 

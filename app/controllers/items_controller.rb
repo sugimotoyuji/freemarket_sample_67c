@@ -70,7 +70,6 @@ class ItemsController < ApplicationController
   end
 
   def like
-    @item = Item
     @likes = Like.where(user_id: @user.id)
   end
 
