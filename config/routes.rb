@@ -1,9 +1,5 @@
 Rails.application.routes.draw do
-
-  get 'likes/create'
-
-  get 'likes/destroy'
-
+  
   resources :cards, only: [:index, :new, :show] do
     collection do
       post 'show', to: 'cards#show'

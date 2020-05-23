@@ -12,10 +12,7 @@ class UsersController < ApplicationController
   def like
     @user = current_user
     @likes = Like.where(user_id: @user.id)
-    @item = []
-    @likes.each do |like|
-      @item << Item.find(like.item_id)
-    end
+    @item = @likes.map(&:item)
     @items = Item.all
   end
   
