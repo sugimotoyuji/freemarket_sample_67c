@@ -9,6 +9,7 @@ class CreateItems < ActiveRecord::Migration[5.0]
       t.integer   :delivery_date_id,null:false 
       t.integer    :delivery_way_id,null:false 
       t.integer    :order_status_id, default: 1
+      t.integer    :likes_count
       t.string :brand_id 
       t.string :name ,null:false
       t.integer :price, null:false

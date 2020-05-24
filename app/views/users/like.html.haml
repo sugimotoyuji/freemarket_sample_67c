@@ -1,32 +1,11 @@
+=render "items/header"
 .mypage
   .mypage__container
     .mypage__content
       .mypage__user__icon
         %i(class="fas fa-user-circle")
-        %h2.mypage__user__icon--nickname= @user.nickname
+        %h2.mypage__user__icon--nickname= current_user.nickname
         %h2.mypage__user__icon--status 評価0 出品数0
-      .mypage__tab__container--notification_todo
-        %ul.tab--notification_todo
-          %li.tab--notification.active お知らせ
-          %li.tab--todo やることリスト
-        .mypage__tab__container__content
-          .mypage__tab__container__content__item
-            お知らせ１
-          .mypage__tab__container__content__item
-            お知らせ２
-          .mypage__tab__container__content__item
-            お知らせ３
-          .mypage__tab__container__content__item
-            お知らせ４
-      .mypage__tab__container__transaction
-        .mypage__tab__container__transaction__head
-          %h2.mypage__tab__container__transaction__head--style 購入した商品
-          %ul.tab--transaction
-            %li.tab--now.active 取引中
-            %li.tab--past 過去の取引
-          .mypage__tab__container__transaction__content
-            %h2 取引中の商品はありません
-
     .mypage__side
       %nav.mypage__nav
         %ul.mypage__nav__list
@@ -37,7 +16,7 @@
           %li.mypage__nav__list__item
             =link_to("やることリスト", "#")
           %li.mypage__nav__list__item
-            =link_to"いいね！一覧", like_users_path
+            =link_to "いいね！一覧", like_users_path
           %li.mypage__nav__list__item
             =link_to("出品する", "#")
           %li.mypage__nav__list__item
@@ -75,3 +54,19 @@
             =link_to("本人情報", "#")
           %li.mypage__nav__list__item
             = link_to "ログアウト", logout_users_path
+
+    
+    .like
+      .like__content__head いいね！一覧
+      %ul.like__table__list
+        - @item.each do |item|
+          %li.like__table__list__text
+            =link_to item_path(item.id), class: "like__table__list__item" do
+              %figure 
+                = image_tag "#{item.item_images[0].image}", :size =>'220x200'
+              .like__table__list__item__body
+                = item.name
+                %br
+                = item.price 
+                円
+= render "items/footer"

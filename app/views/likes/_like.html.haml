@@ -1,0 +1,16 @@
+%div.link
+  - if current_user.likes.find_by(item_id: item.id)
+    = link_to create_items_path(@item.id), method: :delete, remote: true do
+      .heart-icon
+        %i{class: "fa fa-heart"}
+        %span いいね！
+        %span
+          = item.likes.count.to_s
+      
+  - else
+    = link_to destroy_items_path(@item.id), method: :post, remote: true do
+      .heart-icon
+        %i{class: "fa fa-heart"}
+        %span いいね！
+        %span
+          = item.likes.count.to_s 

@@ -65,6 +65,12 @@ class ItemsController < ApplicationController
   end
   
   def show
+    @comment = Comment.new
+    @comments = @item.comments.includes(:user)
+  end
+
+  def like
+    @likes = Like.where(user_id: @user.id)
   end
 
   def edit

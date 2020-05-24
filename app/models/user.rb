@@ -15,7 +15,7 @@ class User < ApplicationRecord
   has_many :orders,dependent: :destroy
   has_many :profits
   has_many :points
-  has_many :communicatiuons,dependent: :destroy
+  has_many :comments
   has_many :likes,dependent: :destroy
   has_many :flags,dependent: :destroy
   has_many :message_items,through: :messages,source: :items
