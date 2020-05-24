@@ -10,7 +10,7 @@
       %nav.mypage__nav
         %ul.mypage__nav__list
           %li.mypage__nav__list__item.active
-            =link_to "マイページ", @current_user_path
+            =link_to("マイページ", "/users/#{current_user.id}")
           %li.mypage__nav__list__item
             =link_to("お知らせ", "#")
           %li.mypage__nav__list__item
