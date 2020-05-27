@@ -1,4 +1,5 @@
 $(document).on('turbolinks:load', function(){
+  
 
     const prevContent = $('.label-content').prev();
     //プレビューのhtmlを定義
@@ -87,4 +88,5 @@ $(document).on('turbolinks:load', function(){
       //countに応じてラベルのwidth・id・forの値を変更
       setLabel(id);
     });
+    
 });
