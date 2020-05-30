@@ -87,20 +87,21 @@
               %i{class: "fa fa-flag"}
               不適切な商品の通報
       -# コメントフォーム
-      .commentBox
+      .commentText
         - if @comments
           - @comments.each do |comment|
-            .commentBox__list
-              .commentBox__list__icon
+            .commentText__list
+              .commentText__list__icon
                 =icon('fa','user')
-              .commentBox__list__content
-                .commentBox__list__content__name
+              .commentText__list__content
+                .commentText__list__content__name
                   = link_to comment.user.nickname, user_path(current_user.id)
-                .commentBox__list__content__message
+                .commentText__list__content__message
                   = comment.text
-                .commentBox__list__content__date
+                .commentText__list__content__date
                   = comment.updated_at.to_s(:datetime_jp)
 
+      .commentBox
         -if @item.order_status_id == 4 && user_signed_in?
           =form_for [@item, @comment] do |f|
             = f.text_area :text, disabled: true
