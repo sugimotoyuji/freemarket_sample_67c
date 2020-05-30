@@ -10,8 +10,8 @@
     =f.label :必須 ,class:"sell-main__sell-form__sell-label__need"
     %P{class:"sell-main__sell-form__sell-text"} 最大5枚までアップロードできます
    .sell-main__sell-form__sell-item-image__box
-    .prev-content
-    .label-content
+    #prev-content
+    #label-content
      = f.label :"item_images_attributes_0_image",class: "label-box",id: "label-box--#{@item.item_images.length}" do
       %pre.label-box__text-visible ファイルを選択をクリックしてアップロード
     .hidden-content
@@ -84,5 +84,8 @@
  %li FURIMA利用規約
  %li 特定商取引に関する表記
  = image_tag "logo-white.png" ,class: "sell-main__sell-footer__footer-logo"
-%form#my-awesome-dropzone.dropzone{:action => "/file-upload"}
+%form{:action => "#"}
+%input#file{:name => "file", :type => "file"}/
+#preview
+#drop_zone
 

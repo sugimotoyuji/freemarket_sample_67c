@@ -12,8 +12,8 @@
 //
 //= require jquery
 //= require jquery_ujs
-//= require turbolinks
 //= require dropzone
+//= require turbolinks
 //= require_tree .
 
 $(function() {

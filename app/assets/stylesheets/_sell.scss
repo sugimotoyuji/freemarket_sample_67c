@@ -53,7 +53,7 @@ $ten:10px;
     margin-left: 50px;
     display: flex;
     flex-wrap: wrap;
-    .prev-content {
+    #prev-content {
      display: flex;
      .preview-box {
       height: 162px;
@@ -80,7 +80,7 @@ $ten:10px;
        }
       }
      }
-     .label-content{
+     #label-content{
       margin-bottom: 10px;
       width: 620px;
   
@@ -335,7 +335,26 @@ $ten:10px;
   padding: 2px;
  }
 }
+#drop_zone {
+  border: 5px dashed #000000;
+  padding: 50px;
+  margin: 20px;
+  font-size: 24px;
+  color: #000000;
+  background-color: #ffffff;
+  text-align: center;
+}
 
+#preview {
+  overflow: hidden;
+}
+
+#preview img {
+  width: 100px;
+  float: left;
+  margin: 10px;
+  cursor: move;
+}
 
 
  
