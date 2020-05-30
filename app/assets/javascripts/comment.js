@@ -1,7 +1,7 @@
 $(function(){
   function buildHTML(comment){
     var html = `
-                  <div class="commentText__list">
+                  <div class="commentText__list"  data-comment-id=${comment.id}>
                   <div class="commentText__list__icon">
                   <i class="fa fa-user"></i>
                   </div>
@@ -35,7 +35,7 @@ $(function(){
     .done(function(data){
       var html = buildHTML(data);
       $('.commentText').append(html);
-      $('.textbox').val('');
+      $('#comment_text').val('');
       $('.commentBtn').prop('disabled', false);
     })
   })
