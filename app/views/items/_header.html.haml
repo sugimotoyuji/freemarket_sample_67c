@@ -32,7 +32,7 @@
           %li.inner__bottom__right__todo
             = link_to "やることリスト", "#" , class:'inner__bottom__right__todo--button'
           %li.inner__bottom__right__mypage
-            = link_to "マイページ", "/users/#{current_user.id}" , class:'inner__bottom__right__mypage--button'
+            = link_to "マイページ", user_path(current_user.id) , class:'inner__bottom__right__mypage--button'
         - else
           %li.inner__bottom__right__login
             = link_to "ログイン", new_user_session_path, class:'inner__bottom__right__login--button'

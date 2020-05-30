@@ -14,6 +14,12 @@ crumb :logout do
   parent :mypage
 end
 
+# いいね
+crumb :like do
+  link "いいね！一覧", like_users_path
+  parent :mypage
+end
+
 # 支払い情報
 crumb :card do
   link "支払い情報", card_path

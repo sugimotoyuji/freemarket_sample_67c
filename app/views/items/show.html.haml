@@ -95,7 +95,7 @@
                 =icon('fa','user')
               .commentBox__list__content
                 .commentBox__list__content__name
-                  = link_to comment.user.nickname, "/users/#{comment.user_id}"
+                  = link_to comment.user.nickname, user_path(current_user.id)
                 .commentBox__list__content__message
                   = comment.text
                 .commentBox__list__content__date
