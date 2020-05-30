@@ -87,7 +87,7 @@
               %i{class: "fa fa-flag"}
               不適切な商品の通報
       -# コメントフォーム
-      .commentText
+      .commentText{id: @item.id}
         - if @comments
           - @comments.each do |comment|
             .commentText__list{data: {comment: {id: comment.id}}}

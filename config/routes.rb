@@ -28,11 +28,11 @@ Rails.application.routes.draw do
   root 'items#index'
   get '/category/new'
   resources :items do
-    namespace :api do
-      resources :items, only: :index, defaults: { format: 'json' }
-    end
     resources :comments, only: :create
     resources :likes, only: [:create, :destroy]
+    namespace :api do
+      resources :comments, only: :index, defaults: { format: 'json' }
+    end
     
     collection do
       get 'search'
@@ -51,5 +51,7 @@ Rails.application.routes.draw do
       get 'category_index'
     end
   end
+
+  
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end
