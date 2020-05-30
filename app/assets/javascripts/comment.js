@@ -19,6 +19,7 @@ $(function(){
                   `
     return html;
   }
+  
   $('#new_comment').on('submit', function(e){
     e.preventDefault();
     var formData = new FormData(this);
@@ -38,5 +39,11 @@ $(function(){
       $('.commentBtn').prop('disabled', false);
     })
   })
-
+  $(".new_comment").submit(function(){
+    if($("#comment_text").val() == ""){
+      alert("コメントが空欄です！");
+      return false;
+    }
+  });
 })
+
