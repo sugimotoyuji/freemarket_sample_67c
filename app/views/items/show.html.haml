@@ -90,7 +90,7 @@
       .commentText
         - if @comments
           - @comments.each do |comment|
-            .commentText__list
+            .commentText__list{data: {comment: {id: comment.id}}}
               .commentText__list__icon
                 =icon('fa','user')
               .commentText__list__content
