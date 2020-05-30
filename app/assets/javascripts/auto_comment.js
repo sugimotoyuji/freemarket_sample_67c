@@ -4,7 +4,7 @@ $(function(){
     
        
         var html =
-         `<div class="commentText__list"data-comment-id=${comment.id}>
+         `<div class="commentText__list" data-comment-id=${comment.id}>
          <div class="commentText__list__icon">
          <i class="fa fa-user"></i>
          </div>
