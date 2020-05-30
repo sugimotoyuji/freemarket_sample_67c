@@ -34,7 +34,6 @@ $(function(){
     })
     .done(function(data){
       var html = buildHTML(data);
-      
       $('.commentText').append(html);
       $('.textbox').val('');
       $('.commentBtn').prop('disabled', false);
