@@ -82,4 +82,5 @@ gem "omniauth-rails_csrf_protection"
 gem 'dotenv-rails'
 gem "ransack"
 gem "gretel"
+gem 'js_cookie_rails'
 

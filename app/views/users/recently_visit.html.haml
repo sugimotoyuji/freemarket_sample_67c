@@ -1,24 +1,24 @@
 = render "items/header"
--# config/breadcrumbs.rbに定義したlogoutを呼び出し
-- breadcrumb :logout
--# 下記を記述した箇所にパンくずリストが表示される。
+
 = render "layouts/breadcrumbs"
 .mypage
   .mypage__container
     .mypage__content
-      .mypage__logout
-        = link_to "ログアウト", destroy_user_session_path, method: :delete, class:'logout--btn'
+      .mypage__user__icon
+        %i(class="fas fa-user-circle")
+        %h2.mypage__user__icon--nickname= current_user.nickname
+        %h2.mypage__user__icon--status 評価0 出品数0
     .mypage__side
       %nav.mypage__nav
         %ul.mypage__nav__list
           %li.mypage__nav__list__item
             =link_to"マイページ", user_path(current_user.id)
-          %li.mypage__nav__list__item
-            =link_to"閲覧履歴",recently_visit_user_path(current_user.id)
+          %li.mypage__nav__list__item.active
+            =link_to"閲覧履歴",recently_visit_user_path
           %li.mypage__nav__list__item
             =link_to("やることリスト", "#")
           %li.mypage__nav__list__item
-            =link_to "いいね！一覧", like_users_path 
+            =link_to "いいね！一覧", like_users_path
           %li.mypage__nav__list__item
             =link_to("出品する", "#")
           %li.mypage__nav__list__item
@@ -49,11 +49,18 @@
           %li.mypage__nav__list__item
             =link_to("発送元・お届け先住所変更", "#")
           %li.mypage__nav__list__item
-            =link_to("支払い情報",  cards_path)
+            =link_to"支払い情報", cards_path
           %li.mypage__nav__list__item
             =link_to("メール・パスワード", "#")
           %li.mypage__nav__list__item
             =link_to("本人情報", "#")
-          %li.mypage__nav__list__item.active
+          %li.mypage__nav__list__item
             = link_to "ログアウト", logout_users_path
+    .recently_visit-content
+      .recently_visit-content__title 閲覧履歴
+      .recently_visit-content__box
+      =@recently_visit
+      .recently_visit-content__box
+
+
 = render "items/footer"

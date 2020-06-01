@@ -24,6 +24,9 @@ Rails.application.routes.draw do
       get 'like'
       get "users/:id/likes" => "users#likes"
     end
+    member do
+     get "recently_visit"
+    end
   end
   root 'items#index'
   get '/category/new'
@@ -51,7 +54,6 @@ Rails.application.routes.draw do
       get 'category_index'
     end
   end
-
   
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end

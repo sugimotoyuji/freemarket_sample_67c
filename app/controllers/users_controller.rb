@@ -4,7 +4,6 @@ class UsersController < ApplicationController
 
   def show
     @user = User.find(params[:id])
-    
   end
 
   def logout
@@ -19,6 +18,12 @@ class UsersController < ApplicationController
   def likes
     @user = User.find(params[:id])
     @likes = Like.where(user_id: @user.id)
+  end
+
+  def recently_visit
+    @items  = Item.all
+    @user = User.find(params[:id])
+    @recently_visit = cookies[:item_names].split(',') if cookies[:item_names]
   end
 
   private
