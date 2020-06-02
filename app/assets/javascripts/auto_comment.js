@@ -33,7 +33,7 @@ $(function(){
           data: {id: last_comment_id}
         })
         .done(function(comments) {
-          console.log(comments)
+         
           if (comments.length !== 0) {
             var insertHTML = '';
             $.each(comments, function(i, comment) {
