@@ -9,13 +9,13 @@
     .mypage__side
       %nav.mypage__nav
         %ul.mypage__nav__list
-          %li.mypage__nav__list__item.active
+          %li.mypage__nav__list__item
             =link_to("マイページ", "/users/#{current_user.id}")
           %li.mypage__nav__list__item
             =link_to("お知らせ", "#")
           %li.mypage__nav__list__item
             =link_to("やることリスト", "#")
-          %li.mypage__nav__list__item
+          %li.mypage__nav__list__item.active
             =link_to "いいね！一覧", like_users_path
           %li.mypage__nav__list__item
             =link_to("出品する", "#")
