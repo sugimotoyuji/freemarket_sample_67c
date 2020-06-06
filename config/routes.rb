@@ -8,6 +8,7 @@ Rails.application.routes.draw do
     end
   end
 
+  resources :address, only: [:edit, :update]
 
   devise_for :users, controllers: {
     omniauth_callbacks: 'users/omniauth_callbacks',
