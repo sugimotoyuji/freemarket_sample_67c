@@ -47,7 +47,7 @@ $(function(){
           alert('error');
         });
       };
-      if (document.location.href.match(/\/items\/\d/)) {
+      if (document.location.href.match(/\/items\/d/)) {
         setInterval(reloadMessages, 7000);
       }
     });
