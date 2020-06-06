@@ -50,6 +50,7 @@
         日
       .actions
         = f.submit "変更する", class: 'btn-submit'
+        = link_to "マイページに戻る", user_path(current_user.id),class: "btn-back"
 
   .resistration-page__footer
     %ul
