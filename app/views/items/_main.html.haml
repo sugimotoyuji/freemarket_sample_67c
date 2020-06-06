@@ -113,15 +113,10 @@
                 =item.name
               .main__categories__box__lists--comment--2
                 .main__categories__box__lists--comment--2--top
-                  =item.price
-                  .main__categories__box__lists--comment--2--top--1 
-                    .main__categories__box__lists--comment--2--top--2
-                      円
+                  = "¥#{item.price}"
                 .main__categories__box__lists--comment--2--icn
-                  = icon('fas','star',)
-                  0
-                  .main__categories__box__lists--comment--2--bottom
-                    (税込み)
+                  = icon('fas','heart',)
+                  = item.likes.count.to_s
       .main__categories__page
         = paginate(@items)
 
@@ -147,15 +142,10 @@
                 =item.name
               .main__categories__box__lists--comment--2
                 .main__categories__box__lists--comment--2--top
-                  =item.price
-                  .main__categories__box__lists--comment--2--top--1 
-                    .main__categories__box__lists--comment--2--top--2
-                      円
+                  = "¥#{item.price}"
                 .main__categories__box__lists--comment--2--icn
-                  = icon('fas','star',)
-                  0
-                  .main__categories__box__lists--comment--2--bottom
-                    (税込み)
+                  = icon('fas','heart',)
+                  = item.likes.count.to_s
       .main__categories__page
         = paginate(@category)
     

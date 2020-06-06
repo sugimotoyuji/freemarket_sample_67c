@@ -412,7 +412,8 @@
           background-color: chocolate;
         }
         &--img{
-        margin-left: 15px;;
+        margin-left: 15px;
+        position: relative;
         }
         &--comment {
          position: absolute;
@@ -430,9 +431,15 @@
          &--2 {
           font-size: 16px;
           &--top {
-          display: flex;
-          height: 20px;
-          line-height: 20px;
+            color: #fff;
+            font-size: 18px;
+            height: 24px;
+            top: 173px;
+            position: absolute;
+            padding-left: 3px;
+            padding-right: 8px;
+            background-color: rgba(0,0,0,0.3);
+            border-radius: 0 16px 16px 0;
             &--1 {
             top:0px;
             }

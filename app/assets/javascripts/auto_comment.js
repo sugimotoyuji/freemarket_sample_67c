@@ -25,7 +25,7 @@ $(function(){
       var reloadMessages = function() {
         
         var last_comment_id = $('.commentText__list:last').data("comment-id");
-        let item_id = $(".commentText").attr("id") 
+        let item_id = $(".commentText").data("item-id");
         $.ajax({
           url: `${item_id}/api/comments`,
           type: 'get',
@@ -47,7 +47,7 @@ $(function(){
           alert('error');
         });
       };
-      if (document.location.href.match(/\/items\/d/)) {
+      if (document.location.href.match(/\/items\/d+/)) {
         setInterval(reloadMessages, 7000);
       }
     });
