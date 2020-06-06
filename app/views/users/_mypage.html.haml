@@ -4,7 +4,7 @@
       .mypage__user__icon
         %i(class="fas fa-user-circle")
         %h2.mypage__user__icon--nickname= @user.nickname
-        %h2.mypage__user__icon--status 評価0 出品数0
+        %h2.mypage__user__icon--status= "評価0 出品数#{@sell_items}"
       .mypage__tab__container--notification_todo
         %ul.tab--notification_todo
           %li.tab--notification.active お知らせ
@@ -64,13 +64,13 @@
           設定
         %ul.mypage__nav__list
           %li.mypage__nav__list__item
+            =link_to("プロフィール", "#")
+          %li.mypage__nav__list__item
             =link_to("ユーザー登録情報変更", edit_user_registration_path)
           %li.mypage__nav__list__item
             =link_to("発送元・お届け先住所変更", "#")
           %li.mypage__nav__list__item
-            =link_to("支払い情報", cards_path)
-          %li.mypage__nav__list__item
-            =link_to("メール・パスワード", "#")
+            =link_to("支払い情報",  cards_path)
           %li.mypage__nav__list__item
             =link_to("本人情報", "#")
           %li.mypage__nav__list__item
