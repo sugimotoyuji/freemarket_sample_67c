@@ -402,6 +402,7 @@
         display: flex;
         justify-content: start;
         &__inner{
+          z-index: 1;
           color: rgb(22, 230, 212);
           font-weight: 600;
           font-size: 50px;
