@@ -78,6 +78,10 @@ class Users::RegistrationsController < Devise::RegistrationsController
     params.require(:address).permit(:shipping_first_name, :shipping_first_name_reading, :shipping_last_name, :shipping_last_name_reading, :zip_code, :prefecture, :city, :address, :building, :shipping_telephone)
   end
 
+  def update_resource(resource, params)
+    resource.update_without_password(params)
+  end
+
   # If you have extra params to permit, append them to the sanitizer.
   # def configure_sign_up_params
   #   devise_parameter_sanitizer.permit(:sign_up, keys: [:attribute])
