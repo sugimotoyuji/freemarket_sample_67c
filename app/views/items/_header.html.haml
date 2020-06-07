@@ -38,3 +38,7 @@
             = link_to "ログイン", new_user_session_path, class:'inner__bottom__right__login--button'
           %li.inner__bottom__right__member
             = link_to "新規会員登録", new_user_registration_path, class: 'inner__bottom__right__member--button'
+    .exhibition
+      = link_to new_item_path, data: {"turbolinks" => false}  do
+        %span.exhibition__text 出品する
+        = image_tag asset_path( "icon_camera.png"), class: "exhibition__btn"
