@@ -88,18 +88,21 @@
               不適切な商品の通報
       -# コメントフォーム
       .commentText{data: {item: {id: @item.id}}}
-        - if @comments
-          - @comments.each do |comment|
-            .commentText__list{data: {comment: {id: comment.id}}}
-              .commentText__list__icon
-                =icon('fa','user')
-              .commentText__list__content
-                .commentText__list__content__name
-                  = link_to comment.user.nickname, user_path(current_user.id)
-                .commentText__list__content__message
-                  = comment.text
-                .commentText__list__content__date
-                  = comment.updated_at.to_s(:datetime_jp)
+        -if user_signed_in?
+          - if @comments
+            - @comments.each do |comment|
+              .commentText__list{data: {comment: {id: comment.id}}}
+                .commentText__list__icon
+                  =icon('fa','user')
+                .commentText__list__content
+                  .commentText__list__content__name
+                    = link_to comment.user.nickname, user_path(current_user.id)
+                  .commentText__list__content__message
+                    = comment.text
+                  .commentText__list__content__date
+                    = comment.updated_at.to_s(:datetime_jp)
+        -else
+          .commentText__list__content
 
       .commentBox
         -if @item.order_status_id == 4 && user_signed_in?
