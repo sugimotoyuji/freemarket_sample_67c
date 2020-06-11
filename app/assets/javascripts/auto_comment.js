@@ -1,5 +1,4 @@
-$(function(){
-  
+$(document).ready(function(){
   function buildHTML(comment){
     
        
@@ -24,6 +23,7 @@ $(function(){
     
       var reloadMessages = function() {
         
+        
         var last_comment_id = $('.commentText__list:last').data("comment-id");
         let item_id = $(".commentText").data("item-id");
         $.ajax({
@@ -33,6 +33,7 @@ $(function(){
           data: {id: last_comment_id}
         })
         .done(function(comments) {
+          //console.log("test3")
           if (comments.length !== 0) {
             var insertHTML = '';
             $.each(comments, function(i, comment) {
@@ -43,10 +44,14 @@ $(function(){
           }
         })
         .fail(function() {
+          //console.log("test2")
           alert('error');
         });
       };
-      if (document.location.href.match(/\/items\/d+/)) {
-        setInterval(reloadMessages, 7000);
+      if (window.location.href.match(/\/items\/\d+/)) {
+        if (!window.location.href.match(/\/items\/\d+\/edit/)) {
+          //console.log("test")
+           setInterval(reloadMessages, 7000);
+        }
       }
     });
