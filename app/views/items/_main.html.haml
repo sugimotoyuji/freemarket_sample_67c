@@ -105,7 +105,7 @@
             .main__categories__box__lists__inner
               Sold out
           .main__categories__box__lists--img
-            = link_to item_path(item.id),data:{"turbolinks" => false} do
+            = link_to item_path(item.id),data:false do
               - if item.item_images.present?
                 = image_tag "#{item.item_images[0].image}", size: '220x200'
             .main__categories__box__lists--list--comment

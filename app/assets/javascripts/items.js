@@ -1,4 +1,4 @@
-$(document).on('turbolinks:load', function(){
+$(document).ready(function(){
 
     const prevContent = $('.label-content').prev();
     //プレビューのhtmlを定義
